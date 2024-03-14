@@ -1,14 +1,14 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 build_from:
-  aarch64: "ghcr.io/home-assistant/aarch64-base-debian:buster"
-  amd64: "ghcr.io/home-assistant/amd64-base-debian:buster"
-  armhf: "ghcr.io/home-assistant/armhf-base-debian:buster"
-  armv7: "ghcr.io/home-assistant/armv7-base-debian:buster"
-  i386: "ghcr.io/home-assistant/i386-base-debian:buster"
+  aarch64: "ghcr.io/home-assistant/aarch64-base:latest"
+  amd64: "ghcr.io/home-assistant/amd64-base:latest"
+  armhf: "ghcr.io/home-assistant/armhf-base:latest"
+  armv7: "ghcr.io/home-assistant/armv7-base:latest"
+  i386: "ghcr.io/home-assistant/i386-base:latest"
 labels:
-  org.opencontainers.image.title: "Home Assistant Add-on: Duplicati add-on"
-  org.opencontainers.image.description: "Duplicati add-on Backup Software."
-  org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons"
+  org.opencontainers.image.title: "Duplicacy addon"
+  org.opencontainers.image.description: "Duplicacy add-on"
+  org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/duplicacy"
   org.opencontainers.image.licenses: "Apache License 2.0"
 args:
-  TEMPIO_VERSION: "2021.09.0"
+  CLI_VERSION: "4.31.0"
