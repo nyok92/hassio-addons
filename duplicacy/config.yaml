@@ -1,0 +1,37 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: Duplicacy
+version: "0.0.1"
+slug: duplicacy
+description: Store securely encrypted backups on cloud storage services!
+url: "https://github.com/nyok92/hassio-addons/tree/main/duplicacy"
+image: "ghcr.io/nyok92/{arch}-duplicacy"
+arch:
+  - armhf
+  - armv7
+  - amd64
+  - i386
+  - aarch64
+init: false
+#hassio_role: "backup"
+#hassio_api: true
+#homeassistant_api: true
+ports:
+  8400/tcp: null
+ports_description:
+  8400/tcp: Web frontend (not needed with Ingress)
+ingress: true
+ingress_port: 8400
+panel_title: Duplicacy
+panel_icon: mdi:backup-restore
+#startup: application
+backup_exclude: ["/backup"]
+privileged:
+- DAC_READ_SEARCH
+map:
+  - addon_config:rw
+  - addons:rw
+  - homeassistant_config:rw
+  - backup:rw
+  - media:rw
+  - share:rw
+  - ssl:rw
