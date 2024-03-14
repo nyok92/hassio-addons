@@ -4,10 +4,7 @@ FROM $BUILD_FROM
 LABEL org.opencontainers.image.source=https://github.com/nyok92/hassio-addons/duplicacy
 ENV LANG C.UTF-8
 
-RUN apk add --no-cache \
-        curl \
-        openssh-keygen \
-        openssh-client
+RUN apk add curl
 
 # Home Assistant CLI
 ARG BUILD_ARCH
@@ -25,8 +22,8 @@ RUN mkdir "/var/lib/dbus" && ln -s "${CONFIG_DIR}/machine-id" "/var/lib/dbus/mac
     ln -s "${CONFIG_DIR}/" "${APP_DIR}/.duplicacy-web"
 
 ARG VERSION
-RUN curl -fsSL "https://acrosync.com/duplicacy-web/duplicacy_web_linux_arm64_${VERSION}" > "${APP_DIR}/duplicacy_web" && \
-    chmod 755 "${APP_DIR}/
+RUN curl -fsSL "https://acrosync.com/duplicacy-web/duplicacy_web_linux_x64_${VERSION}" > "${APP_DIR}/duplicacy_web" && \
+    chmod 755 "${APP_DIR}/duplicacy_web
 
 ENTRYPOINT [ "/init" ]
 CMD []
