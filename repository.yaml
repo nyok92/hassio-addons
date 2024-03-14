@@ -1,0 +1,4 @@
+# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+name: Nyok92 Home Assistant add-on repository
+url: 'https://github.com/nyok92/hassio-addons'
+maintainer: Nyok 92 <awesome@example.com>

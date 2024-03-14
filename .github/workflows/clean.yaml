@@ -1,0 +1,24 @@
+# Close Stale Issues
+# Warns and then closes issues and PRs that have had no activity for a specified amount of time.
+# https://github.com/actions/stale
+
+name: "Cleanbot"
+on:
+  schedule:
+    - cron: "0 0 * * *" # run stalebot once a day
+
+jobs:
+  clean_ghcr:
+    name: Delete outdated dev container images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete old images
+        uses: snok/container-retentation-policy@v2
+        with:
+          image-names: "*-borgbackup"
+          cut-off: 60 days ago UTC
+          keep-at-least: 1
+          account-type: personal
+          token: ${{ secrets.GITHUB_TOKEN }}
+          token-type: github-token
+          

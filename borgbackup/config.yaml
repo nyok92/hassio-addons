@@ -1,0 +1,63 @@
+name: borgbackup
+version: "1.4.2"
+slug: borgbackup
+description: "Borgbackup!"
+url: "https://github.com/nyok92/hassio-addons/tree/main/borgbackup"
+image: "ghcr.io/nyok92/{arch}-borgbackup"
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+homeassistant: 0.113.2
+init: false
+startup: once
+boot: manual
+hassio_role: "backup"
+hassio_api: true
+homeassistant_api: true
+#ports:
+#  8385/tcp: null
+#ports_description:
+#  8385/tcp: Web frontend (not needed with Ingress)
+#ingress: true
+#ingress_port: 8385
+#panel_title: Borg Backup
+#panel_icon: mdi:floppy
+map:
+  - addon_config:rw
+  - addons:rw
+  - homeassistant_config:rw
+  - backup:rw
+  - media:rw
+  - share:rw
+  - ssl:rw
+options:
+  borg_path: ""
+  borg_user: ""
+  borg_host: ""
+  borg_port: ""
+  borg_reponame: ""
+  borg_encryption: "repokey-blake2"
+  borg_repo_url: ""
+  borg_passphrase: ""
+  borg_archive: ""
+  borg_ssh_params: ""
+  borg_ssh_encryption: "ed25519"
+  borg_compression: "auto,zstd"
+  borg_prune_options: "--keep-daily=8 --keep-weekly=5 --keep-monthly=13"
+schema:
+  borg_path: "str"
+  borg_user: "str"
+  borg_host: "str"
+  borg_port: "port"
+  borg_reponame: "str"
+  borg_encryption: "str"
+  borg_repo_url: "str?"
+  borg_passphrase: "str?"
+  borg_archive: "str"
+  borg_ssh_params: "str?"
+  borg_ssh_encryption: "str"
+  borg_compression: "str"
+  borg_prune_options: "str?"

@@ -1,0 +1,16 @@
+#!/usr/bin/with-contenv bashio
+
+# Ensure user extensions folder exists
+mkdir -p /data/duplicati/scripts
+
+cd /app/duplicati || exit
+
+# Starting Duplicati...
+bashio::log.info "Starting Duplicati..."
+
+exec mono Duplicati.Server.exe \
+        --webservice-port=8200 \
+	--webservice-interface=any \
+	--server-datafolder="/data/duplicati" \
+	--webservice-allowed-hostnames=* \
+        --portable-mode
