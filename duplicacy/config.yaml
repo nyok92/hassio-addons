@@ -16,11 +16,11 @@ init: false
 #hassio_api: true
 #homeassistant_api: true
 ports:
-  8400/tcp: null
+  3875/tcp: null
 ports_description:
-  8400/tcp: Web frontend (not needed with Ingress)
+  3875/tcp: Web frontend (not needed with Ingress)
 ingress: true
-ingress_port: 8400
+ingress_port: 3875
 panel_title: Duplicacy
 panel_icon: mdi:backup-restore
 #startup: application
