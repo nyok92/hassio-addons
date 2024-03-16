@@ -18,6 +18,8 @@ COPY rootfs /
 
 ENV WEBUI_PORTS="3875/tcp,3875/udp"
 
+ARG CONFIG_DIR
+ARG APP_DIR
 RUN mkdir "/var/lib/dbus" && ln -s "${CONFIG_DIR}/machine-id" "/var/lib/dbus/machine-id" && \
     ln -s "${CONFIG_DIR}/" "${APP_DIR}/.duplicacy-web"
 
