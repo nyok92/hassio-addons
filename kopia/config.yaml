@@ -1,9 +1,9 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
-name: Duplicati add-on
-version: "0.1.12"
-slug: duplicati
+name: Kopia add-on
+version: "0.0.1"
+slug: kopia
 description: Store securely encrypted backups on cloud storage services!
-url: "https://github.com/adrianoamalfi/hassos-addons/tree/main/duplicati"
+url: "https://github.com/nyok92/hassio-addons/tree/main/kopia"
 arch:
   - armhf
   - armv7
@@ -11,7 +11,7 @@ arch:
   - i386
   - aarch64
 ingress: true
-ingress_port: 8200
+ingress_port: 51515
 panel_icon: mdi:backup-restore
 startup: services
 init: false
@@ -19,7 +19,6 @@ backup_exclude: ["/backup"]
 
 privileged:
 - DAC_READ_SEARCH
-
 map:
   - config:rw
   - ssl:rw
@@ -27,4 +26,4 @@ map:
   - addons:rw
   - share:rw
   - backup:rw
-image: "ghcr.io/adrianoamalfi/{arch}-addon-duplicati"
+image: "ghcr.io/nyok92/{arch}-addon-duplicati"
