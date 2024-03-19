@@ -44,9 +44,9 @@ options:
   KOPIA_UI_PASSWORD: "kopiapassword"
 schema:
   timezone: "str?"
-  ssl: "bool?
-  certfile: str?
-  keyfile: str?
+  ssl: "bool?"
+  certfile: "str?"
+  keyfile: "str?"
   REFRESH_INTERVAL: "str?"
   KOPIA_UI_USERNAME: "str"
   KOPIA_UI_PASSWORD: "str"
