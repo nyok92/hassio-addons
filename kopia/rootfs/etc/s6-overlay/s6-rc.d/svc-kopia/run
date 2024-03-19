@@ -7,7 +7,7 @@ bashio::log.info "starting kopia server"
 if bashio::config.true 'ssl'; then
     exec \
         s6-notifyoncheck -d -n 300 -w 1000 \
-        s6-setuidgid abc /config/kopia/kopia --timezone "$(bashio::config 'timzeone') server start \
+        s6-setuidgid abc /app/kopia/kopia --timezone "$(bashio::config 'timzeone') server start \
             --disable-csrf-token-checks \
             --tls-key-file="$(bashio::config 'keyfile')" \
             --tls-cert-file="$(bashio::config 'certfile')" \
@@ -19,7 +19,7 @@ if bashio::config.true 'ssl'; then
 else
     exec \
         s6-notifyoncheck -d -n 300 -w 1000 \
-        s6-setuidgid abc /config/kopia/kopia --timezone "$(bashio::config 'timzeone') server start \
+        s6-setuidgid abc /app/kopia/kopia --timezone "$(bashio::config 'timzeone') server start \
             --disable-csrf-token-checks \
             --insecure \
             --enable-actions \
