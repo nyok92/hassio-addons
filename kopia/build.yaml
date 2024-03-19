@@ -12,5 +12,5 @@ labels:
   org.opencontainers.image.licenses: "Apache License 2.0"
 args:
   CLI_VERSION: "4.31.0"
-  VERSION: "1.8.0"
   TEMPIO_VERSION: "2021.09.0"
+  APP_VERSION: "0.15.0"
