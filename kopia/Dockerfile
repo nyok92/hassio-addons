@@ -1,7 +1,7 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-LABEL org.opencontainers.image.source=https://github.com/nyok92/hassio-addons/duplicacy
+LABEL org.opencontainers.image.source=https://github.com/nyok92/hassio-addons/kopia
 ENV LANG C.UTF-8
 
 RUN apk add curl
@@ -12,11 +12,6 @@ ARG CLI_VERSION
 RUN curl -Lso /usr/bin/ha \
         "https://github.com/home-assistant/cli/releases/download/${CLI_VERSION}/ha_${BUILD_ARCH}" \
     && chmod a+x /usr/bin/ha 
-
-LABEL maintainer="nyok92"
-LABEL org.opencontainers.image.source="https://github.com/nyok92/hassio-addons/kopia"
-LABEL org.opencontainers.image.url="https://ghcr.io/nyok92/{arch}-kopia"
-LABEL org.opencontainers.image.description="A fast and secure open-source backup/restore tool that allows you to create encrypted snapshots of your data and save the snapshots to remote or cloud storage of your choice, to network-attached storage or server, or locally on your machine."
 
 ENV TERM="xterm-256color" \
   LC_ALL="C.UTF-8" \
