@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
-if [[ ${KOPIA_HTTPS,,} == "true" ]]; then
+if bashio::config.true 'ssl'; then
     if curl -skL "https://localhost:51515/api/v1/control/status" | jq -r '.connected' > /dev/null 2>&1; then
         exit 0
     else
