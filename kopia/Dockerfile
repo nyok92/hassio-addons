@@ -48,19 +48,5 @@ COPY rootfs/ /
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/svc-kopia/run
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-kopia-config/run
 
-##### Groupmod from linuxserver #####
-ARG MODS_VERSION="v3"
-ADD --chmod=744 "https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/docker-mods.${MODS_VERSION}" "/docker-mods"
-
-RUN \
-  echo "**** create abc user and make our folders ****" && \
-  groupmod -g 1000 users && \
-  useradd -u 911 -U -d /config -s /bin/false abc && \
-  usermod -G users abc && \
-  mkdir -p \
-    /app \
-    /config \
-    /defaults
-
 ENTRYPOINT [ "/init" ]
 CMD []
