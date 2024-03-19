@@ -6,11 +6,10 @@ build_from:
   armv7: "ghcr.io/home-assistant/armv7-base:latest"
   i386: "ghcr.io/home-assistant/i386-base:latest"
 labels:
-  org.opencontainers.image.title: "Duplicacy addon"
-  org.opencontainers.image.description: "Duplicacy add-on"
-  org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/duplicacy"
+  org.opencontainers.image.title: "Kopia addon"
+  org.opencontainers.image.description: "Kopia add-on"
+  org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/kopia"
   org.opencontainers.image.licenses: "Apache License 2.0"
 args:
   CLI_VERSION: "4.31.0"
-  TEMPIO_VERSION: "2021.09.0"
   APP_VERSION: "v0.15.0"
