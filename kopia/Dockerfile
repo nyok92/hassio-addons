@@ -4,7 +4,16 @@ FROM $BUILD_FROM
 ENV LANG C.UTF-8
 ARG APP_VERSION
 
-RUN apk add curl
+RUN apk add --no-cache \
+    curl \
+    fuse3 \
+    ca-certificates \
+    tzdata \
+    openssl \
+    docker-cli \
+    findutils \
+    rclone \
+    sqlite
 
 ENV TERM="xterm-256color" \
   LC_ALL="C.UTF-8" \
@@ -16,18 +25,6 @@ ENV TERM="xterm-256color" \
   KOPIA_CHECK_FOR_UPDATES=false \
   PATH="/app/kopia:$PATH"
 
-RUN \
-  echo "**** install packages ****" && \
-  apk add  --no-cache \
-    fuse3 \
-    ca-certificates \
-    tzdata \
-    openssl \
-    docker-cli \
-    findutils \
-    rclone \
-    sqlite
-    
 RUN \    
   echo "**** install kopia ****" && \
   if [ -z ${APP_VERSION+x} ]; then \
@@ -50,6 +47,16 @@ RUN \
 COPY rootfs/ /
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/svc-kopia/run
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-kopia-config/run
+
+echo "**** create abc user and make our folders ****" && \
+groupmod -g 1000 users && \
+useradd -u 911 -U -d /config -s /bin/false abc && \
+usermod -G users abc && \
+mkdir -p \
+  /app \
+  /config \
+  /defaults \
+  /lsiopy && \
 
 ENTRYPOINT [ "/init" ]
 CMD []
