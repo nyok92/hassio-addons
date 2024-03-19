@@ -16,7 +16,7 @@ if bashio::config.true 'ssl'; then
             --refresh-interval="$(bashio::config 'REFRESH_INTERVAL')" \
             --server-username="$(bashio::config 'KOPIA_UI_USERNAME')" \
             --server-password="$(bashio::config 'KOPIA_UI_PASSWORD')"
-bashio::log.info "Executing /app/kopia/kopia --timezone "$(bashio::config 'timzeone')" server start \
+    bashio::log.info "Executing /app/kopia/kopia --timezone "$(bashio::config 'timzeone')" server start \
             --disable-csrf-token-checks \
             --tls-key-file="$(bashio::config 'keyfile')" \
             --tls-cert-file="$(bashio::config 'certfile')" \
@@ -36,7 +36,7 @@ else
             --refresh-interval="$(bashio::config 'REFRESH_INTERVAL')" \
             --server-username="$(bashio::config 'KOPIA_UI_USERNAME')" \
             --server-password="$(bashio::config 'KOPIA_UI_PASSWORD')"
-bashio::log.info "Executing /app/kopia/kopia --timezone "$(bashio::config 'timzeone')" server start \
+    bashio::log.info "Executing /app/kopia/kopia --timezone "$(bashio::config 'timzeone')" server start \
             --disable-csrf-token-checks \
             --insecure \
             --enable-actions \
