@@ -1,7 +1,6 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-LABEL org.opencontainers.image.source=https://github.com/nyok92/hassio-addons/borgbackup
 ENV LANG C.UTF-8
 
 RUN apk add --no-cache \
