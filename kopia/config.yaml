@@ -37,8 +37,8 @@ map:
 options:
   timezone: "Europe/Paris"
   ssl: "false"
-  certfile: ""
-  keyfile: ""
+  certfile: "/config/keys/kopia.crt"
+  keyfile: "/config/keys/kopia.key"
   REFRESH_INTERVAL: "300s"
   KOPIA_UI_USERNAME: "kopia"
   KOPIA_UI_PASSWORD: "kopiapassword"
