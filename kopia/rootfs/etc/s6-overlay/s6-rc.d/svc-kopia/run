@@ -12,8 +12,8 @@ if [[ ${KOPIA_HTTPS} == "true" ]]; then
             --tls-cert-file=/config/keys/kopia.crt \
             --enable-actions \
             --address=0.0.0.0:51515 \
-            --refresh-interval="${REFRESH_INTERVAL:-300s}" \
-            --server-username="${KOPIA_UI_USERNAME:-kopia}" \
+            --refresh-interval="${REFRESH_INTERVAL}" \
+            --server-username="${KOPIA_UI_USERNAME}" \
             --server-password="${KOPIA_UI_PASSWORD}"
 else
     exec \
@@ -23,7 +23,7 @@ else
             --insecure \
             --enable-actions \
             --address=0.0.0.0:51515 \
-            --refresh-interval="${REFRESH_INTERVAL:-300s}" \
-            --server-username="${KOPIA_UI_USERNAME:-kopia}" \
+            --refresh-interval="${REFRESH_INTERVAL}" \
+            --server-username="${KOPIA_UI_USERNAME}" \
             --server-password="${KOPIA_UI_PASSWORD}"
 fi
