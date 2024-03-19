@@ -15,7 +15,7 @@ RUN curl -Lso /usr/bin/ha \
 
 LABEL maintainer="nyok92"
 LABEL org.opencontainers.image.source="https://github.com/nyok92/hassio-addons/kopia"
-LABEL org.opencontainers.image.url="https://github.com/nyok92/docker-kopia-server"
+LABEL org.opencontainers.image.url="https://ghcr.io/nyok92/{arch}-kopia"
 LABEL org.opencontainers.image.description="A fast and secure open-source backup/restore tool that allows you to create encrypted snapshots of your data and save the snapshots to remote or cloud storage of your choice, to network-attached storage or server, or locally on your machine."
 
 ENV TERM="xterm-256color" \
