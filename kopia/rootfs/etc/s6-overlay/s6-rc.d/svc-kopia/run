@@ -3,6 +3,15 @@
 set -e
 
 bashio::log.info "starting kopia server"
+bashio::log.info "/app/kopia/kopia --timezone "$(bashio::config 'timzeone') server start \
+            --disable-csrf-token-checks \
+            --tls-key-file="$(bashio::config 'keyfile')" \
+            --tls-cert-file="$(bashio::config 'certfile')" \
+            --enable-actions \
+            --address=0.0.0.0:51515 \
+            --refresh-interval="$(bashio::config 'REFRESH_INTERVAL')" \
+            --server-username="$(bashio::config 'KOPIA_UI_USERNAME')" \
+            --server-password="$(bashio::config 'KOPIA_UI_PASSWORD')""
 
 if bashio::config.true 'ssl'; then
     exec \
