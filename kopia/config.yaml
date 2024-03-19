@@ -36,6 +36,7 @@ map:
   - share:rw
   - ssl:ro
 options:
+  timezone: "Europe/Paris"
   ssl: "false"
   certfile: ""
   keyfile: ""
@@ -43,6 +44,7 @@ options:
   KOPIA_UI_USERNAME: "kopia"
   KOPIA_UI_PASSWORD: "kopiapassword"
 schema:
+  timezone: "str?"
   ssl: "bool?
   certfile: str?
   keyfile: str?
