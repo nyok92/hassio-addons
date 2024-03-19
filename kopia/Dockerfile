@@ -13,11 +13,6 @@ RUN curl -Lso /usr/bin/ha \
         "https://github.com/home-assistant/cli/releases/download/${CLI_VERSION}/ha_${BUILD_ARCH}" \
     && chmod a+x /usr/bin/ha 
 
-# set version label
-ARG BUILD_DATE
-ARG VERSION
-ARG APP_VERSION
-LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="nyok92"
 LABEL org.opencontainers.image.source="https://github.com/nyok92/hassio-addons/kopia"
 LABEL org.opencontainers.image.url="https://github.com/nyok92/docker-kopia-server"
