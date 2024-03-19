@@ -8,7 +8,7 @@ if bashio::config.true 'ssl'; then
         exit 1
     fi
 else
-    if curl -skL "https://localhost:51515/api/v1/control/status" | jq -r '.connected' > /dev/null 2>&1; then
+    if curl -skL "http://localhost:51515/api/v1/control/status" | jq -r '.connected' > /dev/null 2>&1; then
         exit 0
     else
         exit 1
