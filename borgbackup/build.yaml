@@ -8,7 +8,7 @@ build_from:
 labels:
   org.opencontainers.image.title: "Borg back up addon"
   org.opencontainers.image.description: "Boorg backup add-on"
-  org.opencontainers.image.source: "https://github.com/nyok92/home-assistant-borg-backup"
+  org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/borgbackup"
   org.opencontainers.image.licenses: "Apache License 2.0"
 args:
   CLI_VERSION: "4.31.0"
