@@ -35,3 +35,15 @@ map:
   - media:rw
   - share:rw
   - ssl:rw
+options:
+  KOPIA_HTTPS: "false"
+  private_key_file: /ssl/rsync/id_rsa
+  REFRESH_INTERVAL: "300s"
+  KOPIA_UI_USERNAME: "kopia"
+  KOPIA_UI_PASSWORD: "kopiapassword"
+schema:
+  KOPIA_HTTPS: "bool"
+  private_key_file: match(^/ssl/.+)
+  REFRESH_INTERVAL: "str?"
+  KOPIA_UI_USERNAME: "str"
+  KOPIA_UI_PASSWORD: "str"
