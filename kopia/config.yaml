@@ -27,13 +27,13 @@ privileged:
 #apparmor: true
 #tmpfs: true
 map:
+#  - homeassistant_config:rw
   - addon_config:rw
+#  - ssl:ro
   - addons:rw
-  - homeassistant_config:rw
   - backup:rw
-  - media:rw
   - share:rw
-  - ssl:ro
+  - media:rw
 options:
   timezone: "Europe/Paris"
   ssl: "false"
