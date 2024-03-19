@@ -12,9 +12,6 @@ arch:
   - i386
   - aarch64
 init: false
-#hassio_role: "backup"
-#hassio_api: true
-#homeassistant_api: true
 ports:
   51515/tcp: null
 ports_description:
@@ -23,10 +20,12 @@ ingress: true
 ingress_port: 51515
 panel_title: kopia
 panel_icon: mdi:backup-restore
-startup: services
-backup_exclude: ["/backup"]
+devices:
+- /dev/fuse:/dev/fuse:rwm
 privileged:
-- DAC_READ_SEARCH
+- SYS_ADMIN
+apparmor:
+#tmpfs: true
 map:
   - addon_config:rw
   - addons:rw
