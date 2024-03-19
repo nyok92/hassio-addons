@@ -27,7 +27,7 @@ ENV TERM="xterm-256color" \
   KOPIA_PERSIST_CREDENTIALS_ON_CONNECT=false \
   KOPIA_CHECK_FOR_UPDATES=false \
   PATH="/app/kopia:$PATH"
-
+ARG APP_VERSION
 RUN \
   echo "**** install packages ****" && \
   apk add  --no-cache \
