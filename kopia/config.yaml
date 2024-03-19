@@ -24,7 +24,7 @@ devices:
 - /dev/fuse:/dev/fuse:rwm
 privileged:
 - SYS_ADMIN
-apparmor:
+#apparmor: true
 #tmpfs: true
 map:
   - addon_config:rw
