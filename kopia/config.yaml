@@ -21,7 +21,7 @@ ingress_port: 51515
 panel_title: kopia
 panel_icon: mdi:backup-restore
 devices:
-- /dev/fuse:/dev/fuse:rwm
+- /dev/fuse:rwm
 privileged:
 - SYS_ADMIN
 #apparmor: true
