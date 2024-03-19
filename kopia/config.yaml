@@ -30,7 +30,7 @@ map:
 #  - homeassistant_config:rw
   - addon_config:rw
 #  - ssl:ro
-  - addons:rw
+#  - addons:rw
   - backup:rw
   - share:rw
   - media:rw
