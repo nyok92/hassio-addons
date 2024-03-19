@@ -1,5 +1,7 @@
-#!/usr/bin/with-contenv bash
+#!/usr/bin/with-contenv bashio
 # shellcheck shell=bash
+
+bashio::log.info "starting kopia config"
 
 if [[ -z "${KOPIA_UI_PASSWORD}" ]]; then
     echo "ERROR: You must set a password for the Web UI"
