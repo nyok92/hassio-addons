@@ -20,7 +20,7 @@ ENV TERM="xterm-256color" \
   RCLONE_CONFIG=/config/rclone/rclone.conf \
   KOPIA_PERSIST_CREDENTIALS_ON_CONNECT=false \
   KOPIA_CHECK_FOR_UPDATES=false \
-  PATH="/app/kopia:$PATH"
+  PATH="/config/kopia:$PATH"
 ARG APP_VERSION
 RUN \
   echo "**** install packages ****" && \
@@ -36,13 +36,13 @@ RUN \
     APP_VERSION=$(curl -s https://api.github.com/repos/kopia/kopia/releases/latest \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
   fi && \
-  mkdir -p /app/kopia && \
+  mkdir -p /config/kopia && \
   curl -o \
     /tmp/kopia.tar.gz -L \
     "https://github.com/kopia/kopia/releases/download/${APP_VERSION}/kopia-${APP_VERSION#v}-linux-arm64.tar.gz" && \
   tar xf \
     /tmp/kopia.tar.gz -C \
-    /app/kopia --strip-components=1 && \
+    /config/kopia --strip-components=1 && \
   echo "**** cleanup ****" && \
   rm -rf \
     $HOME/.cache \
@@ -50,11 +50,6 @@ RUN \
 
 # copy local files
 COPY rootfs/ /
-
-# ports and volumes
-EXPOSE 51515
-
-VOLUME /config
 
 ENTRYPOINT [ "/init" ]
 CMD []
