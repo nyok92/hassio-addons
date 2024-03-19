@@ -23,7 +23,7 @@ ingress: true
 ingress_port: 51515
 panel_title: kopia
 panel_icon: mdi:backup-restore
-#startup: application
+startup: services
 backup_exclude: ["/backup"]
 privileged:
 - DAC_READ_SEARCH
