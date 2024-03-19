@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Kopia
-version: "0.0.2"
+version: "0.0.3"
 slug: kopia
 description: Store securely encrypted backups on cloud storage services!
 url: "https://github.com/nyok92/hassio-addons/tree/main/kopia"
