@@ -24,8 +24,8 @@ devices:
 - /dev/fuse
 privileged:
 - SYS_ADMIN
-#apparmor: true
-#tmpfs: true
+apparmor: true
+tmpfs: true
 map:
 #  - homeassistant_config:rw
   - addon_config:rw
@@ -36,7 +36,7 @@ map:
   - media:rw
 options:
   timezone: "Europe/Paris"
-  ssl: "false"
+  ssl: false
   certfile: "/config/keys/kopia.crt"
   keyfile: "/config/keys/kopia.key"
   REFRESH_INTERVAL: "300s"
