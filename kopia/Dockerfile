@@ -47,6 +47,7 @@ RUN \
 COPY rootfs/ /
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/svc-kopia/run
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-kopia-config/run
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/svc-kopia/data/check
 
 ENTRYPOINT [ "/init" ]
 CMD []
