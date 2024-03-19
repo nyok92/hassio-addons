@@ -8,10 +8,10 @@ RUN apk add curl
 
 ENV TERM="xterm-256color" \
   LC_ALL="C.UTF-8" \
-  KOPIA_CONFIG_PATH=/app/config/repository.config \
-  KOPIA_LOG_DIR=/app/logs \
+  KOPIA_CONFIG_PATH=/config/config/repository.config \
+  KOPIA_LOG_DIR=/config/logs \
   KOPIA_CACHE_DIRECTORY=/config/cache \
-  RCLONE_CONFIG=/app/rclone/rclone.conf \
+  RCLONE_CONFIG=/config/rclone/rclone.conf \
   KOPIA_PERSIST_CREDENTIALS_ON_CONNECT=false \
   KOPIA_CHECK_FOR_UPDATES=false \
   PATH="/app/kopia:$PATH"
