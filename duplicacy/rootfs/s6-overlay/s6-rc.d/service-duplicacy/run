@@ -1,6 +1,0 @@
-#!/command/with-contenv bashio
-# shellcheck shell=bash
-
-umask "${UMASK}"
-
-HOME="${APP_DIR}" exec s6-setuidgid hotio "${APP_DIR}/duplicacy_web"
