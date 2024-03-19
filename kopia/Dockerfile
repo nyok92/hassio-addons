@@ -49,7 +49,7 @@ RUN \
     /tmp/*
 
 # copy local files
-COPY root/ /
+COPY rootfs/ /
 
 # ports and volumes
 EXPOSE 51515
