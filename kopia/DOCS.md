@@ -1,12 +1,12 @@
-# Home Assistant Add-on: Duplicati add-on
+# Home Assistant Add-on: Kopia add-on
 
 ## About
 
-This Addon-on allows you to run [Duplicati](https://www.duplicati.com/) on a device running [Home Assistant](https://www.home-assistant.io/).
+This Addon-on allows you to run [Kopia](https://www.kopia.io/) on a device running [Home Assistant](https://www.home-assistant.io/).
 
 ## Introduction
 
-[Duplicati](https://www.duplicati.com/) is a free, open source, backup client that securely stores encrypted, incremental, compressed backups on cloud storage services and remote file servers.
+[Kopia](https://www.kopia.io/) is a free, open source, backup client that securely stores encrypted, incremental, compressed backups on cloud storage services and remote file servers.
 
 It works with:
 
