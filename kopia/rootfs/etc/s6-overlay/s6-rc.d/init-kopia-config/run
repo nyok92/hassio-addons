@@ -3,7 +3,7 @@
 
 bashio::log.info "starting kopia config"
 
-if [[ -z "${KOPIA_UI_PASSWORD}" ]]; then
+if [[ -z "$(bashio::config 'KOPIA_UI_USERNAME')" ]]; then
     echo "ERROR: You must set a password for the Web UI"
     exit 1
 fi
