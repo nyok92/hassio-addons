@@ -2,46 +2,36 @@
 # shellcheck shell=bash
 set -e
 
+export _timezone=$(bashio::config 'timezone')
+export _REFRESH_INTERVAL=$(bashio::config 'REFRESH_INTERVAL')
+export _KOPIA_UI_USERNAME=$(bashio::config 'KOPIA_UI_USERNAME')
+export _KOPIA_UI_PASSWORD=$(bashio::config 'KOPIA_UI_PASSWORD')
+export _keyfile=$(bashio::config 'keyfile')
+export _certfile=$(bashio::config 'certfile')
+
 bashio::log.info "starting kopia server"
 
 if bashio::config.true 'ssl'; then
     exec \
         s6-notifyoncheck -d -n 300 -w 1000 \
-        s6-setuidgid abc /app/kopia/kopia --timezone "$(bashio::config 'timzeone')" server start \
+        s6-setuidgid abc /app/kopia/kopia --timezone ${_timzeone} server start \
             --disable-csrf-token-checks \
-            --tls-key-file="$(bashio::config 'keyfile')" \
-            --tls-cert-file="$(bashio::config 'certfile')" \
+            --tls-key-file=${_keyfile} \
+            --tls-cert-file=${_certfile} \
             --enable-actions \
             --address=0.0.0.0:51515 \
-            --refresh-interval="$(bashio::config 'REFRESH_INTERVAL')" \
-            --server-username="$(bashio::config 'KOPIA_UI_USERNAME')" \
-            --server-password="$(bashio::config 'KOPIA_UI_PASSWORD')"
-    bashio::log.info "Executing /app/kopia/kopia --timezone "$(bashio::config 'timzeone')" server start \
-            --disable-csrf-token-checks \
-            --tls-key-file="$(bashio::config 'keyfile')" \
-            --tls-cert-file="$(bashio::config 'certfile')" \
-            --enable-actions \
-            --address=0.0.0.0:51515 \
-            --refresh-interval="$(bashio::config 'REFRESH_INTERVAL')" \
-            --server-username="$(bashio::config 'KOPIA_UI_USERNAME')" \
-            --server-password="$(bashio::config 'KOPIA_UI_PASSWORD')""
+            --refresh-interval=${_REFRESH_INTERVAL} \
+            --server-username=${_KOPIA_UI_USERNAME} \
+            --server-password=${_KOPIA_UI_PASSWORD}
 else
     exec \
         s6-notifyoncheck -d -n 300 -w 1000 \
-        s6-setuidgid abc /app/kopia/kopia --timezone "$(bashio::config 'timzeone')" server start \
+        s6-setuidgid abc /app/kopia/kopia --timezone ${_timzeone} server start \
             --disable-csrf-token-checks \
             --insecure \
             --enable-actions \
             --address=0.0.0.0:51515 \
-            --refresh-interval="$(bashio::config 'REFRESH_INTERVAL')" \
-            --server-username="$(bashio::config 'KOPIA_UI_USERNAME')" \
-            --server-password="$(bashio::config 'KOPIA_UI_PASSWORD')"
-    bashio::log.info "Executing /app/kopia/kopia --timezone "$(bashio::config 'timzeone')" server start \
-            --disable-csrf-token-checks \
-            --insecure \
-            --enable-actions \
-            --address=0.0.0.0:51515 \
-            --refresh-interval="$(bashio::config 'REFRESH_INTERVAL')" \
-            --server-username="$(bashio::config 'KOPIA_UI_USERNAME')" \
-            --server-password="$(bashio::config 'KOPIA_UI_PASSWORD')""
+            --refresh-interval=${_REFRESH_INTERVAL} \
+            --server-username=${_KOPIA_UI_USERNAME} \
+            --server-password=${_KOPIA_UI_PASSWORD}
 fi
