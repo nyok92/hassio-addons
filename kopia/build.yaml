@@ -13,4 +13,4 @@ labels:
 args:
   CLI_VERSION: "4.31.0"
   TEMPIO_VERSION: "2021.09.0"
-  APP_VERSION: "0.15.0"
+  APP_VERSION: "v0.15.0"
