@@ -36,14 +36,14 @@ map:
   - share:rw
   - ssl:ro
 options:
-  KOPIA_HTTPS: "false"
+  ssl: "false"
   certfile: ""
   keyfile: ""
   REFRESH_INTERVAL: "300s"
   KOPIA_UI_USERNAME: "kopia"
   KOPIA_UI_PASSWORD: "kopiapassword"
 schema:
-  KOPIA_HTTPS: "bool?
+  ssl: "bool?
   certfile: str?
   keyfile: str?
   REFRESH_INTERVAL: "str?"
