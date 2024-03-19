@@ -46,6 +46,7 @@ RUN \
   curl -o \
     /tmp/kopia.tar.gz -L \
     "https://github.com/kopia/kopia/releases/download/${APP_VERSION}/kopia-${APP_VERSION#v}-linux-x64.tar.gz" && \
+${BUILD_ARCH
   tar xf \
     /tmp/kopia.tar.gz -C \
     /app/kopia --strip-components=1 && \
