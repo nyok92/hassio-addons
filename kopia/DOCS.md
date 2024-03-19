@@ -6,33 +6,47 @@ This Addon-on allows you to run [Kopia](https://www.kopia.io/) on a device runni
 
 ## Introduction
 
-[Kopia](https://www.kopia.io/) is a free, open source, backup client that securely stores encrypted, incremental, compressed backups on cloud storage services and remote file servers.
+[Kopia](https://www.kopia.io/) Fast and Secure Open-Source Backup Software.
 
 It works with:
 
-Amazon S3, IDrive e2, Backblaze (B2), Box, Dropbox, FTP, Google Cloud and Drive, HubiC, MEGA, Microsoft Azure and OneDrive, Rackspace Cloud Files, OpenStack Storage (Swift), Sia, Storj DCS, SSH (SFTP), WebDAV, Tencent Cloud Object Storage (COS), and more!
+Amazon S3 and any cloud storage that is compatible with S3
+Azure Blob Storage
+Backblaze B2
+Google Cloud Storage
+Any remote server or cloud storage that supports WebDAV
+Any remote server or cloud storage that supports SFTP
+Some of the cloud storages supported by Rclone
+Requires you to download and setup Rclone in addition to Kopia, but after that Kopia manages/runs Rclone for you
+Rclone support is experimental: not all the cloud storages supported by Rclone have been tested to work with Kopia, and some may not work with Kopia; Kopia has been tested to work with Dropbox, OneDrive, and Google Drive through Rclone
+Your own server by setting up a Kopia Repository Server
 
 ## Features
 
-- Duplicati uses AES-256 encryption (or GNU Privacy Guard) to secure all data before it is uploaded.
-- Duplicati uploads a full backup initially and stores smaller, incremental updates afterwards to save bandwidth and storage space.
-- A scheduler keeps backups up-to-date automatically.
-- Integrated updater notifies you when a new release is out
-- Encrypted backup files are transferred to targets like FTP, Cloudfiles, WebDAV, SSH (SFTP), Amazon S3 and others.
-- Duplicati allows backups of folders, document types like e.g. documents or images, or custom filter rules.
-- Duplicati is available as application with an easy-to-use user interface and as command line tool.
-- Duplicati can make proper backups of opened or locked files using the Volume Snapshot Service (VSS) under Windows or the Logical Volume Manager (LVM) under Linux. This allows Duplicati to back up the Microsoft Outlook PST file while Outlook is running.
-- Filters, deletion rules, transfer and bandwidth options, etc
+-Backup Files and Directories Using Snapshots
+-Policies Control What and How Files/Directories are Saved in Snapshots
+-Save Snapshots to Cloud, Network, or Local Storage
+-Restore Snapshots Using Multiple Methods
+-End-to-End ‘Zero Knowledge’ Encryption
+-Compression
+-Error Correction
+-Verifying Backup Validity and Consistency
+-Recovering Backed Up Data When There is Data Loss
+-Regular Automatic Maintenance of Repositories
+-Caching
+-Both Command Line and Graphical User Interfaces
+-Optional Server Mode with API Support to Centrally Manage Backups of Multiple Machines
+-Speed
 
 ## Installation
 
-Add the repository [https://github.com/adrianoamalfi/hassos-addons](https://github.com/adrianoamalfi/hassos-addons) in Home Assistant, see [https://www.home-assistant.io/hassio/installing_third_party_addons/](https://www.home-assistant.io/hassio/installing_third_party_addons/).
+Add the repository [https://github.com/nyok92/hassio-addons](https://github.com/nyok92/hassio-addons) in Home Assistant, see [https://www.home-assistant.io/hassio/installing_third_party_addons/](https://www.home-assistant.io/hassio/installing_third_party_addons/).
 
 ## Support
 
 Got questions?
 
-You could also [open an issue here](https://github.com/adrianoamalfi/hassos-addons/issues/new/choose) GitHub.
+You could also [open an issue here](https://github.com/nyok92/hassio-addons/issues/new/choose) GitHub.
 
 ## Contributing
 
@@ -43,10 +57,10 @@ Thank you for being involved! :heart_eyes:
 
 ## Authors & contributors
 
-The original setup of this repository is by [Adriano Amalfi](https://github.com/adrianoamalfi).
+The original setup of this repository is by [nyok92](https://github.com/nyok92).
 
 For a full list of all authors and contributors,
-check [the contributor's page](https://github.com/adrianoamalfi/hassos-addons/graphs/contributors).
+check [the contributor's page](https://github.com/nyok92/hassio-addons/graphs/contributors).
 
 ## License
 
