@@ -1,7 +1,6 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-LABEL org.opencontainers.image.source=https://github.com/nyok92/hassio-addons/kopia
 ENV LANG C.UTF-8
 
 RUN apk add curl
