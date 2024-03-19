@@ -1,15 +1,26 @@
-# syntax=docker/dockerfile:1
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.19
+LABEL org.opencontainers.image.source=https://github.com/nyok92/hassio-addons/duplicacy
+ENV LANG C.UTF-8
+
+RUN apk add curl
+
+# Home Assistant CLI
+ARG BUILD_ARCH
+ARG CLI_VERSION
+RUN curl -Lso /usr/bin/ha \
+        "https://github.com/home-assistant/cli/releases/download/${CLI_VERSION}/ha_${BUILD_ARCH}" \
+    && chmod a+x /usr/bin/ha 
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
 ARG APP_VERSION
 LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="thespad"
-LABEL org.opencontainers.image.source="https://github.com/thespad/docker-kopia-server"
-LABEL org.opencontainers.image.url="https://github.com/thespad/docker-kopia-server"
+LABEL maintainer="nyok92"
+LABEL org.opencontainers.image.source="https://github.com/nyok92/hassio-addons/kopia"
+LABEL org.opencontainers.image.url="https://github.com/nyok92/docker-kopia-server"
 LABEL org.opencontainers.image.description="A fast and secure open-source backup/restore tool that allows you to create encrypted snapshots of your data and save the snapshots to remote or cloud storage of your choice, to network-attached storage or server, or locally on your machine."
 
 ENV TERM="xterm-256color" \
@@ -55,3 +66,6 @@ COPY rootfs/ /
 EXPOSE 51515
 
 VOLUME /config
+
+ENTRYPOINT [ "/init" ]
+CMD []
