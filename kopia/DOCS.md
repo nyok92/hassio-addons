@@ -42,6 +42,40 @@ Your own server by setting up a Kopia Repository Server
 
 Add the repository [https://github.com/nyok92/hassio-addons](https://github.com/nyok92/hassio-addons) in Home Assistant, see [https://www.home-assistant.io/hassio/installing_third_party_addons/](https://www.home-assistant.io/hassio/installing_third_party_addons/).
 
+## Configuration
+
+**Note**: _Remember to restart the add-on when the configuration is changed._
+
+Example add-on configuration:
+
+```json
+{
+  "ssl": false,
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem"
+}
+```
+
+### Option: `ssl`
+
+Enables or disables encrypted SSL/TLS (HTTPS) connections to the web server of this add-on.
+Set it to `true` to encrypt communications, `false` otherwise.
+Please note that if you set this to `true` you must also generate the key and certificate
+files for encryption. For example using [Let's Encrypt](https://www.home-assistant.io/addons/lets_encrypt/)
+or [Self-signed certificates](https://www.home-assistant.io/docs/ecosystem/certificates/tls_self_signed_certificate/).
+
+### Option: `certfile`
+
+The certificate file to use for SSL. If this file doesn't exist, the add-on start will fail.
+
+**Note**: The file MUST be stored in `/ssl/`, which is the default for Home Assistant
+
+### Option: `keyfile`
+
+The private key file to use for SSL. If this file doesn't exist, the add-on start will fail.
+
+**Note**: The file MUST be stored in `/ssl/`, which is the default for Home Assistant
+
 ## Support
 
 Got questions?
