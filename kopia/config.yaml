@@ -24,7 +24,6 @@ devices:
 - /dev/fuse
 privileged:
 - SYS_ADMIN
-apparmor: true
 tmpfs: true
 map:
 #  - homeassistant_config:rw
