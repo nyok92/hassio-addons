@@ -3,18 +3,18 @@
 
 bashio::log.info "starting kopia server"
 
-if [[ ${KOPIA_HTTPS} == "true" ]]; then
+if bashio::config.true 'ssl'; then
     exec \
         s6-notifyoncheck -d -n 300 -w 1000 \
         s6-setuidgid abc /app/kopia/kopia server start \
             --disable-csrf-token-checks \
-            --tls-key-file=/config/keys/kopia.key \
-            --tls-cert-file=/config/keys/kopia.crt \
+            --tls-key-file="$(bashio::config 'keyfile')" \
+            --tls-cert-file="$(bashio::config 'certfile')" \
             --enable-actions \
             --address=0.0.0.0:51515 \
-            --refresh-interval="${REFRESH_INTERVAL}" \
-            --server-username="${KOPIA_UI_USERNAME}" \
-            --server-password="${KOPIA_UI_PASSWORD}"
+            --refresh-interval="$(bashio::config 'REFRESH_INTERVAL')" \
+            --server-username="$(bashio::config 'KOPIA_UI_USERNAME')" \
+            --server-password="$(bashio::config 'KOPIA_UI_PASSWORD')"
 else
     exec \
         s6-notifyoncheck -d -n 300 -w 1000 \
@@ -23,7 +23,7 @@ else
             --insecure \
             --enable-actions \
             --address=0.0.0.0:51515 \
-            --refresh-interval="${REFRESH_INTERVAL}" \
-            --server-username="${KOPIA_UI_USERNAME}" \
-            --server-password="${KOPIA_UI_PASSWORD}"
+            --refresh-interval="$(bashio::config 'REFRESH_INTERVAL')" \
+            --server-username="$(bashio::config 'KOPIA_UI_USERNAME')" \
+            --server-password="$(bashio::config 'KOPIA_UI_PASSWORD')"
 fi
