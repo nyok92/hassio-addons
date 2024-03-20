@@ -28,7 +28,5 @@ map:
   - share:rw
 options:
   timezone: "Europe/Paris"
-  WEBUI_PORTS: "3875"
 schema:
   timezone: "str?"
-  WEBUI_PORTS: "port"
