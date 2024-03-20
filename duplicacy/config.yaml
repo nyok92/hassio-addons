@@ -28,13 +28,7 @@ map:
   - share:rw
 options:
   timezone: "Europe/Paris"
-  ssl: false
-  certfile: "/config/keys/duplicacy.crt"
-  keyfile: "/config/keys/duplicacy.key"
   WEBUI_PORTS: "3875"
 schema:
   timezone: "str?"
-  ssl: "bool?"
-  certfile: "str?"
-  keyfile: "str?"
   WEBUI_PORTS: "port"
