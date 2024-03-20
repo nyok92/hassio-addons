@@ -1,13 +1,14 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-LABEL org.opencontainers.image.source=https://github.com/nyok92/hassio-addons/duplicacy
 ENV LANG C.UTF-8
 
 RUN apk add curl
 
 # Copy root filesystem
 COPY rootfs /
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-setup-app/run
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/service-duplicacy/run
 
 ARG CONFIG_DIR
 ARG APP_DIR
