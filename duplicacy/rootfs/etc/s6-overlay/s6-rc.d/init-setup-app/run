@@ -3,13 +3,14 @@
 set +u
 
 export TZ=$(bashio::config 'timezone')
+export PORT=$(bashio::config 'WEBUI_PORTS')
 umask "${UMASK}"
 
 echo "
 ----------------------------------------------------------------------
 ENVIRONMENT APP
 ----------------------------------------------------------------------
-WEBUI_PORTS=${WEBUI_PORTS}
+PORT=${PORT}
 TZ=${TZ}
 ----------------------------------------------------------------------
 "
@@ -29,7 +30,7 @@ fi
 
 if [[ ! -f "${CONFIG_DIR}/settings.json" ]]; then
     echo '{
-        "listening_address"     : "0.0.0.0:${WEBUI_PORTS}",
+        "listening_address"     : "0.0.0.0:${PORT}",
         "log_directory"         : "/logs",
         "temporary_directory"   : "/cache"
     }' > "${CONFIG_DIR}/settings.json"
