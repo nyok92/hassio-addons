@@ -13,17 +13,16 @@ RUN mkdir "/var/lib/dbus" && ln -s "${CONFIG_DIR}/machine-id" "/var/lib/dbus/mac
 # Install dupliccay web    
 ENV PACKAGE="gilbertchen/duplicacy"
 ARG VERSION
-ARG TARGETPLATFORM
 ARG BUILD_ARCH
 
 RUN echo "**** install security fix packages ****" && \
     echo "**** download ${PACKAGE} ****" && \
-    PACKAGEPLATFORM=$(case ${TARGETPLATFORM} in \
-        "linux/amd64")  echo "x64"    ;; \
-        "linux/386")    echo "i386"   ;; \
-        "linux/arm64")  echo "arm64"  ;; \
-        "linux/arm/v7") echo "arm"    ;; \
-        "linux/arm/v6") echo "arm"    ;; \
+    PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
+        "amd64")        echo "x64"    ;; \
+        "i386")         echo "i386"   ;; \
+        "aarch64")      echo "arm64"  ;; \
+        "armv7")        echo "arm"    ;; \
+        "armhf")        echo "arm"    ;; \
         *)              echo ""       ;; esac) && \
     echo "Package ${PACKAGE} platform ${PACKAGEPLATFORM} version ${VERSION} build arch ${BUILD_ARCH}" && \
 #    wget -q "https://acrosync.com/duplicacy-web/duplicacy_web_linux_${PACKAGEPLATFORM}_${VERSION}" -q0 /tmp/duplicacy
