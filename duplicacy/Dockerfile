@@ -27,7 +27,7 @@ RUN echo "**** install security fix packages ****" && \
     echo "Package ${PACKAGE} platform ${PACKAGEPLATFORM} version ${VERSION} build arch ${BUILD_ARCH}" && \
 #    wget -q "https://acrosync.com/duplicacy-web/duplicacy_web_linux_${PACKAGEPLATFORM}_${VERSION}" -q0 /tmp/duplicacy
     curl -fsSL "https://acrosync.com/duplicacy-web/duplicacy_web_linux_${PACKAGEPLATFORM}_${VERSION}" > "${APP_DIR}/duplicacy_web" && \
-    chmod 755 "${APP_DIR}/duplicacy_web
+    chmod 755 "${APP_DIR}/duplicacy_web"
 
 # Copy root filesystem
 COPY rootfs /
