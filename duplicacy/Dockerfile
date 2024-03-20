@@ -3,14 +3,19 @@ FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 
-RUN apk add curl
+RUN apk add --no-cache ca-certificates curl tzdata
 
-ARG CONFIG_DIR
-ARG APP_DIR
+ENV APP_DIR="/app" CONFIG_DIR="/config" PUID="1000" PGID="1000" UMASK="002" TZ="Etc/UTC"
+# make folders
+RUN mkdir "${APP_DIR}" && \
+    mkdir "${CONFIG_DIR}" && \
+# create user
+    useradd -u 1000 -U -d "${CONFIG_DIR}" -s /bin/false duplicacy && \
+    usermod -G users duplicacy
 RUN mkdir "/var/lib/dbus" && ln -s "${CONFIG_DIR}/machine-id" "/var/lib/dbus/machine-id" && \
     ln -s "${CONFIG_DIR}/" "${APP_DIR}/.duplicacy-web"
 
-# Install dupliccay web    
+# Install duplicacy web    
 ENV PACKAGE="gilbertchen/duplicacy"
 ARG VERSION
 ARG BUILD_ARCH
