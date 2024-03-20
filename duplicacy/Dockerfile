@@ -14,15 +14,12 @@ ARG CONFIG_DIR
 ARG APP_DIR
 RUN mkdir "/var/lib/dbus" && ln -s "${CONFIG_DIR}/machine-id" "/var/lib/dbus/machine-id" && \
     ln -s "${CONFIG_DIR}/" "${APP_DIR}/.duplicacy-web"
-    
-# Install dupliccay web
-#ARG VERSION
-#RUN curl -fsSL "https://acrosync.com/duplicacy-web/duplicacy_web_linux_x64_${VERSION}" > "${APP_DIR}/duplicacy_web" && \
-#    chmod 755 "${APP_DIR}/duplicacy_web
 
+# Install dupliccay web    
 ENV PACKAGE="gilbertchen/duplicacy"
 ARG VERSION
 ARG TARGETPLATFORM
+ARG BUILD_ARCH
 
 RUN echo "**** install security fix packages ****" && \
     echo "**** download ${PACKAGE} ****" && \
@@ -33,9 +30,10 @@ RUN echo "**** install security fix packages ****" && \
         "linux/arm/v7") echo "arm"    ;; \
         "linux/arm/v6") echo "arm"    ;; \
         *)              echo ""       ;; esac) && \
-    echo "Package ${PACKAGE} platform ${PACKAGEPLATFORM} version ${VERSION}" && \
-    wget -q "https://acrosync.com/duplicacy-web/duplicacy_web_linux_${PACKAGEPLATFORM}_${VERSION}" -q0 /tmp/duplicacy
-
+    echo "Package ${PACKAGE} platform ${PACKAGEPLATFORM} version ${VERSION} build arch ${BUILD_ARCH}" && \
+#    wget -q "https://acrosync.com/duplicacy-web/duplicacy_web_linux_${PACKAGEPLATFORM}_${VERSION}" -q0 /tmp/duplicacy
+    curl -fsSL "https://acrosync.com/duplicacy-web/duplicacy_web_linux_${PACKAGEPLATFORM}_${VERSION}" > "${APP_DIR}/duplicacy_web" && \
+    chmod 755 "${APP_DIR}/duplicacy_web
 
 ENTRYPOINT [ "/init" ]
 CMD []
