@@ -5,11 +5,6 @@ ENV LANG C.UTF-8
 
 RUN apk add curl
 
-# Copy root filesystem
-COPY rootfs /
-RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-setup-app/run
-RUN chmod a+x /etc/s6-overlay/s6-rc.d/service-duplicacy/run
-
 ARG CONFIG_DIR
 ARG APP_DIR
 RUN mkdir "/var/lib/dbus" && ln -s "${CONFIG_DIR}/machine-id" "/var/lib/dbus/machine-id" && \
@@ -34,6 +29,11 @@ RUN echo "**** install security fix packages ****" && \
 #    wget -q "https://acrosync.com/duplicacy-web/duplicacy_web_linux_${PACKAGEPLATFORM}_${VERSION}" -q0 /tmp/duplicacy
     curl -fsSL "https://acrosync.com/duplicacy-web/duplicacy_web_linux_${PACKAGEPLATFORM}_${VERSION}" > "${APP_DIR}/duplicacy_web" && \
     chmod 755 "${APP_DIR}/duplicacy_web
+
+# Copy root filesystem
+COPY rootfs /
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-setup-app/run
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/service-duplicacy/run
 
 ENTRYPOINT [ "/init" ]
 CMD []
