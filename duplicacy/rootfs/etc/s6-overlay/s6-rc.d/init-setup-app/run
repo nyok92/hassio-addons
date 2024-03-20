@@ -1,6 +1,8 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
+set +u
 
+export TZ=$(bashio::config 'timezone')
 umask "${UMASK}"
 
 echo "
@@ -8,6 +10,7 @@ echo "
 ENVIRONMENT APP
 ----------------------------------------------------------------------
 WEBUI_PORTS=${WEBUI_PORTS}
+TZ=${TZ}
 ----------------------------------------------------------------------
 "
 
@@ -26,7 +29,7 @@ fi
 
 if [[ ! -f "${CONFIG_DIR}/settings.json" ]]; then
     echo '{
-        "listening_address"     : "0.0.0.0:3875",
+        "listening_address"     : "0.0.0.0:${WEBUI_PORTS}",
         "log_directory"         : "/logs",
         "temporary_directory"   : "/cache"
     }' > "${CONFIG_DIR}/settings.json"
