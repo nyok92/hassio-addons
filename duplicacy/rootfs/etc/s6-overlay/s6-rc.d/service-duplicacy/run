@@ -3,4 +3,4 @@
 
 umask "${UMASK}"
 
-HOME="${APP_DIR}" exec s6-setuidgid hotio "${APP_DIR}/duplicacy_web"
+HOME="${APP_DIR}" exec s6-setuidgid duplicacy "${APP_DIR}/duplicacy_web"
