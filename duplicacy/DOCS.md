@@ -1,4 +1,4 @@
-# Borgbackup Add-on
+# Duplicacy Add-on
 
 [**Duplicacy**](https://duplicacy.com/guide.html) wrapped inside a [Home Assistant Supervisor add-on](https://www.home-assistant.io/addons/).
 
