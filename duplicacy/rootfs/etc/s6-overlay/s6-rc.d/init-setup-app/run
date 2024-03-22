@@ -12,22 +12,21 @@ ENVIRONMENT APP
 TZ=${TZ}
 ----------------------------------------------------------------------
 "
+# Overhauling userbase
+#
+echo "root:x:0:root" > /etc/group
+echo "root:x:0:0:root:/root:/bin/ash" > /etc/passwd
+if [ "$PGID" -ne 0 ]; then
+    addgroup -g "$PGID" -S duplicacy;
+fi
+if [ "$PUID" -ne 0 ]; then
+    adduser -u "$PUID" -S duplicacy -G duplicacy;
+fi
 
-echo "Applying permissions to /cache"
-chmod "=rwx" "/cache"
-find "/cache" -maxdepth 0 \( ! -user duplicacy -or ! -group duplicacy \) -exec chown duplicacy:duplicacy {} +
-
-echo "Applying permissions to /logs"
-chmod "=rwx" "/logs"
-find "/logs" -maxdepth 0 \( ! -user duplicacy -or ! -group duplicacy \) -exec chown duplicacy:duplicacy {} +
-
-echo "Applying permissions to /app"
-chmod "=rwx" "/app"
-find "/app" -maxdepth 0 \( ! -user duplicacy -or ! -group duplicacy \) -exec chown duplicacy:duplicacy {} +
-
-echo "Applying permissions to /config"
-chmod "=rwx" "/config"
-find "/config" -maxdepth 0 \( ! -user duplicacy -or ! -group duplicacy \) -exec chown duplicacy:duplicacy {} +
+# Configuring folders and permissions   
+# 
+#mkdir -p                        /config /logs /cache /app
+chown -R "$USR_ID":"$GRP_ID"    /config /logs /cache /app
 
 if [[ ! -f "${CONFIG_DIR}/machine-id" ]]; then
     tr -dc 'a-f0-9' < /dev/urandom | fold -w 32 | head -n 1 > "${CONFIG_DIR}/machine-id"
