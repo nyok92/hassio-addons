@@ -19,7 +19,6 @@ ingress: true
 ingress_port: 3875
 panel_title: Duplicacy
 panel_icon: mdi:backup-restore
-apparmor: false
 map:
   - addon_config:rw
   - backup:rw
