@@ -14,7 +14,7 @@ RUN mkdir "${CACHE_DIR}" && \
     mkdir "${LOGS_DIR}"
     
 # create group & user
-RUN addgroup -G $PGID $GROUP
+RUN addgroup -g $PGID $GROUP
 RUN adduser -u $PUID -s /bin/false -G $GROUP -H -D $USER
 
 RUN mkdir "/var/lib/dbus" && ln -s "${CONFIG_DIR}/machine-id" "/var/lib/dbus/machine-id" && \
