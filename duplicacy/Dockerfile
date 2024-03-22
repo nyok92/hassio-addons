@@ -14,8 +14,8 @@ RUN mkdir "${CACHE_DIR}" && \
     mkdir "${LOGS_DIR}"
     
 # create group & user
-RUN addgroup -g $PGID -S $GROUP
-RUN adduser -u $PUID -s /bin/false -G $GROUP -H -D -S $USER
+#RUN addgroup -g $PGID -S $GROUP
+#RUN adduser -u $PUID -s /bin/false -G $GROUP -H -D -S $USER
 
 RUN mkdir "/var/lib/dbus" && ln -s "${CONFIG_DIR}/machine-id" "/var/lib/dbus/machine-id" && \
     ln -s "${CONFIG_DIR}/" "${APP_DIR}/.duplicacy-web"
