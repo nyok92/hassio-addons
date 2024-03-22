@@ -22,6 +22,14 @@ echo "Applying permissions to /logs"
 chmod "=rwx" "/logs"
 find "/logs" -maxdepth 0 \( ! -user duplicacy -or ! -group duplicacy \) -exec chown duplicacy:duplicacy {} +
 
+echo "Applying permissions to /app"
+chmod "=rwx" "/app"
+find "/app" -maxdepth 0 \( ! -user duplicacy -or ! -group duplicacy \) -exec chown duplicacy:duplicacy {} +
+
+echo "Applying permissions to /config"
+chmod "=rwx" "/config"
+find "/config" -maxdepth 0 \( ! -user duplicacy -or ! -group duplicacy \) -exec chown duplicacy:duplicacy {} +
+
 if [[ ! -f "${CONFIG_DIR}/machine-id" ]]; then
     tr -dc 'a-f0-9' < /dev/urandom | fold -w 32 | head -n 1 > "${CONFIG_DIR}/machine-id"
     find "${CONFIG_DIR}/machine-id" -maxdepth 0 \( ! -user duplicacy -or ! -group duplicacy \) -exec chown duplicacy:duplicacy {} +
