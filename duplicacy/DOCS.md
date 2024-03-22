@@ -9,7 +9,6 @@
 ![Supports armhf Architecture][armhf-shield]
 ![Supports armv7 Architecture][armv7-shield]
 ![Supports aarch64 Architecture][aarch64-shield]
-![Supports i386 Architecture][i386-shield]
 
 This Addon-on allows you to run [Duplicacy](https://www.duplicacy.com/) on a device running [Home Assistant](https://www.home-assistant.io/).
 
