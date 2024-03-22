@@ -5,4 +5,4 @@ set -e
 bashio::log.info "starting Duplicacy server"
 #umask "${UMASK}"
 
-HOME="${APP_DIR}" exec s6-setuidgid -u ${PUID} -g ${PGID} "${APP_DIR}/duplicacy_web"
+HOME="${APP_DIR}" exec s6-setuidgid ${PUID}:${PGID} "${APP_DIR}/duplicacy_web"
