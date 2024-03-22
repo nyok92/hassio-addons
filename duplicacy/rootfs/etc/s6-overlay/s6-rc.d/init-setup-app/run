@@ -1,6 +1,7 @@
-#!/command/with-contenv bashio
+#!/usr/bin/with-contenv bashio
 # shellcheck shell=bash
-set +u
+set +e
+bashio::log.info "starting init-setup-app"
 
 export TZ=$(bashio::config 'timezone')
 umask "${UMASK}"
@@ -39,3 +40,5 @@ if [[ ! -f "${CONFIG_DIR}/duplicacy.json" ]]; then
     echo '{}' > "${CONFIG_DIR}/duplicacy.json"
     find "${CONFIG_DIR}/duplicacy.json" -maxdepth 0 \( ! -user duplicacy -or ! -group duplicacy \) -exec chown duplicacy:duplicacy {} +
 fi
+
+bashio::log.info "init-setup-app finished"
