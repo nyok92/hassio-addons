@@ -5,7 +5,7 @@ ENV LANG C.UTF-8
 
 RUN apk add --no-cache ca-certificates curl tzdata
 
-ENV APP_DIR="/app" CONFIG_DIR="/config" CACHE_DIR="/cache" LOGS_DIR="/logs" USER="duplicacy" PUID="1000" PGID="1000" UMASK="002" TZ="Etc/UTC" 
+ENV APP_DIR="/app" CONFIG_DIR="/config" CACHE_DIR="/cache" LOGS_DIR="/logs" USER="duplicacy" GROUP="duplicacy"¨PUID="1000" PGID="1000" UMASK="002" TZ="Etc/UTC" 
 
 # make folders
 RUN mkdir "${APP_DIR}" && \
@@ -13,8 +13,9 @@ RUN mkdir "${APP_DIR}" && \
 RUN mkdir "${CACHE_DIR}" && \
     mkdir "${LOGS_DIR}"
     
-# create user
-RUN adduser -u $PUID -s /bin/false -G users -H -D duplicacy
+# create group & user
+RUN addgroup -G $PGID $GROUP
+RUN adduser -u $PUID -s /bin/false -G $GROUP -H -D $USER
 
 RUN mkdir "/var/lib/dbus" && ln -s "${CONFIG_DIR}/machine-id" "/var/lib/dbus/machine-id" && \
     ln -s "${CONFIG_DIR}/" "${APP_DIR}/.duplicacy-web"
