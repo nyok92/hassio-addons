@@ -18,7 +18,6 @@ This Addon-on allows you to run [Duplicacy](https://www.duplicacy.com/) on a dev
 [Duplicacy](https://www.duplicacy.com/) is a new generation cross-platform cloud backup tool
 Duplicacy backs up your files to many cloud storages with client-side encryption and the highest level of deduplication
 
-It works with:
 Thanks to Lock-Free Deduplication, Duplicacy work smoothly with most cloud storage services without compromising any essential features required of a state-of-the-art backup tool. In addition, Duplicacy also supports local disks and your own SFTP servers such as Mac or Linux computers, or NAS boxes.
 
 ## Features
