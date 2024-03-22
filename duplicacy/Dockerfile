@@ -11,8 +11,7 @@ ENV APP_DIR="/app" CONFIG_DIR="/config" USER="duplicacy" PUID="1000" PGID="1000"
 RUN mkdir "${APP_DIR}" && \
     mkdir "${CONFIG_DIR}"
 # create user
-RUN adduser -u $PUID -d "${CONFIG_DIR}" -s /bin/false duplicacy && \
-    adduser -G users $USER
+RUN adduser -u $PUID -s /bin/false -G users -H duplicacy
 
 RUN mkdir "/var/lib/dbus" && ln -s "${CONFIG_DIR}/machine-id" "/var/lib/dbus/machine-id" && \
     ln -s "${CONFIG_DIR}/" "${APP_DIR}/.duplicacy-web"
