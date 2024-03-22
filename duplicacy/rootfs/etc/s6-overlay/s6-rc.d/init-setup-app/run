@@ -26,7 +26,7 @@ fi
 # Configuring folders and permissions   
 # 
 #mkdir -p                        /config /logs /cache /app
-chown -R "$USR_ID":"$GRP_ID"    /config /logs /cache /app
+chown -R "$PUID":"$PGID"    /config /logs /cache /app
 
 if [[ ! -f "${CONFIG_DIR}/machine-id" ]]; then
     tr -dc 'a-f0-9' < /dev/urandom | fold -w 32 | head -n 1 > "${CONFIG_DIR}/machine-id"
