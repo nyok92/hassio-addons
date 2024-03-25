@@ -21,10 +21,14 @@ ingress_port: 3875
 panel_title: Duplicacy
 panel_icon: mdi:backup-restore
 map:
+  - homeassistant_config:rw
   - addon_config:rw
+  - ssl:rw
+  - addons:rw
   - backup:rw
-  - media:rw
   - share:rw
+  - media:rw
+  - all_addon_configs:rw
 options:
   timezone: "Europe/Paris"
 schema:
