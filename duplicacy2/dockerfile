@@ -5,8 +5,14 @@ FROM $BUILD_FROM
 # Uses root by default, unless changed
 ENV USR_ID=0 \
     GRP_ID=0 
-
 ENV TZ="Europe/Paris"
+ENV APP_DIR="/app" CONFIG_DIR="/config" CACHE_DIR="/cache" LOGS_DIR="/logs"
+
+# make folders
+RUN mkdir "${APP_DIR}" && \
+    mkdir "${CONFIG_DIR}" && \
+    mkdir "${CACHE_DIR}" && \
+    mkdir "${LOGS_DIR}"
 
 ARG TARGETARCH
 ARG DUPLICACY_WEB_VERSION=1.8.0
@@ -20,4 +26,10 @@ RUN apk --update add --no-cache bash ca-certificates dbus  su-exec tzdata       
     chmod +x /usr/local/bin/duplicacy_web                                                                       && \
     rm -f /var/lib/dbus/machine-id && ln -s /config/machine-id /var/lib/dbus/machine-id
 
-RUN mkdir /config /logs /cache
+# Copy root filesystem
+COPY rootfs /
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-setup-app/run
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/service-duplicacy/run
+
+ENTRYPOINT [ "/init" ]
+CMD []
