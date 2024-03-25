@@ -29,3 +29,4 @@ tail -0 -f /logs/duplicacy_web.log &
 
 echo "Starting duplicacy_web"
 exec "${APP_FILE_PATH}"
+#su-exec "$USR_ID":"$GRP_ID" "${APP_FILE_PATH}"
