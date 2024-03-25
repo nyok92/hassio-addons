@@ -179,8 +179,8 @@ printf "Using machine-id = %s\n" "$(cat /var/lib/dbus/machine-id)"
 
 # Starting child process
 #
-su-exec "$USR_ID":"$GRP_ID" launch.sh &
+#su-exec "$USR_ID":"$GRP_ID" launch.sh &
 
-child=$! 
+#child=$! 
 
-wait "$child"
+#wait "$child"
