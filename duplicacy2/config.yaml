@@ -30,5 +30,7 @@ map:
   - all_addon_configs:rw
 options:
   timezone: "Europe/Paris"
+  version: "latest"
 schema:
   timezone: "str?"
+  version: "str?"
