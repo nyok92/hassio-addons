@@ -11,12 +11,6 @@ arch:
   - amd64
   - aarch64
 init: false
-hassio_api: true
-homeassistant_api: true
-docker_api: true
-privileged:
-  - PERFMON
-host_network: true
 ports:
   3875/tcp: null
 ports_description:
