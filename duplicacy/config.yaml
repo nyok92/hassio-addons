@@ -11,6 +11,9 @@ arch:
   - amd64
   - aarch64
 init: false
+hassio_role: "backup"
+hassio_api: true
+homeassistant_api: true
 ports:
   3875/tcp: null
 ports_description:
