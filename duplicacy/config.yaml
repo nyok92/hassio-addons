@@ -22,7 +22,6 @@ ports_description:
   3875/tcp: Web frontend (not needed with Ingress)
 ingress: true
 ingress_port: 3875
-ingress_entry: /
 webui: "http://[HOST]:[PORT:3875]/"
 watchdog: "http://[HOST]:[PORT:3875]/"
 panel_title: Duplicacy
