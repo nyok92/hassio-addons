@@ -5,6 +5,15 @@ bashio::log.info "starting init-setup-app"
 
 export TZ=$(bashio::config 'timezone')
 export DUPLICACY_WEB_VERSION=$(bashio::config 'version')
+echo "
+----------------------------------------------------------------------
+ENVIRONMENT APP
+----------------------------------------------------------------------
+TZ=${TZ}
+DUPLICACY_WEB_VERSION=${DUPLICACY_WEB_VERSION}
+----------------------------------------------------------------------
+"
+
 
 readonly ERROR_UNSUPPORTED_ARCHITECTURE=1
 readonly ERROR_NO_LOCAL_BINARY_AVAILABLE=2
