@@ -31,6 +31,10 @@ map:
 options:
   timezone: "Europe/Paris"
   version: "latest"
+  USR_ID: 0
+  GRP_ID: 0
 schema:
   timezone: "str?"
   version: "str?"
+  USR_ID: "int?"
+  GRP_ID: "int?"
