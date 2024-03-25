@@ -11,12 +11,20 @@ arch:
   - amd64
   - aarch64
 init: false
+hassio_api: true
+homeassistant_api: true
+docker_api: true
+privileged:
+  - PERFMON
 ports:
   3875/tcp: null
 ports_description:
   3875/tcp: Web frontend (not needed with Ingress)
 ingress: true
 ingress_port: 3875
+ingress_entry: /
+webui: "http://[HOST]:[PORT:3875]/"
+watchdog: "http://[HOST]:[PORT:3875]/"
 panel_title: Duplicacy
 panel_icon: mdi:backup-restore
 map:
