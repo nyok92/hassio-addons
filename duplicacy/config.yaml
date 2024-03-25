@@ -17,8 +17,6 @@ ports_description:
   3875/tcp: Web frontend (not needed with Ingress)
 ingress: true
 ingress_port: 3875
-ingress_entry: "/f464254c_duplicacy/ingress/"
-ingress_stream: true
 panel_title: Duplicacy
 panel_icon: mdi:backup-restore
 map:
