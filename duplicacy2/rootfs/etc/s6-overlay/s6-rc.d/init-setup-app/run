@@ -5,12 +5,16 @@ bashio::log.info "starting init-setup-app"
 
 export TZ=$(bashio::config 'timezone')
 export DUPLICACY_WEB_VERSION=$(bashio::config 'version')
+export USR_ID=$(bashio::config 'USR_ID')
+export GRP_ID=$(bashio::config 'GRP_ID')
 echo "
 ----------------------------------------------------------------------
 ENVIRONMENT APP
 ----------------------------------------------------------------------
 TZ=${TZ}
 DUPLICACY_WEB_VERSION=${DUPLICACY_WEB_VERSION}
+USR_ID=${USR_ID}
+GRP_ID=${GRP_ID}
 ----------------------------------------------------------------------
 "
 
