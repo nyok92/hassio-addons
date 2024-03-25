@@ -14,14 +14,14 @@ TZ=${TZ}
 "
 # Overhauling userbase
 #
-echo "root:x:0:root" > /etc/group
-echo "root:x:0:0:root:/root:/bin/ash" > /etc/passwd
-if [ "$PGID" -ne 0 ]; then
-    addgroup -g "$PGID" -S duplicacy;
-fi
-if [ "$PUID" -ne 0 ]; then
-    adduser -u "$PUID" -S duplicacy -G duplicacy;
-fi
+#echo "root:x:0:root" > /etc/group
+#echo "root:x:0:0:root:/root:/bin/ash" > /etc/passwd
+#if [ "$PGID" -ne 0 ]; then
+#    addgroup -g "$PGID" -S duplicacy;
+#fi
+#if [ "$PUID" -ne 0 ]; then
+#    adduser -u "$PUID" -S duplicacy -G duplicacy;
+#fi
 
 # Configuring folders and permissions   
 # 
@@ -30,7 +30,7 @@ chown -R "$PUID":"$PGID"    /config /logs /cache /app
 
 if [[ ! -f "${CONFIG_DIR}/machine-id" ]]; then
     tr -dc 'a-f0-9' < /dev/urandom | fold -w 32 | head -n 1 > "${CONFIG_DIR}/machine-id"
-    find "${CONFIG_DIR}/machine-id" -maxdepth 0 \( ! -user duplicacy -or ! -group duplicacy \) -exec chown duplicacy:duplicacy {} +
+    find "${CONFIG_DIR}/machine-id" -maxdepth 0 \( ! -user root -or ! -group root \) -exec chown root:root {} +
 fi
 
 if [[ ! -f "${CONFIG_DIR}/settings.json" ]]; then
@@ -39,12 +39,12 @@ if [[ ! -f "${CONFIG_DIR}/settings.json" ]]; then
         "log_directory"         : "/logs",
         "temporary_directory"   : "/cache"
     }' > "${CONFIG_DIR}/settings.json"
-    find "${CONFIG_DIR}/settings.json" -maxdepth 0 \( ! -user duplicacy -or ! -group duplicacy \) -exec chown duplicacy:duplicacy {} +
+    find "${CONFIG_DIR}/settings.json" -maxdepth 0 \( ! -user root -or ! -group root \) -exec chown root:root {} +
 fi
 
 if [[ ! -f "${CONFIG_DIR}/duplicacy.json" ]]; then
     echo '{}' > "${CONFIG_DIR}/duplicacy.json"
-    find "${CONFIG_DIR}/duplicacy.json" -maxdepth 0 \( ! -user duplicacy -or ! -group duplicacy \) -exec chown duplicacy:duplicacy {} +
+    find "${CONFIG_DIR}/duplicacy.json" -maxdepth 0 \( ! -user root -or ! -group root \) -exec chown root:root {} +
 fi
 
 bashio::log.info "init-setup-app finished"
