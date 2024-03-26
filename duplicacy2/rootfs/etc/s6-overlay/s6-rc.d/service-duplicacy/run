@@ -4,6 +4,8 @@ set -e
 
 bashio::log.info "starting Duplicacy server"
 
+APP_FILE_PATH=${APP_FILE_PATH}
+echo "APP_FILE_PATH=${APP_FILE_PATH}"
 echo "duplicacy_web running as user $(id -un):$(id -gn)\($(id -u):$(id -g)\)"
 
 if [ ! -d ~/.duplicacy-web ]; then
