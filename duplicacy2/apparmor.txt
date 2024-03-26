@@ -29,9 +29,9 @@ profile duplicacy2 flags=(attach_disconnected,mediate_deleted,complain) {
   /data/** rw,
 
   # Start new profile for service
-  /usr/bin/myprogram cx -> myprogram,
+  /etc/s6-overlay/s6-rc.d/service-duplicacy/run cx -> duplicacy_web,
 
-  profile myprogram flags=(attach_disconnected,mediate_deleted) {
+  profile duplicacy_web flags=(attach_disconnected,mediate_deleted) {
     #include <abstractions/base>
 
     # Receive signals from S6-Overlay
