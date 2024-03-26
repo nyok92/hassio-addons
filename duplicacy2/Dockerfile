@@ -18,7 +18,7 @@ ARG TARGETARCH
 ARG DUPLICACY_WEB_VERSION=1.8.0
 
 # Installing software
-RUN apk --update add --no-cache bash ca-certificates dbus tzdata                                       &&  \
+RUN apk --update add --no-cache bash ca-certificates dbus tzdata nginx                                      &&  \
     export DUPLICACY_ARCH=$(case $TARGETARCH in "amd64") echo "x64" ;; "arm") echo "arm" ;; "arm64") echo "arm64" ;; *) echo "unsupported_arch";; esac) && \    
     export DUPLICACY_URL=https://acrosync.com/duplicacy-web/duplicacy_web_linux_${DUPLICACY_ARCH}_${DUPLICACY_WEB_VERSION} && \
     echo "Fetching duplicacy binary from ${DUPLICACY_URL}"                                                      && \
