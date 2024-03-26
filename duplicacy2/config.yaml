@@ -32,8 +32,18 @@ options:
   version: "latest"
   USR_ID: 0
   GRP_ID: 0
+  domain: null
+  customize:
+    active: false
+    default: nginx_proxy_default*.conf
+    servers: nginx_proxy/*.conf
 schema:
   timezone: "str?"
   version: "str?"
   USR_ID: "int?"
   GRP_ID: "int?"
+  domain: str
+  customize:
+    active: bool
+    default: str
+    servers: str
