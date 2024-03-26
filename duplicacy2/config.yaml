@@ -19,6 +19,7 @@ ingress: true
 ingress_port: 3875
 panel_title: Duplicacy2
 panel_icon: mdi:backup-restore
+apparmor: false
 map:
   - homeassistant_config:rw
   - addon_config:rw
