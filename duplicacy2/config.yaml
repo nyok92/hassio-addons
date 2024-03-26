@@ -22,8 +22,8 @@ panel_icon: mdi:backup-restore
 map:
   - homeassistant_config:rw
   - addon_config:rw
-  - addons:rw
-  - backup:rw
+#  - addons:rw
+#  - backup:rw
   - share:rw
   - all_addon_configs:rw
 options:
