@@ -16,7 +16,7 @@ touch /logs/duplicacy_web.log
 
 if [ ! -f /config/settings.json ]; then
     echo '{
-        "listening_address"     : "0.0.0.0:3875",
+        "listening_address"     : "127.0.0.1:3875",
         "log_directory"         : "/logs",
         "temporary_directory"   : "/cache"
     }'          > /config/settings.json
