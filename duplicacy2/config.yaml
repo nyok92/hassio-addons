@@ -22,11 +22,9 @@ panel_icon: mdi:backup-restore
 map:
   - homeassistant_config:rw
   - addon_config:rw
-  - ssl:rw
   - addons:rw
   - backup:rw
   - share:rw
-  - media:rw
   - all_addon_configs:rw
 options:
   timezone: "Europe/Paris"
