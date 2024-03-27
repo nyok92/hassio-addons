@@ -180,11 +180,3 @@ if ! dbus-uuidgen --ensure=/config/machine-id; then
 fi
 
 printf "Using machine-id = %s\n" "$(cat /var/lib/dbus/machine-id)"
-
-# Starting child process
-#
-#su-exec "$USR_ID":"$GRP_ID" launch.sh &
-
-child=$! 
-
-wait "$child"
