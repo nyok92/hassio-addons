@@ -51,8 +51,8 @@ fi
  
 # Configuring folders and permissions   
 # 
-mkdir -p                     /app /config/bin /logs /cache
-chown -R "$USR_ID":"$GRP_ID"   /app /config     /logs /cache
+mkdir -p                       /config/bin /logs /cache
+chown -R "$USR_ID":"$GRP_ID"   /config     /logs /cache
 
 # Find correct architecture 
 # 
@@ -185,6 +185,6 @@ printf "Using machine-id = %s\n" "$(cat /var/lib/dbus/machine-id)"
 #
 #su-exec "$USR_ID":"$GRP_ID" launch.sh &
 
-#child=$! 
+child=$! 
 
-#wait "$child"
+wait "$child"
