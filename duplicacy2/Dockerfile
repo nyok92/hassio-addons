@@ -6,16 +6,16 @@ FROM $BUILD_FROM
 ENV USR_ID=0 \
     GRP_ID=0 
 ENV TZ="Europe/Paris"
-ENV APP_DIR="/app" CONFIG_DIR="/config" CACHE_DIR="/cache" LOGS_DIR="/logs"
+#ENV APP_DIR="/app" CONFIG_DIR="/config" CACHE_DIR="/cache" LOGS_DIR="/logs"
 
 # make folders
-RUN mkdir "${APP_DIR}" && \
-    mkdir "${CONFIG_DIR}" && \
-    mkdir "${CACHE_DIR}" && \
-    mkdir "${LOGS_DIR}"
+#RUN mkdir "${APP_DIR}" && \
+#    mkdir "${CONFIG_DIR}" && \
+#    mkdir "${CACHE_DIR}" && \
+#    mkdir "${LOGS_DIR}"
 
-ARG TARGETARCH
-ARG DUPLICACY_WEB_VERSION=1.8.0
+#ARG TARGETARCH
+#ARG DUPLICACY_WEB_VERSION=1.8.0
 
 # Installing software
 RUN apk --update add --no-cache bash ca-certificates dbus tzdata nginx
