@@ -30,5 +30,4 @@ echo "Logging tail of the log from this moment on"
 tail -0 -f /logs/duplicacy_web.log & 
 
 echo "Starting duplicacy_web"
-#su-exec "$USR_ID":"$GRP_ID" "${APP_FILE_PATH}"
 exec s6-setuidgid ${USR_ID}:${GRP_ID} "${APP_FILE_PATH}"
