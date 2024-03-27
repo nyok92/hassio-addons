@@ -26,8 +26,10 @@ if [ ! -f /config/duplicacy.json ]; then
     echo '{}'   > /config/duplicacy.json
 fi
 
+chown -R "$USR_ID":"$GRP_ID"   /app /config /logs /cache
+
 echo "Logging tail of the log from this moment on"
-tail -0 -f /logs/duplicacy_web.log & 
+tail -0 -f /logs/duplicacy_web.log &
 
 echo "Starting duplicacy_web"
 exec s6-setuidgid ${USR_ID}:${GRP_ID} "${APP_FILE_PATH}"
