@@ -35,6 +35,7 @@ map:
   - share:rw
   - media:rw
 options:
+  domain: null
   timezone: "Europe/Paris"
   ssl: false
   certfile: "/config/keys/kopia.crt"
@@ -43,6 +44,7 @@ options:
   KOPIA_UI_USERNAME: "kopia"
   KOPIA_UI_PASSWORD: "kopiapassword"
 schema:
+  domain: "str"
   timezone: "str?"
   ssl: "bool?"
   certfile: "str?"
