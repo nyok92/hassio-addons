@@ -13,7 +13,8 @@ RUN apk add --no-cache \
     docker-cli \
     findutils \
     rclone \
-    sqlite
+    sqlite \
+    nginx
 
 ENV TERM="xterm-256color" \
   LC_ALL="C.UTF-8" \
