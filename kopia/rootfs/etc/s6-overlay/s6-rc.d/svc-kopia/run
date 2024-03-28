@@ -23,7 +23,6 @@ if bashio::config.true 'ssl'; then
             --refresh-interval=${_REFRESH_INTERVAL} \
             --server-username=${_KOPIA_UI_USERNAME} \
             --server-password=${_KOPIA_UI_PASSWORD} \
-            --log-file=/config/log/kopia.log \
             --log-level=debug
 else
     exec \
@@ -36,6 +35,5 @@ else
             --refresh-interval=${_REFRESH_INTERVAL} \
             --server-username=${_KOPIA_UI_USERNAME} \
             --server-password=${_KOPIA_UI_PASSWORD} \
-            --log-file=/config/log/kopia.log \
             --log-level=debug
 fi
