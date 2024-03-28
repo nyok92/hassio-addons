@@ -28,6 +28,16 @@ ENV TERM="xterm-256color" \
   KOPIA_CHECK_FOR_UPDATES=false \
   PATH="/app/kopia:$PATH"
 
+RUN echo "**** download ${PACKAGE} ****" && \
+    PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
+        "amd64")        echo "x64"    ;; \
+        "i386")         echo "i386"   ;; \
+        "aarch64")      echo "arm64"  ;; \
+        "armv7")        echo "arm"    ;; \
+        "armhf")        echo "arm"    ;; \
+        *)              echo ""       ;; esac) && \
+    echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}"
+
 RUN \
   echo "**** install kopia ****" && \
   if [ -z ${APP_VERSION+x} ]; then \
@@ -37,7 +47,7 @@ RUN \
   mkdir -p /app/kopia && \
   curl -o \
     /tmp/kopia.tar.gz -L \
-    "https://github.com/kopia/kopia/releases/download/${APP_VERSION}/kopia-${APP_VERSION#v}-linux-x64.tar.gz" && \
+    "https://github.com/kopia/kopia/releases/download/${APP_VERSION}/kopia-${APP_VERSION#v}-linux-${PACKAGEPLATFORM}.tar.gz" && \
   tar xf \
     /tmp/kopia.tar.gz -C \
     /app/kopia --strip-components=1 && \
