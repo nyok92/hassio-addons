@@ -19,7 +19,7 @@ if bashio::config.true 'ssl'; then
             --tls-key-file=${_keyfile} \
             --tls-cert-file=${_certfile} \
             --enable-actions \
-            --address=0.0.0.0:51515 \
+            --address=127.0.0.1:51515 \
             --refresh-interval=${_REFRESH_INTERVAL} \
             --server-username=${_KOPIA_UI_USERNAME} \
             --server-password=${_KOPIA_UI_PASSWORD}
@@ -30,7 +30,7 @@ else
             --disable-csrf-token-checks \
             --insecure \
             --enable-actions \
-            --address=0.0.0.0:51515 \
+            --address=127.0.0.1:51515 \
             --refresh-interval=${_REFRESH_INTERVAL} \
             --server-username=${_KOPIA_UI_USERNAME} \
             --server-password=${_KOPIA_UI_PASSWORD}
