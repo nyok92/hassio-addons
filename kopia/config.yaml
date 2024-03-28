@@ -44,7 +44,6 @@ options:
   REFRESH_INTERVAL: "300s"
   KOPIA_UI_USERNAME: "kopia"
   KOPIA_UI_PASSWORD: "kopiapassword"
-  KOPIA_LOG_LEVEL: "info"
 schema:
   domain: "str?"
   timezone: "str"
@@ -54,4 +53,3 @@ schema:
   REFRESH_INTERVAL: "str"
   KOPIA_UI_USERNAME: "str"
   KOPIA_UI_PASSWORD: "str"
-  KOPIA_LOG_LEVEL: "str"
