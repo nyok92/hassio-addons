@@ -46,7 +46,7 @@ options:
   KOPIA_UI_PASSWORD: "kopiapassword"
   KOPIA_LOG_LEVEL: "info"
 schema:
-  domain: "str?"
+  domain: "str"
   timezone: "str?"
   ssl: "bool?"
   certfile: "str?"
