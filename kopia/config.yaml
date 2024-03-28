@@ -27,10 +27,10 @@ privileged:
 apparmor: false
 tmpfs: true
 map:
-#  - homeassistant_config:rw
+  - homeassistant_config:rw
   - addon_config:rw
-#  - ssl:ro
-#  - addons:rw
+  - ssl:ro
+  - addons:rw
   - backup:rw
   - share:rw
   - media:rw
