@@ -3,6 +3,7 @@ FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 ARG APP_VERSION
+ARG VERSION
 
 RUN apk add --no-cache \
     curl \
@@ -27,12 +28,11 @@ ENV TERM="xterm-256color" \
   KOPIA_CHECK_FOR_UPDATES=false \
   PATH="/app/kopia:$PATH"
 
-RUN \    
-  echo "**** install kopia ****" && \
+RUN echo "**** install kopia ****" && \
   if [ -z ${APP_VERSION+x} ]; then \
     APP_VERSION=$(curl -s https://api.github.com/repos/kopia/kopia/releases/latest \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
-fi
+  fi
  
 RUN mkdir -p /app/kopia && \
   curl -o \
