@@ -17,7 +17,7 @@ RUN apk add --no-cache \
     nginx
 
 #Copy our conf into the nginx http.d folder.
-COPY ingress.conf /etc/nginx/http.d/
+COPY nginx.conf /etc/nginx.conf
 
 ENV TERM="xterm-256color" \
   LC_ALL="C.UTF-8" \
