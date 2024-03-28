@@ -11,6 +11,7 @@ export _keyfile=$(bashio::config 'keyfile')
 export _certfile=$(bashio::config 'certfile')
 
 bashio::log.info "starting kopia server"
+bashio::log.info "_KOPIA_LOG_LEVEL=${_KOPIA_LOG_LEVEL}"
 
 if bashio::config.true 'ssl'; then
     exec \
