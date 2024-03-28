@@ -32,7 +32,7 @@ RUN \
   if [ -z ${APP_VERSION+x} ]; then \
     APP_VERSION=$(curl -s https://api.github.com/repos/kopia/kopia/releases/latest \
     | awk '/tag_name/{print $4;exit}' FS='[""]');
-  fi
+fi
  
 RUN mkdir -p /app/kopia && \
   curl -o \
