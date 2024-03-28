@@ -16,9 +16,6 @@ RUN apk add --no-cache \
     sqlite \
     nginx
 
-#Copy our conf into the nginx http.d folder.
-COPY nginx.conf /etc/nginx.conf
-
 ENV TERM="xterm-256color" \
   LC_ALL="C.UTF-8" \
   KOPIA_CONFIG_PATH=/config/config/repository.config \
