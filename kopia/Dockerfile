@@ -28,18 +28,17 @@ ENV TERM="xterm-256color" \
   KOPIA_CHECK_FOR_UPDATES=false \
   PATH="/app/kopia:$PATH"
 
-RUN echo "**** install kopia ****"
-RUN if [ -z ${APP_VERSION+x} ]; then \
+RUN \
+  echo "**** install kopia ****" && \
+  if [ -z ${APP_VERSION+x} ]; then \
     APP_VERSION=$(curl -s https://api.github.com/repos/kopia/kopia/releases/latest \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
-    fi
- 
-RUN mkdir -p /app/kopia && \
+  fi && \
+  mkdir -p /app/kopia && \
   curl -o \
     /tmp/kopia.tar.gz -L \
-    "https://github.com/kopia/kopia/releases/download/${APP_VERSION}/kopia-${APP_VERSION#v}-linux-arm64.tar.gz"
-    
- RUn tar xf \
+    "https://github.com/kopia/kopia/releases/download/${APP_VERSION}/kopia-${APP_VERSION#v}-linux-x64.tar.gz" && \
+  tar xf \
     /tmp/kopia.tar.gz -C \
     /app/kopia --strip-components=1 && \
   echo "**** cleanup ****" && \
