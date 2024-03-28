@@ -6,12 +6,10 @@ export _timezone=$(bashio::config 'timezone')
 export _REFRESH_INTERVAL=$(bashio::config 'REFRESH_INTERVAL')
 export _KOPIA_UI_USERNAME=$(bashio::config 'KOPIA_UI_USERNAME')
 export _KOPIA_UI_PASSWORD=$(bashio::config 'KOPIA_UI_PASSWORD')
-export _KOPIA_LOG_LEVEL=$(bashio::config 'KOPIA_LOG_LEVEL')
 export _keyfile=$(bashio::config 'keyfile')
 export _certfile=$(bashio::config 'certfile')
 
 bashio::log.info "starting kopia server"
-bashio::log.info "_KOPIA_LOG_LEVEL=${_KOPIA_LOG_LEVEL}"
 
 if bashio::config.true 'ssl'; then
     exec \
@@ -25,7 +23,6 @@ if bashio::config.true 'ssl'; then
             --refresh-interval=${_REFRESH_INTERVAL} \
             --server-username=${_KOPIA_UI_USERNAME} \
             --server-password=${_KOPIA_UI_PASSWORD} \
-            --log-level=${_KOPIA_LOG_LEVEL}
 else
     exec \
         s6-notifyoncheck -d -n 300 -w 1000 \
@@ -37,5 +34,4 @@ else
             --refresh-interval=${_REFRESH_INTERVAL} \
             --server-username=${_KOPIA_UI_USERNAME} \
             --server-password=${_KOPIA_UI_PASSWORD} \
-            --log-level=${_KOPIA_LOG_LEVEL}
 fi
