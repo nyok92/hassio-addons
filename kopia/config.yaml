@@ -29,6 +29,7 @@ tmpfs: true
 map:
   - homeassistant_config:rw
   - addon_config:rw
+  - all_addon_configs:rw
   - ssl:ro
   - addons:rw
   - backup:rw
