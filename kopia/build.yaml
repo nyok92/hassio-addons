@@ -12,4 +12,3 @@ labels:
   org.opencontainers.image.licenses: "Apache License 2.0"
 args:
   CLI_VERSION: "4.31.0"
-  APP_VERSION: "v0.15.0"
