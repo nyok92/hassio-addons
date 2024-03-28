@@ -22,7 +22,7 @@ if bashio::config.true 'ssl'; then
             --address=0.0.0.0:51515 \
             --refresh-interval=${_REFRESH_INTERVAL} \
             --server-username=${_KOPIA_UI_USERNAME} \
-            --server-password=${_KOPIA_UI_PASSWORD} \
+            --server-password=${_KOPIA_UI_PASSWORD}
 else
     exec \
         s6-notifyoncheck -d -n 300 -w 1000 \
@@ -33,5 +33,5 @@ else
             --address=0.0.0.0:51515 \
             --refresh-interval=${_REFRESH_INTERVAL} \
             --server-username=${_KOPIA_UI_USERNAME} \
-            --server-password=${_KOPIA_UI_PASSWORD} \
+            --server-password=${_KOPIA_UI_PASSWORD}
 fi
