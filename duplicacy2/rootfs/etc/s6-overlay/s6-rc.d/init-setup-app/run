@@ -182,4 +182,7 @@ fi
 printf "Using machine-id = %s\n" "$(cat /var/lib/dbus/machine-id)"
 
 # cache APP_FILE_PATH fo SVC_duplicati S6 service
-bashio::cache.set (APP_FILE_PATH=/config/bin/${APP_FILE})
+#bashio::cache.set 'APP_FILE' 'duplicacy_web_linux_${ARCH}_${DUPLICACY_WEB_VERSION}'
+bashio::cache.set 'APP_FILE_PATH' '/config/bin/${APP_FILE}'
+
+
