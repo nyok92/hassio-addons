@@ -6,7 +6,7 @@ bashio::log.info "starting Duplicacy server"
 
 export APP_FILE_PATH=$(bashio::cache.get 'APP_FILE_PATH')
 
-echo "duplicacy_web running as user $(id -un):$(id -gn)\($(id -u):$(id -g)\) and app file path is is /config/bin/${APP_FILE}"
+echo "duplicacy_web running as user $(id -un):$(id -gn)\($(id -u):$(id -g)\) and app file path is is ${APP_FILE_PATH}"
 
 if [ ! -d ~/.duplicacy-web ]; then
     ln -s /config/  ~/.duplicacy-web
