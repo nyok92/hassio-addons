@@ -12,11 +12,11 @@ arch:
   - aarch64
 init: false
 ports:
-  3875/tcp: null
+  3876/tcp: null
 ports_description:
-  3875/tcp: Web frontend (not needed with Ingress)
+  3876/tcp: Web frontend (not needed with Ingress)
 ingress: true
-ingress_port: 3875
+ingress_port: 3876
 panel_title: Duplicacy2
 panel_icon: mdi:backup-restore
 apparmor: false
