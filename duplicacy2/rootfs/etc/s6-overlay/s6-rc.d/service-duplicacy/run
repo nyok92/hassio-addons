@@ -3,8 +3,8 @@
 set -e
 
 bashio::log.info "starting Duplicacy server"
-
-APP_FILE_PATH="/config/bin/duplicacy_web_linux_arm64_1.8.0"
+APP_FILE_PATH=$(bashio::cache.get 'APP_FILE_PATH')
+echo "APP_FILE_PATH is ${APP_FILE_PATH}"
 
 echo "duplicacy_web running as user $(id -un):$(id -gn)\($(id -u):$(id -g)\)"
 
