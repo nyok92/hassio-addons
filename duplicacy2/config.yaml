@@ -38,12 +38,12 @@ options:
     default: nginx_proxy_default*.conf
     servers: nginx_proxy/*.conf
 schema:
-  timezone: "str?"
-  version: "str?"
-  USR_ID: "int?"
-  GRP_ID: "int?"
-  domain: str
+  timezone: "str"
+  version: "str"
+  USR_ID: "int"
+  GRP_ID: "int"
+  domain: "str?"
   customize:
     active: bool
-    default: str
-    servers: str
+    default: "str"
+    servers: "str"
