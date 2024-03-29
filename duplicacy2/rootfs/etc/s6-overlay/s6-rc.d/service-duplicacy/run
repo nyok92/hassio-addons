@@ -3,10 +3,32 @@
 set -e
 
 bashio::log.info "starting Duplicacy server"
-APP_FILE_PATH=$(bashio::cache.get 'APP_FILE_PATH')
-echo "APP_FILE_PATH is ${APP_FILE_PATH}"
 
-echo "duplicacy_web running as user $(id -un):$(id -gn)\($(id -u):$(id -g)\)"
+# Find correct architecture 
+# 
+MACHINE_ARCH=$(uname -m)
+
+case ${MACHINE_ARCH} in
+x86_64)
+    ARCH=x64
+    ;;
+arm|armv7l)
+    ARCH=arm
+    ;;
+aarch64)
+    ARCH=arm64
+    ;;
+*)
+    echo Unknown or unsupported architecture "${MACHINE_ARCH}"
+    exit ${ERROR_UNSUPPORTED_ARCHITECTURE}
+    ;;
+esac
+
+export DUPLICACY_WEB_VERSION=$(bashio::config 'version')
+APP_FILE=duplicacy_web_linux_${ARCH}_${DUPLICACY_WEB_VERSION}
+APP_FILE_PATH=$(bashio::cache.get 'APP_FILE_PATH')
+
+echo "duplicacy_web running as user $(id -un):$(id -gn)\($(id -u):$(id -g)\) and app file path is is ${APP_FILE_PATH}"
 
 if [ ! -d ~/.duplicacy-web ]; then
     ln -s /config/  ~/.duplicacy-web
