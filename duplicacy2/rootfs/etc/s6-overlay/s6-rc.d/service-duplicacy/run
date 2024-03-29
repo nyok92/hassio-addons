@@ -26,9 +26,8 @@ esac
 
 export DUPLICACY_WEB_VERSION=$(bashio::config 'version')
 APP_FILE=duplicacy_web_linux_${ARCH}_${DUPLICACY_WEB_VERSION}
-APP_FILE_PATH=$(bashio::cache.get 'APP_FILE_PATH')
 
-echo "duplicacy_web running as user $(id -un):$(id -gn)\($(id -u):$(id -g)\) and app file path is is ${APP_FILE_PATH}"
+echo "duplicacy_web running as user $(id -un):$(id -gn)\($(id -u):$(id -g)\) and app file path is is /config/bin/${APP_FILE}"
 
 if [ ! -d ~/.duplicacy-web ]; then
     ln -s /config/  ~/.duplicacy-web
@@ -54,4 +53,4 @@ echo "Logging tail of the log from this moment on"
 tail -0 -f /logs/duplicacy_web.log &
 
 echo "Starting duplicacy_web"
-exec s6-setuidgid ${USR_ID}:${GRP_ID} "${APP_FILE_PATH}"
+exec s6-setuidgid ${USR_ID}:${GRP_ID} "/config/bin/${APP_FILE}"
