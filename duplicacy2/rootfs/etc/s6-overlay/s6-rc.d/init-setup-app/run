@@ -182,4 +182,5 @@ fi
 printf "Using machine-id = %s\n" "$(cat /var/lib/dbus/machine-id)"
 
 # cache vaariables : APP_FILE_PATH fo SVC_duplicati S6 service
-bashio::cache.set 'APP_FILE_PATH' '${APP_FILE_PATH}'
+
+bashio::cache.set "APP_FILE_PATH" "${APP_FILE_PATH}"
