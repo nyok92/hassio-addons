@@ -4,27 +4,8 @@ set -e
 
 bashio::log.info "starting Duplicacy server"
 
-# Find correct architecture 
-# 
-MACHINE_ARCH=$(uname -m)
+export APP_FILE_PATH=$(bashio::cache.get 'APP_FILE_PATH')
 
-case ${MACHINE_ARCH} in
-x86_64)
-    ARCH=x64
-    ;;
-arm|armv7l)
-    ARCH=arm
-    ;;
-aarch64)
-    ARCH=arm64
-    ;;
-*)
-    echo Unknown or unsupported architecture "${MACHINE_ARCH}"
-    exit ${ERROR_UNSUPPORTED_ARCHITECTURE}
-    ;;
-esac
-
-export APP_FILE=$(bashio::cache.get 'APP_FILE')
 echo "duplicacy_web running as user $(id -un):$(id -gn)\($(id -u):$(id -g)\) and app file path is is /config/bin/${APP_FILE}"
 
 if [ ! -d ~/.duplicacy-web ]; then
@@ -51,4 +32,4 @@ echo "Logging tail of the log from this moment on"
 tail -0 -f /logs/duplicacy_web.log &
 
 echo "Starting duplicacy_web"
-exec s6-setuidgid ${USR_ID}:${GRP_ID} "/config/bin/${APP_FILE}"
+exec s6-setuidgid ${USR_ID}:${GRP_ID} "${APP_FILE_PATH}"
