@@ -24,9 +24,7 @@ aarch64)
     ;;
 esac
 
-export DUPLICACY_WEB_VERSION=$(bashio::config 'version')
-APP_FILE=duplicacy_web_linux_${ARCH}_${DUPLICACY_WEB_VERSION}
-
+export APP_FILE=$(bashio::cache.get 'APP_FILE')
 echo "duplicacy_web running as user $(id -un):$(id -gn)\($(id -u):$(id -g)\) and app file path is is /config/bin/${APP_FILE}"
 
 if [ ! -d ~/.duplicacy-web ]; then
