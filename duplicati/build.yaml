@@ -5,5 +5,10 @@ build_from:
 #  armhf: "ghcr.io/home-assistant/armhf-base-debian:buster"
   armv7: "ghcr.io/home-assistant/armv7-base-debian:buster"
   i386: "ghcr.io/home-assistant/i386-base-debian:buster"
+labels:
+  org.opencontainers.image.title: "Duplicati addon"
+  org.opencontainers.image.description: "Duplicati add-on"
+  org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/duplicati"
+  org.opencontainers.image.licenses: "Apache License 2.0"
 args:
   MONO_VERSION: "6.12.0.182"
