@@ -9,5 +9,5 @@ labels:
   org.opencontainers.image.description: "Kopia add-on"
   org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/kopia"
   org.opencontainers.image.licenses: "Apache License 2.0"
-#args:
-#  APP_VERSION: "v0.17.0"
+args:
+  APP_VERSION: "v0.17.0"
