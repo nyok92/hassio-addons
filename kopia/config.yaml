@@ -15,7 +15,7 @@ init: false
 ports:
   51443/tcp: null
 ports_description:
-  51443/tcp: Web frontend (not needed with Ingress)
+  51443/tcp: Web secure frontend (not needed with Ingress)
 ingress: true
 ingress_port: 51443
 panel_title: kopia
