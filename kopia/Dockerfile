@@ -33,13 +33,12 @@ ENV TERM="xterm-256color" \
 RUN echo "**** download ${PACKAGE} ****" && \
     PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
         "amd64")        echo "x64"    ;; \
+        "i386")         echo "i386"   ;; \
         "aarch64")      echo "arm64"  ;; \
         "armv7")        echo "arm"    ;; \
         "armhf")        echo "arm"    ;; \
         *)              echo ""       ;; esac) && \
-    echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}"
-
-RUN echo "****platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH} ****"
+    echo "Package ${PACKAGE} platform ${PACKAGEPLATFORM} version ${VERSION} build arch ${BUILD_ARCH}"
 
 RUN \
   echo "**** install kopia ****" && \
