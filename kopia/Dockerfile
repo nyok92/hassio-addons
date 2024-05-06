@@ -5,6 +5,7 @@ ENV LANG C.UTF-8
 ARG APP_VERSION
 ARG BUILD_ARCH
 ARG VERSION
+ARG PACKAGEPLATFORM
 
 RUN apk add --no-cache \
     curl \
@@ -37,6 +38,8 @@ RUN echo "**** download ${PACKAGE} ****" && \
         "armhf")        echo "arm"    ;; \
         *)              echo ""       ;; esac) && \
     echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}"
+
+RUN echo "****platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH} ****"
 
 RUN \
   echo "**** install kopia ****" && \
