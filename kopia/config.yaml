@@ -13,9 +13,7 @@ arch:
   - aarch64
 init: false
 ports:
-  80/tcp: null
-  443/tcp: null
-  51515/tcp: null
+  5180/tcp: null
 ports_description:
   5180/tcp: Web frontend (not needed with Ingress)
 ingress: true
