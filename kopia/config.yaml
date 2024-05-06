@@ -13,11 +13,11 @@ arch:
   - aarch64
 init: false
 ports:
-  51443/tcp: null
+  5180/tcp: null
 ports_description:
-  51443/tcp: Web secure frontend (not needed with Ingress)
+  5180/tcp: Web frontend (not needed with Ingress)
 ingress: true
-ingress_port: 51443
+ingress_port: 5180
 panel_title: kopia
 panel_icon: mdi:backup-restore
 devices:
