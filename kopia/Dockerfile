@@ -40,10 +40,8 @@ RUN PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
 
 #RUN export PACKAGEPLATFORM=$(case $TARGETARCH in "amd64") echo "x64" ;; "aarch64") echo "arm64" ;; "armv7") echo "arm" ;; "armhf") echo "arm" ;; "i386") echo "i386" ;; *) echo "unsupported_arch";; esac)
 
-RUN \
-  echo "**** install kopia ****" && \
-  APP_VERSION=$(curl -s https://api.github.com/repos/kopia/kopia/releases/latest \
-    | awk '/tag_name/{print $4;exit}' FS='[""]'); && \
+RUN APP_VERSION=$(curl -s https://api.github.com/repos/kopia/kopia/releases/latest \
+  | awk '/tag_name/{print $4;exit}' FS='[""]'); && \
   echo "APP_VERSION=${APP_VERSION}"
 
 RUN mkdir -p /app/kopia && \
