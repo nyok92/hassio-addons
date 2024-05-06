@@ -13,4 +13,5 @@ set -e
 
 # start server
 bashio::log.info "Running nginx"
-exec nginx -c /etc/nginx.conf < /dev/null
+#exec nginx -c /etc/nginx.conf < /dev/null
+#exec nginx -c /etc/nginx.conf
