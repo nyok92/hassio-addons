@@ -47,7 +47,7 @@ RUN \
   mkdir -p /app/kopia && \
   curl -o \
     /tmp/kopia.tar.gz -L \
-    "https://github.com/kopia/kopia/releases/download/${APP_VERSION}/kopia-${APP_VERSION#v}-linux-${BUILD_ARCH}.tar.gz" && \
+    "https://github.com/kopia/kopia/releases/download/${APP_VERSION}/kopia-${APP_VERSION#v}-linux-${PACKAGEPLATFORM}.tar.gz" && \
   tar xf \
     /tmp/kopia.tar.gz -C \
     /app/kopia --strip-components=1 && \
