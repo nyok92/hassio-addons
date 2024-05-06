@@ -29,24 +29,24 @@ ENV TERM="xterm-256color" \
   KOPIA_CHECK_FOR_UPDATES=false \
   PATH="/app/kopia:$PATH"
 
-#RUN PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
-#        "amd64")        echo "x64"    ;; \
-#        "i386")         echo "i386"   ;; \
-#        "aarch64")      echo "arm64"  ;; \
-#        "armv7")        echo "arm"    ;; \
-#        "armhf")        echo "arm"    ;; \
-#        *)              echo ""       ;; esac) && \
-#    echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}"
+RUN PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
+        "amd64")        echo "x64"    ;; \
+        "i386")         echo "i386"   ;; \
+        "aarch64")      echo "arm64"  ;; \
+        "armv7")        echo "arm"    ;; \
+        "armhf")        echo "arm"    ;; \
+        *)              echo ""       ;; esac) && \
+    echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}"
 
-RUN export PACKAGEPLATFORM=$(case $TARGETARCH in "amd64") echo "x64" ;; "aarch64") echo "arm64" ;; "armv7") echo "arm" ;; "armhf") echo "arm" ;; "i386") echo "i386" ;; *) echo "unsupported_arch";; esac) && \ 
+#RUN export PACKAGEPLATFORM=$(case $TARGETARCH in "amd64") echo "x64" ;; "aarch64") echo "arm64" ;; "armv7") echo "arm" ;; "armhf") echo "arm" ;; "i386") echo "i386" ;; *) echo "unsupported_arch";; esac)
 
 RUN \
   echo "**** install kopia ****" && \
-  if [ -z ${APP_VERSION+x} ]; then \
-    APP_VERSION=$(curl -s https://api.github.com/repos/kopia/kopia/releases/latest \
-    | awk '/tag_name/{print $4;exit}' FS='[""]'); \
-  fi && \
-  mkdir -p /app/kopia && \
+  APP_VERSION=$(curl -s https://api.github.com/repos/kopia/kopia/releases/latest \
+    | awk '/tag_name/{print $4;exit}' FS='[""]'); && \
+  echo "APP_VERSION=${APP_VERSION}"
+
+RUN mkdir -p /app/kopia && \
   curl -o \
     /tmp/kopia.tar.gz -L \
     "https://github.com/kopia/kopia/releases/download/${APP_VERSION}/kopia-${APP_VERSION#v}-linux-${PACKAGEPLATFORM}.tar.gz" && \
