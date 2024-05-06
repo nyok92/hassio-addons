@@ -9,7 +9,7 @@ if [[ -z "$(bashio::config 'KOPIA_UI_USERNAME')" ]]; then
     exit 1
 fi
 
-SUBJECT="/C=US/ST=CA/L=Carlsbad/O=Linuxserver.io/OU=LSIO Server/CN=*"
+SUBJECT="/O=Nginx Proxy/OU=Dummy Certificate/CN=*"
 if [[ -f /config/keys/kopia.key && -f /config/keys/kopia.crt ]]; then
     echo "using keys found in /config/keys"
 else
@@ -18,5 +18,5 @@ else
     rm -f \
         /config/keys/kopia.key \
         /config/keys/kopia.crt || true
-    openssl req -new -x509 -days 3650 -nodes -out /config/keys/kopia.crt -keyout /config/keys/kopia.key -subj "$SUBJECT"
+    openssl req -new -newkey rsa:2048 -x509 -days 3650 -nodes -out /config/keys/kopia.crt -keyout /config/keys/kopia.key -subj "$SUBJECT"
 fi
