@@ -36,7 +36,7 @@ map:
   - share:rw
   - media:rw
 options:
-  domain: ""
+  domain: "f464254c-kopia"
   timezone: "Europe/Paris"
   ssl: false
   certfile: "/config/keys/kopia.crt"
