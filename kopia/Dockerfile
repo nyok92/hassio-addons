@@ -36,9 +36,8 @@ RUN PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
         "armv7")        echo "arm"    ;; \
         "armhf")        echo "arm"    ;; \
         *)              echo ""       ;; esac) && \
-    echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}"
-
-RUN mkdir -p /app/kopia && \
+  echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}" && \
+  mkdir -p /app/kopia && \
   curl -o \
     /tmp/kopia.tar.gz -L \
     "https://github.com/kopia/kopia/releases/download/v${APP_VERSION}/kopia-${APP_VERSION}-linux-${PACKAGEPLATFORM}.tar.gz" && \
