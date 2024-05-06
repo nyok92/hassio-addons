@@ -17,11 +17,9 @@ ports:
   443/tcp: null
   51515/tcp: null
 ports_description:
-  80/tcp: web frontend
-  443/tcp: Web secure frontend (not needed with Ingress)
-  51515/tcp: kopia dirrect
+  5180/tcp: Web frontend (not needed with Ingress)
 ingress: true
-ingress_port: 51515
+ingress_port: 5180
 panel_title: kopia
 panel_icon: mdi:backup-restore
 devices:
