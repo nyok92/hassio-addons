@@ -2,10 +2,9 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
-ARG APP_VERSION
 ARG BUILD_ARCH
-ARG VERSION
 ARG PACKAGEPLATFORM
+ARG APP_VERSION
 
 RUN apk add --no-cache \
     curl \
@@ -30,15 +29,14 @@ ENV TERM="xterm-256color" \
   KOPIA_CHECK_FOR_UPDATES=false \
   PATH="/app/kopia:$PATH"
 
-RUN echo "**** download ${PACKAGE} ****" && \
-    PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
+RUN PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
         "amd64")        echo "x64"    ;; \
         "i386")         echo "i386"   ;; \
         "aarch64")      echo "arm64"  ;; \
         "armv7")        echo "arm"    ;; \
         "armhf")        echo "arm"    ;; \
         *)              echo ""       ;; esac) && \
-    echo "Package ${PACKAGE} platform ${PACKAGEPLATFORM} version ${VERSION} build arch ${BUILD_ARCH}"
+    echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}"
 
 RUN \
   echo "**** install kopia ****" && \
