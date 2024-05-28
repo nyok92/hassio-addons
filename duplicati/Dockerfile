@@ -1,9 +1,6 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Execute during the build of the image
-ARG BUILD_ARCH
-
 ARG DUPLICATI_RELEASE
 
 RUN \
