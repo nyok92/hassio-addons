@@ -8,9 +8,11 @@ ARG BUILD_ARCH
 
 ARG DUPLICATI_RELEASE
 
-# environment settings
-#ENV HOME="/config"
-#ENV DEBIAN_FRONTEND="noninteractive"
+RUN \
+  curl -o \
+    /etc/apk/keys/ig.rsa.pub \
+    "https://packages.imagegenius.io/ig.rsa.pub" && \
+  echo "https://packages.imagegenius.io/v3.18/" >>/etc/apk/repositories
 
 RUN \
   echo "**** install packages ****" && \
