@@ -28,7 +28,7 @@ RUN \
   echo "**** install duplicati ****" && \
   if [ -z ${DUPLICATI_RELEASE+x} ]; then \
     DUPLICATI_RELEASE=$(curl -sX GET "https://api.github.com/repos/duplicati/duplicati/releases" \
-    | jq -r 'first(.[] | select(.tag_name | contains("canary"))) | .tag_name'); \
+    | jq -r 'first(.[] | select(.tag_name | contains("beta"))) | .tag_name'); \
   fi && \
   mkdir -p \
     /app/duplicati && \
