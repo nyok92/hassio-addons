@@ -43,5 +43,5 @@ RUN \
 COPY rootfs /
 RUN chmod a+x /usr/bin/run_duplicati
 
-#ENTRYPOINT [ "/init" ]
-#CMD []
+ENTRYPOINT [ "/init" ]
+CMD []
