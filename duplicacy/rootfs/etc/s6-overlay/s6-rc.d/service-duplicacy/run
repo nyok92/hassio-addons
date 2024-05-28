@@ -1,7 +1,0 @@
-#!/usr/bin/with-contenv bashio
-# shellcheck shell=bash
-set -e
-
-bashio::log.info "starting Duplicacy server"
-
-HOME="${APP_DIR}" exec s6-setuidgid ${PUID}:${PGID} "${APP_DIR}/duplicacy_web"
