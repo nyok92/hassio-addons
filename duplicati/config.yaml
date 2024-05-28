@@ -8,7 +8,7 @@ image: "ghcr.io/nyok92/{arch}-duplicati"
 arch:
 #  - armhf
 #  - armv7
-#  - amd64
+  - amd64
 #  - i386
   - aarch64
 init: false
