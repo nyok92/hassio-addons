@@ -20,6 +20,7 @@ ingress: true
 ingress_port: 8200
 panel_title: Duplicati
 panel_icon: mdi:backup-restore
+apparmor: false
 #privileged:
 #- DAC_READ_SEARCH
 map:
