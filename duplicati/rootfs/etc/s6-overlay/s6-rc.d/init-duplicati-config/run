@@ -24,13 +24,13 @@ CLI_ARGS=${_CLI_ARGS}
 #
 echo "root:x:0:root" > /etc/group
 echo "root:x:0:0:root:/root:/bin/ash" > /etc/passwd
-if [ "$GRP_ID" -ne 0 ]; then
-    addgroup -g "$GRP_ID" -S abc;
+if [ "$_GRP_ID" -ne 0 ]; then
+    addgroup -g "$_GRP_ID" -S abc;
 fi
-if [ "$USR_ID" -ne 0 ]; then
-    adduser -u "$USR_ID" -S abc -G abc;
+if [ "$_USR_ID" -ne 0 ]; then
+    adduser -u "$_USR_ID" -S abc -G abc;
 fi
  
 # Configuring folders and permissions   
 # 
-chown -R "$USR_ID":"$GRP_ID"   /config
+chown -R "$_USR_ID":"$_GRP_ID"   /config
