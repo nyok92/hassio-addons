@@ -5,6 +5,9 @@
 # ==============================================================================
 # shellcheck shell=bash
 
+bashio::log.info "starting duplicati service"
+
+
 export _CLI_ARGS=$(bashio::config 'CLI_ARGS')
 
 exec \
