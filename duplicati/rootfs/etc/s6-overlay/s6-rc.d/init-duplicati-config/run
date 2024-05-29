@@ -3,10 +3,6 @@
 set +e
 bashio::log.info "starting init-duplicati-config"
 
-# permissions
-#lsiown -R abc:abc \
-#    /config
-
 export USR_ID=$(bashio::config 'USR_ID')
 export GRP_ID=$(bashio::config 'GRP_ID')
 export CLI_ARGS=$(bashio::config 'CLI_ARGS')
