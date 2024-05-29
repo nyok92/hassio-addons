@@ -7,6 +7,7 @@ profile duplicati flags=(attach_disconnected,mediate_deleted) {
   file,
   signal (send) set=(kill,term,int,hup,cont),
   capability dac_read_search,
+  network,
 
   # S6-Overlay
   /init ix,
