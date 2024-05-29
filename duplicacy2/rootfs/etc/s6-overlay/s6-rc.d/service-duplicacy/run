@@ -4,6 +4,8 @@ set -e
 
 bashio::log.info "starting Duplicacy server"
 
+export USR_ID=$(bashio::config 'USR_ID')
+export GRP_ID=$(bashio::config 'GRP_ID')
 export APP_FILE_PATH=$(bashio::cache.get 'APP_FILE_PATH')
 
 echo "duplicacy_web running as user $(id -un):$(id -gn)\($(id -u):$(id -g)\) and app file path is is ${APP_FILE_PATH}"
