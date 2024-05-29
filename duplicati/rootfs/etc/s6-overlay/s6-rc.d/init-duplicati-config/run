@@ -3,19 +3,19 @@
 set +e
 bashio::log.info "starting init-duplicati-config"
 
-export _TZ=$(bashio::config 'timezone')
-export _USR_ID=$(bashio::config 'USR_ID')
-export _GRP_ID=$(bashio::config 'GRP_ID')
-export _CLI_ARGS=$(bashio::config 'CLI_ARGS')
+export TZ=$(bashio::config 'timezone')
+export USR_ID=$(bashio::config 'USR_ID')
+export GRP_ID=$(bashio::config 'GRP_ID')
+export CLI_ARGS=$(bashio::config 'CLI_ARGS')
 
 echo "
 ----------------------------------------------------------------------
 ENVIRONMENT APP
 ----------------------------------------------------------------------
 TZ=${_TZ}
-USR_ID=${_USR_ID}
-GRP_ID=${_GRP_ID}
-CLI_ARGS=${_CLI_ARGS}
+USR_ID=${USR_ID}
+GRP_ID=${GRP_ID}
+CLI_ARGS=${CLI_ARGS}
 ----------------------------------------------------------------------
 "
 
@@ -42,13 +42,13 @@ echo "init.sh is running as user $(id -un):$(id -gn)\($(id -u):$(id -g)\)"
 #
 echo "root:x:0:root" > /etc/group
 echo "root:x:0:0:root:/root:/bin/ash" > /etc/passwd
-if [ "$_GRP_ID" -ne 0 ]; then
-    addgroup -g "$_GRP_ID" -S abc;
+if [ "$GRP_ID" -ne 0 ]; then
+    addgroup -g "$GRP_ID" -S duplicati;
 fi
-if [ "$_USR_ID" -ne 0 ]; then
-    adduser -u "$_USR_ID" -S abc -G abc;
+if [ "$USR_ID" -ne 0 ]; then
+    adduser -u "$USR_ID" -S duplicati -G duplicati;
 fi
  
 # Configuring folders and permissions   
 # 
-chown -R "$_USR_ID":"$_GRP_ID"   /config
+chown -R "$USR_ID":"$GRP_ID"   /config
