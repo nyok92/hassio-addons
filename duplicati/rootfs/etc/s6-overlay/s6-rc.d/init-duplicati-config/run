@@ -1,5 +1,7 @@
-#!/usr/bin/with-contenv bash
+#!/usr/bin/with-contenv bashio
 # shellcheck shell=bash
+set +e
+bashio::log.info "starting init-duplicati-config"
 
 # permissions
 #lsiown -R abc:abc \
