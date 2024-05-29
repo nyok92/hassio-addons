@@ -38,6 +38,10 @@ map:
 options:
   timezone: "Europe/Paris"
   CLI_ARGS: null
+  USR_ID: 0
+  GRP_ID: 0
 schema:
   timezone: "str?"
   CLI_ARGS: "str?"
+  USR_ID: "int"
+  GRP_ID: "int"
