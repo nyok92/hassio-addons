@@ -37,7 +37,7 @@ RUN \
 
 # Copy root filesystem
 COPY rootfs /
-RUN chmod a+x /usr/bin/run_duplicati
+#RUN chmod a+x /usr/bin/run_duplicati
 
 #ENTRYPOINT [ "/init" ]
 #CMD []
