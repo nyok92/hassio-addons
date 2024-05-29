@@ -9,9 +9,9 @@ bashio::log.info "starting duplicati service"
 export USR_ID=$(bashio::config 'USR_ID')
 export GRP_ID=$(bashio::config 'GRP_ID')
 
-export _CLI_ARGS=$(bashio::config 'CLI_ARGS')
+export CLI_ARGS=$(bashio::config 'CLI_ARGS')
 
 exec \
     s6-notifyoncheck -d -n 300 -w 1000 -c "nc -z localhost 8200" \
         cd /app/duplicati s6-setuidgid ${USR_ID}:${GRP_ID} mono Duplicati.Server.exe \
-        --webservice-interface=any --server-datafolder=/config --webservice-allowed-hostnames=* ${_CLI_ARGS}
+        --webservice-interface=any --server-datafolder=/config --webservice-allowed-hostnames=* ${CLI_ARGS}
