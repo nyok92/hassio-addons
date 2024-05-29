@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Duplicati
-version: "2.0.8.1"
+version: "2.0.81"
 slug: duplicati
 description: Store securely encrypted backups on cloud storage services!
 url: "https://github.com/nyok92/hassio-addons/tree/main/duplicati"
