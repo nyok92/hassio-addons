@@ -37,7 +37,8 @@ RUN \
 
 # Copy root filesystem
 COPY rootfs /
-#RUN chmod a+x /usr/bin/run_duplicati
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-duplicati-config/run
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/duplicati/run
 
 #ENTRYPOINT [ "/init" ]
 #CMD []
