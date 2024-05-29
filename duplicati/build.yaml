@@ -8,7 +8,7 @@ build_from:
 labels:
   org.opencontainers.image.title: "Duplicati addon"
   org.opencontainers.image.description: "Duplicati add-on"
-  org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/tree/main/duplicati"
+  org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/duplicati"
   org.opencontainers.image.licenses: "Apache License 2.0"
 args:
   MONO_VERSION: "6.12.0.206"
