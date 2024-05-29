@@ -12,9 +12,6 @@ arch:
   - i386
   - aarch64
 init: false
-#hassio_role: "backup"
-#hassio_api: true
-#homeassistant_api: true
 ports:
   8200/tcp: null
 ports_description:
@@ -23,10 +20,8 @@ ingress: true
 ingress_port: 8200
 panel_title: Duplicati
 panel_icon: mdi:backup-restore
-#startup: application
-backup_exclude: ["/backup"]
-privileged:
-- DAC_READ_SEARCH
+#privileged:
+#- DAC_READ_SEARCH
 map:
   - addon_config:rw
   - addons:rw
