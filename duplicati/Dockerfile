@@ -16,6 +16,7 @@ RUN \
     libgdiplus \
     mono-reference-assemblies-facades \
     rclone \
+    tzdata \
     sqlite-libs \
     terminus-font && \
   echo "**** install duplicati ****" && \
@@ -40,5 +41,5 @@ COPY rootfs /
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-duplicati-config/run
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/duplicati/run
 
-#ENTRYPOINT [ "/init" ]
-#CMD []
+ENTRYPOINT [ "/init" ]
+CMD []
