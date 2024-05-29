@@ -37,7 +37,7 @@ map:
   - ssl:rw
 options:
   timezone: "Europe/Paris"
-  CLI_ARGS: null
+  CLI_ARGS: ""
   USR_ID: 0
   GRP_ID: 0
 schema:
