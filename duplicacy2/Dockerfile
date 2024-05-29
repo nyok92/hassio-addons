@@ -3,7 +3,8 @@ FROM $BUILD_FROM
 
 # Set to actual USR_ID and GRP_ID of the user this should run under
 # Uses root by default, unless changed
-ENV USR_ID=0 GRP_ID=0 TZ="Europe/Paris" DUPLICACY_WEB_VERSION=stable
+#ENV USR_ID=0 GRP_ID=0 TZ="Europe/Paris" 
+ENV DUPLICACY_WEB_VERSION=stable
 #ENV APP_DIR="/app" CONFIG_DIR="/config" CACHE_DIR="/cache" LOGS_DIR="/logs"
 
 # make folders
