@@ -5,6 +5,20 @@
 #lsiown -R abc:abc \
 #    /config
 
+export USR_ID=$(bashio::config 'USR_ID')
+export GRP_ID=$(bashio::config 'GRP_ID')
+export CLI_ARGS=$(bashio::config 'CLI_ARGS')
+echo "
+----------------------------------------------------------------------
+ENVIRONMENT APP
+----------------------------------------------------------------------
+TZ=${TZ}
+USR_ID=${USR_ID}
+GRP_ID=${GRP_ID}
+CLI_ARGS=${CLI_ARGS}
+----------------------------------------------------------------------
+"
+
 
 # Overhauling userbase
 #
