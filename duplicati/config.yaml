@@ -38,10 +38,6 @@ map:
 options:
   timezone: "Europe/Paris"
   CLI_ARGS: null
-  KOPIA_UI_USERNAME: "kopia"
-  KOPIA_UI_PASSWORD: "kopiapassword"
 schema:
-  timezone: "str"
-  CLI_ARGS: "str"
-  KOPIA_UI_USERNAME: "str"
-  KOPIA_UI_PASSWORD: "str"
+  timezone: "str?"
+  CLI_ARGS: "str?"
