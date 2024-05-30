@@ -2,7 +2,7 @@
 # Warns and then closes issues and PRs that have had no activity for a specified amount of time.
 # https://github.com/actions/stale
 
-name: "Cleanbot"
+name: Cleanbot
 on:
   schedule:
     - cron: "0 0 * * *" # run stalebot once a day
@@ -15,7 +15,7 @@ jobs:
       - name: Delete Duplicacy addon old images
         uses: snok/container-retentation-policy@v2
         with:
-          image-names: *-duplicacy2
+          image-names: "*-duplicacy2"
           cut-off: 1 days ago UTC
           keep-at-least: 1
           account-type: personal
