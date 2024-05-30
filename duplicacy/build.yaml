@@ -6,7 +6,7 @@ build_from:
   armv7: "ghcr.io/home-assistant/armv7-base:latest"
 #  i386: "ghcr.io/home-assistant/i386-base:latest"
 labels:
-  org.opencontainers.image.title: "Duplicacy2 addon"
-  org.opencontainers.image.description: "Duplicacy2 add-on"
-  org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/duplicacy2"
+  org.opencontainers.image.title: "Duplicacy addon"
+  org.opencontainers.image.description: "Duplicacy add-on"
+  org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/duplicacy"
   org.opencontainers.image.licenses: "Apache License 2.0"
