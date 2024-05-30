@@ -15,19 +15,9 @@ jobs:
       - name: Delete Duplicacy addon old images
         uses: snok/container-retentation-policy@v2
         with:
-          image-names: "*-duplicacy2"
-          cut-off: 60 days ago UTC
+          image-names: *-duplicacy2
+          cut-off: 1 days ago UTC
           keep-at-least: 1
           account-type: personal
           token: ${{ secrets.GITHUB_TOKEN }}
           token-type: github-token
-      - name: Delete Kopia addon old images
-        uses: snok/container-retentation-policy@v2
-        with:
-          image-names: "*-kopia"
-          cut-off: 60 days ago UTC
-          keep-at-least: 1
-          account-type: personal
-          token: ${{ secrets.GITHUB_TOKEN }}
-          token-type: github-token
-          
