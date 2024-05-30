@@ -15,7 +15,7 @@ jobs:
       - name: Delete Duplicacy addon old images
         uses: snok/container-retentation-policy@v2
         with:
-          image-names: "*-duplicacy2"
+          image-names: "hassio-addons/*-duplicacy2"
           cut-off: 1 days ago UTC
           keep-at-least: 1
           account-type: personal
