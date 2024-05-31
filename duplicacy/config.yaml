@@ -32,12 +32,12 @@ options:
   version: "latest"
   USR_ID: 0
   GRP_ID: 0
-  domain: null
+  domain: "localhost"
   mqtt: false
-  mqtt_hostname: "127.0.0.1"
+  mqtt_hostname: "core-mosquitto"
   mqtt_username: "mqttuser"
   mqtt_password: "mqttuserpwd"
-  log_dir: "/path/to/logfolder"
+  log_dir: "/mqtt-integration/log"
 schema:
   timezone: "str"
   version: "str"
