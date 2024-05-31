@@ -7,6 +7,10 @@ export TZ=$(bashio::config 'timezone')
 export DUPLICACY_WEB_VERSION=$(bashio::config 'version')
 export USR_ID=$(bashio::config 'USR_ID')
 export GRP_ID=$(bashio::config 'GRP_ID')
+export mqtt_hostname=$(bashio::config 'mqtt_hostname')
+export mqtt_username=$(bashio::config 'mqtt_username')
+export mqtt_password=$(bashio::config 'mqtt_password')
+export log_dir=$(bashio::config 'log_dir')
 echo "
 ----------------------------------------------------------------------
 ENVIRONMENT APP
@@ -15,6 +19,10 @@ TZ=${TZ}
 DUPLICACY_WEB_VERSION=${DUPLICACY_WEB_VERSION}
 USR_ID=${USR_ID}
 GRP_ID=${GRP_ID}
+mqtt_hostname=${mqtt_hostname}
+mqtt_username=${mqtt_username}
+mqtt_password=${mqtt_password}
+log_dir=${log_dir}
 ----------------------------------------------------------------------
 "
 
