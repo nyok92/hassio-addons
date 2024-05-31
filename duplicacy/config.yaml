@@ -37,7 +37,9 @@ options:
   mqtt_hostname: "core-mosquitto"
   mqtt_username: "mqttuser"
   mqtt_password: "mqttuserpwd"
+  mqtt_port: 1883
   log_dir: "/mqtt-integration/logs"
+  configile: "/config/mqtt-integration/config.json"
 schema:
   timezone: "str"
   version: "str"
@@ -48,4 +50,6 @@ schema:
   mqtt_hostname: "str?"
   mqtt_username: "str?"
   mqtt_password: "str?"
+  mqtt_port: "int?"
   log_dir: "str?"
+  configile: "string"
