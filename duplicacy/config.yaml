@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Duplicacy
-version: "0.0.8"
+version: "1.8.1"
 slug: duplicacy
 description: Store securely encrypted backups on cloud storage services!
 url: "https://github.com/nyok92/hassio-addons/tree/main/duplicacy"
@@ -29,7 +29,7 @@ map:
   - all_addon_configs:rw
 options:
   timezone: "Europe/Paris"
-  version: "latest"
+  version: "1.8.1"
   USR_ID: 0
   GRP_ID: 0
   domain: "localhost"
