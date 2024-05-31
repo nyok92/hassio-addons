@@ -192,3 +192,14 @@ printf "Using machine-id = %s\n" "$(cat /var/lib/dbus/machine-id)"
 # cache vaariables : APP_FILE_PATH fo SVC_duplicati S6 service
 
 bashio::cache.set "APP_FILE_PATH" "${APP_FILE_PATH}"
+
+# Parse/create mqtt json file
+printf "preeparing mqtt json config"
+if [ ! -f ~/.config/duplicacy_runner/config.json ]; then
+    echo '{
+    "mqtt_hostname": "${mqtt_hostname}",
+    "mqtt_username": "${mqtt_username}",
+    "mqtt_password": "${mqtt_password}",
+    "log_dir": "${log_dir}"
+   }'          > ~/.config/duplicacy_runner/config.json
+fi
