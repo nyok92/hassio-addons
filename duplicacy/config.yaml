@@ -39,7 +39,9 @@ options:
   mqtt_password: "mqttuserpwd"
   mqtt_port: 1883
   log_dir: "/mqtt-integration/logs"
-  configile: "/config/mqtt-integration/config.json"
+  configfile: "/config/mqtt-integration/config.json"
+  backup_dir: ""
+  backup_name: ""
 schema:
   timezone: "str"
   version: "str"
@@ -52,4 +54,6 @@ schema:
   mqtt_password: "str?"
   mqtt_port: "int?"
   log_dir: "str?"
-  configile: "string"
+  configfile: "string"
+  backup_dir: "string?"
+  backup_name: "string?"
