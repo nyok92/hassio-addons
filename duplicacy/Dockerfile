@@ -22,10 +22,10 @@ RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-setup-app/run && \
 RUN mkdir mqtt-integration
 COPY mqtt-integration /mqtt-integration
 RUN chmod a+x /mqtt-integration/duplicacy_runner.py && \
-    chmod a+x /emqtt-integration/log_parser.py && \
+    chmod a+x /mqtt-integration/log_parser.py && \
     chmod a+x /mqtt-integration/state_types.py && \
-    chmod a+x /emqtt-integration/update_handler.py && \
-    chmod a+x /emqtt-integration/utils.py
+    chmod a+x /mqtt-integration/update_handler.py && \
+    chmod a+x /mqtt-integration/utils.py
 
 ENTRYPOINT [ "/init" ]
 CMD []
