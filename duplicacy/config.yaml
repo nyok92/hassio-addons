@@ -48,14 +48,14 @@ schema:
   version: "str"
   USR_ID: "int"
   GRP_ID: "int"
-  domain: "str?"
+  domain: "str"
   customize:
     active: bool
     default: "str"
     servers: "str"
   mqtt:
     active: bool
-    mqtt_hostname: "str"
-     mqtt_username: "str"
-     mqtt_password: "str"
-     log_dir: "str"
+    mqtt_hostname: "str?"
+     mqtt_username: "str?"
+     mqtt_password: "str?"
+     log_dir: "str?"
