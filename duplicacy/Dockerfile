@@ -26,6 +26,10 @@ RUN chmod a+x /mqtt-integration/duplicacy_runner.py && \
     chmod a+x /mqtt-integration/state_types.py && \
     chmod a+x /mqtt-integration/update_handler.py && \
     chmod a+x /mqtt-integration/utils.py
+# Install python requirements
+WORKDIR mqtt-integration
+RUN mkdir logs
+RUN pip install -r requirements.txt
 
 ENTRYPOINT [ "/init" ]
 CMD []
