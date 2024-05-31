@@ -20,6 +20,7 @@ RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-setup-app/run && \
 
 # Copy mqtt-integration python scripts
 RUN mkdir mqtt-integration
+RUN mkdir mqtt-integration/logs
 COPY mqtt-integration /mqtt-integration
 RUN chmod a+x /mqtt-integration/duplicacy_runner.py && \
     chmod a+x /mqtt-integration/log_parser.py && \
