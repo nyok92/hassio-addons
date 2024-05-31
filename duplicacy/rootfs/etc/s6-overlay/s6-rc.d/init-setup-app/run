@@ -12,6 +12,8 @@ export mqtt_username=$(bashio::config 'mqtt_username')
 export mqtt_password=$(bashio::config 'mqtt_password')
 export mqtt_port=$(bashio::config 'mqtt_port')
 export configfile=$(bashio::config 'configfile')
+export backup_dir=$(bashio::config 'backup_dir')
+export backup_name=$(bashio::config 'backup_name')
 export log_dir=$(bashio::config 'log_dir')
 echo "
 ----------------------------------------------------------------------
