@@ -18,7 +18,7 @@ COPY rootfs /
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-setup-app/run && \
     chmod a+x /etc/s6-overlay/s6-rc.d/service-duplicacy/run
 
-# Copy mqtt-inteegrtion python scripts
+# Copy mqtt-integration python scripts
 RUN mkdir mqtt-integration
 COPY mqtt-integration /mqtt-integration
 RUN chmod a+x /mqtt-integration/duplicacy_runner.py && \
