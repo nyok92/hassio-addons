@@ -37,7 +37,7 @@ options:
   mqtt_hostname: "core-mosquitto"
   mqtt_username: "mqttuser"
   mqtt_password: "mqttuserpwd"
-  log_dir: "/mqtt-integration/log"
+  log_dir: "/logs"
 schema:
   timezone: "str"
   version: "str"
