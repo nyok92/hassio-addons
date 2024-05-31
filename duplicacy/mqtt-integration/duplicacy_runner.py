@@ -74,7 +74,7 @@ def parse_args():
     parser.add_argument('--mqtt-port', help='Port of MQTT broker')
     parser.add_argument('--mqtt-username', help='Username to login to MQTT broker')
     parser.add_argument('--mqtt-password', help='Password to login to MQTT broker')
-    parser.add_argument('--configfile', default=str(Path.home()/'.config'/'duplicacy_runner'/'config.json'), help='Configfile location')
+    parser.add_argument('--configfile', help='Configfile location')
     parser.add_argument('--dry-run', action='store_true')
     parser.add_argument('backup_args', nargs='*')
 
@@ -89,6 +89,7 @@ def parse_args():
         'mqtt_port': 1883,
         'mqtt_username': None,
         'mqtt_password': None,
+        'configfile': str(Path.home()/'.config'/'duplicacy_runner'/'config.json'),
     }
     config = {}
     if Path(args.configfile).is_file():
