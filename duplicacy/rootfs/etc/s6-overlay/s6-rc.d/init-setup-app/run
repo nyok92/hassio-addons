@@ -10,6 +10,8 @@ export GRP_ID=$(bashio::config 'GRP_ID')
 export mqtt_hostname=$(bashio::config 'mqtt_hostname')
 export mqtt_username=$(bashio::config 'mqtt_username')
 export mqtt_password=$(bashio::config 'mqtt_password')
+export mqtt_port=$(bashio::config 'mqtt_port')
+export configfile=$(bashio::config 'configfile')
 export log_dir=$(bashio::config 'log_dir')
 echo "
 ----------------------------------------------------------------------
@@ -22,6 +24,8 @@ GRP_ID=${GRP_ID}
 mqtt_hostname=${mqtt_hostname}
 mqtt_username=${mqtt_username}
 mqtt_password=${mqtt_password}
+mqtt_port=${mqtt_port}
+configfile=${configfile}
 log_dir=${log_dir}
 ----------------------------------------------------------------------
 "
@@ -200,6 +204,8 @@ if [ ! -f /config/mqtt-integration/config.json ]; then
     "mqtt_hostname": "${mqtt_hostname}",
     "mqtt_username": "${mqtt_username}",
     "mqtt_password": "${mqtt_password}",
+    "mqtt_port": "${mqtt_port}",
+    "configfile": "${configfile}",
     "log_dir": "${log_dir}"
    }'          > /config/mqtt-integration/config.json
 fi
