@@ -67,8 +67,6 @@ if [ ! -d /mqtt ]; then
     ln -s /config/mqtt  mqtt
 fi
 
-touch /config/mqtt/config.json
-
 # Parse/create mqtt json file
 printf "preparing mqtt json config"
 if [ ! -f /config/mqtt/config.json ]; then
