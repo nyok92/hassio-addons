@@ -199,8 +199,6 @@ printf "Using machine-id = %s\n" "$(cat /var/lib/dbus/machine-id)"
 
 bashio::cache.set "APP_FILE_PATH" "${APP_FILE_PATH}"
 
-touch /config/mqtt/config.json
-
 # Parse/create mqtt json file
 printf "preparing mqtt json config"
 if [ ! -f /config/mqtt/config.json ]; then
