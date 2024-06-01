@@ -19,17 +19,17 @@ RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-setup-app/run && \
     chmod a+x /etc/s6-overlay/s6-rc.d/service-duplicacy/run
 
 # Copy mqtt-integration python scripts
-RUN mkdir mqtt-integration && \
-    mkdir -p /mqtt-integration/logs
-COPY mqtt-integration /mqtt-integration
-RUN chmod a+x /mqtt-integration/duplicacy_runner.py && \
-    chmod a+x /mqtt-integration/log_parser.py && \
-    chmod a+x /mqtt-integration/state_types.py && \
-    chmod a+x /mqtt-integration/update_handler.py && \
-    chmod a+x /mqtt-integration/utils.py
+RUN mkdir -p /config/mqtt && \
+    mkdir -p /config/mqtt/logs
+COPY mqtt-integration /config/mqtt
+RUN chmod a+x /config/mqtt/duplicacy_runner.py && \
+    chmod a+x /config/mqtt/log_parser.py && \
+    chmod a+x /config/mqtt/state_types.py && \
+    chmod a+x /config/mqtt/update_handler.py && \
+    chmod a+x /config/mqtt/utils.py
     
 # Install python requirements
-RUN pip install -r /mqtt-integration/requirements.txt
+RUN pip install -r /config/mqtt/requirements.txt
 
 ENTRYPOINT [ "/init" ]
 CMD []
