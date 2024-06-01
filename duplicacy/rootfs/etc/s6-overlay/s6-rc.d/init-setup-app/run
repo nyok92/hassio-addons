@@ -85,7 +85,7 @@ fi
 
 # Configuring folders and permissions   
 # 
-mkdir -p                       /config/bin /config/logs /cache
+mkdir -p                       /config/bin /config/logs /config/mqtt/logs /cache
 chown -R "$USR_ID":"$GRP_ID"   /config /cache
 
 # Find correct architecture 
