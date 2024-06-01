@@ -62,7 +62,23 @@ fi
 if [ "$USR_ID" -ne 0 ]; then
     adduser -u "$USR_ID" -S duplicacy -G duplicacy;
 fi
- 
+
+touch /config/mqtt/config.json
+
+# Parse/create mqtt json file
+printf "preparing mqtt json config"
+if [ ! -f /config/mqtt/config.json ]; then
+    echo '{
+    "mqtt_hostname": "${mqtt_hostname}",
+    "mqtt_username": "${mqtt_username}",
+    "mqtt_password": "${mqtt_password}",
+    "mqtt_port": "${mqtt_port}",
+    "configfile": "${configfile}",
+    "log_dir": "${log_dir}"
+   }'          > /config/mqtt/config.json
+fi
+
+
 # Configuring folders and permissions   
 # 
 mkdir -p                       /config/bin /config/logs /cache
@@ -198,16 +214,3 @@ printf "Using machine-id = %s\n" "$(cat /var/lib/dbus/machine-id)"
 # cache vaariables : APP_FILE_PATH fo SVC_duplicati S6 service
 
 bashio::cache.set "APP_FILE_PATH" "${APP_FILE_PATH}"
-
-# Parse/create mqtt json file
-printf "preparing mqtt json config"
-if [ ! -f /config/mqtt/config.json ]; then
-    echo '{
-    "mqtt_hostname": "${mqtt_hostname}",
-    "mqtt_username": "${mqtt_username}",
-    "mqtt_password": "${mqtt_password}",
-    "mqtt_port": "${mqtt_port}",
-    "configfile": "${configfile}",
-    "log_dir": "${log_dir}"
-   }'          > /config/mqtt/config.json
-fi
