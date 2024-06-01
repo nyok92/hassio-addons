@@ -66,7 +66,7 @@ fi
 # Configuring folders and permissions   
 # 
 mkdir -p                       /config/bin /logs /cache
-chown -R "$USR_ID":"$GRP_ID"   /config     /logs /cache /mqtt-integration
+chown -R "$USR_ID":"$GRP_ID"   /config     /logs /cache
 
 # Find correct architecture 
 # 
@@ -199,9 +199,11 @@ printf "Using machine-id = %s\n" "$(cat /var/lib/dbus/machine-id)"
 
 bashio::cache.set "APP_FILE_PATH" "${APP_FILE_PATH}"
 
+touch /config/mqtt/config.json
+
 # Parse/create mqtt json file
-printf "preeparing mqtt json config"
-if [ ! -f /config/mqtt-integration/config.json ]; then
+printf "preparing mqtt json config"
+if [ ! -f /config/mqtt/config.json ]; then
     echo '{
     "mqtt_hostname": "${mqtt_hostname}",
     "mqtt_username": "${mqtt_username}",
@@ -209,5 +211,5 @@ if [ ! -f /config/mqtt-integration/config.json ]; then
     "mqtt_port": "${mqtt_port}",
     "configfile": "${configfile}",
     "log_dir": "${log_dir}"
-   }'          > /config/mqtt-integration/config.json
+   }'          > /config/mqtt/config.json
 fi
