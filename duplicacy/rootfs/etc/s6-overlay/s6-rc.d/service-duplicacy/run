@@ -28,7 +28,7 @@ if [ ! -f /config/duplicacy.json ]; then
     echo '{}'   > /config/duplicacy.json
 fi
 
-chown -R "$USR_ID":"$GRP_ID"   /config /logs /cache
+chown -R "$USR_ID":"$GRP_ID"   /config /cache
 
 echo "Logging tail of the log from this moment on"
 tail -0 -f /config/logs/duplicacy_web.log &
