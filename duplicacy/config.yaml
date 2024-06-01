@@ -26,7 +26,6 @@ map:
 #  - addons:rw
 #  - backup:rw
   - share:rw
-  - all_addon_configs:rw
 options:
   timezone: "Europe/Paris"
   version: "1.8.1"
@@ -38,8 +37,8 @@ options:
   mqtt_username: "mqttuser"
   mqtt_password: "mqttuserpwd"
   mqtt_port: 1883
-  log_dir: "/mqtt-integration/logs"
-  configfile: "/config/mqtt-integration/config.json"
+  log_dir: "/config/mqtt/logs"
+  configfile: "/config/mqtt/config.json"
   backup_dir: ""
   backup_name: ""
 schema:
