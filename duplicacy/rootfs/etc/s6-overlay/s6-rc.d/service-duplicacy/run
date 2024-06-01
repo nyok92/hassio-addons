@@ -14,12 +14,12 @@ if [ ! -d ~/.duplicacy-web ]; then
     ln -s /config/  ~/.duplicacy-web
 fi
 
-touch /logs/duplicacy_web.log
+touch /config/logs/duplicacy_web.log
 
 if [ ! -f /config/settings.json ]; then
     echo '{
         "listening_address"     : "0.0.0.0:3875",
-        "log_directory"         : "/logs",
+        "log_directory"         : "/config/logs",
         "temporary_directory"   : "/cache"
     }'          > /config/settings.json
 fi
@@ -31,7 +31,7 @@ fi
 chown -R "$USR_ID":"$GRP_ID"   /config /logs /cache
 
 echo "Logging tail of the log from this moment on"
-tail -0 -f /logs/duplicacy_web.log &
+tail -0 -f /config/logs/duplicacy_web.log &
 
 echo "Starting duplicacy_web"
 exec s6-setuidgid ${USR_ID}:${GRP_ID} "${APP_FILE_PATH}"
