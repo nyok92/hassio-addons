@@ -27,7 +27,7 @@ RUN chmod a+x /mqtt/duplicacy_runner.py && \
     chmod a+x /mqtt/utils.py
     
 # Install python requirements
-RUN pip install -r /config/mqtt/requirements.txt
+RUN pip install -r /mqtt/requirements.txt
 
 ENTRYPOINT [ "/init" ]
 CMD []
