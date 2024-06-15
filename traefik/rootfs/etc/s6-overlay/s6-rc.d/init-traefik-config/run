@@ -8,7 +8,7 @@ mkdir -p /config/traefik
 
 bashio::log.info "Generating dynamic config..."
 if [ ! -f /config/traefik/traefik.yaml ]; then
-    echo '{
+    echo '
 http:
   routers:
     nextcloud:
@@ -44,7 +44,7 @@ http:
           # - ... (e.g. rate limiting middleware)
           - https-redirect
           - nextcloud-secure-headers
-    }'          > /config/traefik/traefik.yaml
+' > /config/traefik/traefik.yaml
 fi
 
 bashio::log.info "Generating static config..."
