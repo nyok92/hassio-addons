@@ -22,7 +22,7 @@ ports:
 ports_description:
   80/tcp: HTTP
   443/tcp: HTTPS
-  8099/tcp: ingrees
+  8099/tcp: ingress
 ingress: true
 ingress_entry: dashboard/
 ingress_port: 8099
