@@ -1,4 +1,9 @@
 #!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Start the example service
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+# shellcheck shell=bash
 
 bashio::net.wait_for 443
 bashio::log.info "Starting Nginx for dashboard..."
