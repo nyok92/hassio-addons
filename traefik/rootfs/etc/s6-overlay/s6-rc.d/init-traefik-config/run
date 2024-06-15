@@ -2,50 +2,9 @@
 # shellcheck shell=bash
 
 bashio::log.info "Ensuring SSL directory..."
-mkdir -p /ssl/traefik/
+mkdir -p /ssl/traefik
 bashio::log.info "Ensuring config directory..."
 mkdir -p /config/traefik
-
-bashio::log.info "Generating dynamic config..."
-if [ ! -f /config/traefik/traefik.yaml ]; then
-    echo '
-http:
-  routers:
-    nextcloud:
-      rule: "Host(`<your-nc-domain>`)"
-      entrypoints:
-        - "https"
-      service: nextcloud
-      middlewares:
-        - nextcloud-chain
-      tls:
-        certresolver: "letsencrypt"
-
-  services:
-    nextcloud:
-      loadBalancer:
-        servers:
-          - url: "http://localhost:11000" # Use the host's IP address if Traefik runs outside the host network
-
-  middlewares:
-    nextcloud-secure-headers:
-      headers:
-        hostsProxyHeaders:
-          - "X-Forwarded-Host"
-        referrerPolicy: "same-origin"
-
-    https-redirect:
-      redirectscheme:
-        scheme: https 
-
-    nextcloud-chain:
-      chain:
-        middlewares:
-          # - ... (e.g. rate limiting middleware)
-          - https-redirect
-          - nextcloud-secure-headers
-' > /config/traefik/traefik.yaml
-fi
 
 bashio::log.info "Generating static config..."
 gomplate -f /etc/traefik/traefik.yaml.gotmpl -d options=/data/options.json -o /etc/traefik/traefik.yaml
