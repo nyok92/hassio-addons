@@ -17,7 +17,9 @@ RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
     rm -f /tmp/*
 
 COPY rootfs /
-#RUN chmod a+x /etc/cont-init.d/traefik.sh
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-traefik-config/run
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/traefik/run
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/nginx/run
 
 ENTRYPOINT [ "/init" ]
 CMD []
