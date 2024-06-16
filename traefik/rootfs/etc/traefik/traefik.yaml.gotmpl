@@ -12,6 +12,8 @@ entryPoints:
     address: ":80"
   web-secure:
     address: ":443"
+  dashboard:
+    address: ":8088"
 {{- if has $options "forwarded_headers_insecure" }}
     forwardedHeaders:
       insecure: {{ $options.forwarded_headers_insecure }}
