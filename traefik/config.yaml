@@ -18,14 +18,14 @@ init: false
 ports:
   80/tcp: 80
   443/tcp: 443
-  8099/tcp: null
+  8080/tcp: null
 ports_description:
   80/tcp: HTTP
   443/tcp: HTTPS
-  8099/tcp: ingress
+  8080/tcp: ingress
 ingress: true
-ingress_entry: dashboard/
-ingress_port: 8099
+#ingress_entry: dashboard/
+ingress_port: 8080
 panel_title: Traefik
 panel_icon: mdi:earth-arrow-right
 hassio_api: true
