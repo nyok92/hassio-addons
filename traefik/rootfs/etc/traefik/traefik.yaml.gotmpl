@@ -24,6 +24,9 @@ entryPoints:
       insecure: {{ $options.forwarded_headers_insecure }}
 {{- end }}
 
+serversTransport:
+  insecureSkipVerify: true
+
 api:
   dashboard: true
   insecure: true
