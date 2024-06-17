@@ -1,6 +1,17 @@
 #!/usr/bin/with-contenv bashio
 # shellcheck shell=bash
 
+export TZ=$(bashio::config 'timezone')
+echo "
+----------------------------------------------------------------------
+ENVIRONMENT APP
+----------------------------------------------------------------------
+TZ=${TZ}
+log_level=${log_level}
+dynamic_configuration_path=${dynamic_configuration_path}
+env_vars=${env_vars}
+----------------------------------------------------------------------
+"
 bashio::log.info "Ensuring SSL directory..."
 mkdir -p /ssl/traefik
 bashio::log.info "Ensuring config directory..."
