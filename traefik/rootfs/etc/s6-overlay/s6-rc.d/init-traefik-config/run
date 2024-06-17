@@ -2,6 +2,7 @@
 # shellcheck shell=bash
 
 export TZ=$(bashio::config 'timezone')
+export log_level=$(bashio::config 'log_level')
 export dynamic_configuration_path=$(bashio::config 'dynamic_configuration_path')
 export env_vars=$(bashio::config 'env_vars')
 echo "
