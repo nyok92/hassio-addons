@@ -37,6 +37,7 @@ map:
   - share:rw
   - ssl:rw
 options:
+  timezone: "Europe/Paris"
   log_level: info
   access_logs: false
   forwarded_headers_insecure: false
@@ -48,6 +49,7 @@ options:
     resolvers: []
   env_vars: []
 schema:
+  timezone: "str"
   log_level: list(trace|debug|info|notice|warning|error|fatal)
   access_logs: bool
   forwarded_headers_insecure: bool
