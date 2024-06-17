@@ -18,10 +18,12 @@ init: false
 ports:
   80/tcp: 80
   443/tcp: 443
+  443/udp: 443
   8080/tcp: null
 ports_description:
   80/tcp: HTTP
   443/tcp: HTTPS
+  443/udp: HTTPS3
   8080/tcp: ingress
 ingress: true
 ingress_entry: dashboard/
