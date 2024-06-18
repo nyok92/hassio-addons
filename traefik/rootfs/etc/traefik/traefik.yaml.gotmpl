@@ -23,7 +23,7 @@ entryPoints:
     forwardedHeaders:
       insecure: {{ $options.forwarded_headers_insecure }}
 {{- end }}
-  traefik: ":8080"
+  dashboard: ":8086"
 
 serversTransport:
   insecureSkipVerify: true
