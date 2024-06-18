@@ -23,7 +23,8 @@ entryPoints:
     forwardedHeaders:
       insecure: {{ $options.forwarded_headers_insecure }}
 {{- end }}
-  dashboard: ":8086"
+  dashboard:
+    address: ":8086"
 
 serversTransport:
   insecureSkipVerify: true
