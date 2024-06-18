@@ -26,12 +26,12 @@ entryPoints:
   dashboard:
     address: ":8099"
 
-serversTransport:
-  insecureSkipVerify: true
+#serversTransport:
+#  insecureSkipVerify: true
 
 api:
   dashboard: true
-#  insecure: true
+  insecure: true
 
 {{ if and (has $options "letsencrypt") ($options.letsencrypt.enabled) -}}
 certificatesResolvers:
