@@ -25,7 +25,7 @@ ports_description:
   443/tcp: HTTPS
   443/udp: HTTPS3
   8099/tcp: ingress
-webui: [PROTO:option_name]://[HOST]:[PORT:2839]/dashboard
+webui: http://[HOST]:[PORT:8099]/traefik/
 ingress: true
 ingress_entry: traefik/
 ingress_stream: true
