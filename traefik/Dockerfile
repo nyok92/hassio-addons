@@ -16,6 +16,9 @@ RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
     chmod +x /usr/local/bin/traefik && \
     rm -f /tmp/*
 
+RUN apt-get update
+RUN apt install -y apache2-utils
+
 COPY rootfs /
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-traefik-config/run
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/traefik/run
