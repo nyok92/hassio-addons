@@ -17,7 +17,6 @@ dynamic_configuration_path=${dynamic_configuration_path}
 env_vars=${env_vars}
 api_user=${api_user}
 api_passwd=${api_passswd}
-api_hash_passwd=${api_passswd}
 ----------------------------------------------------------------------
 "
 bashio::log.info "Hashing Traefik API password..."
