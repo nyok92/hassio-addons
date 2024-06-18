@@ -38,6 +38,8 @@ map:
   - ssl:rw
 options:
   timezone: "Europe/Paris"
+  api_user: []
+  api_passwd: []
   log_level: info
   access_logs: false
   forwarded_headers_insecure: false
@@ -50,6 +52,8 @@ options:
   env_vars: []
 schema:
   timezone: "str"
+  api_user: "str?"
+  api_passwd: "str?"
   log_level: list(trace|debug|info|notice|warning|error|fatal)
   access_logs: bool
   forwarded_headers_insecure: bool
