@@ -26,8 +26,8 @@ ports_description:
   443/udp: HTTPS3
   8099/tcp: ingress
 ingress: true
-ingress_entry: /traefik/
-ingress_port: 8099
+ingress_entry: /traefik/dashboard
+#ingress_port: 8099
 panel_title: Traefik
 panel_icon: mdi:earth-arrow-right
 hassio_api: true
