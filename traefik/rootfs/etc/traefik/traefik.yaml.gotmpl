@@ -23,13 +23,14 @@ entryPoints:
     forwardedHeaders:
       insecure: {{ $options.forwarded_headers_insecure }}
 {{- end }}
+  traefik: ":8080"
 
 serversTransport:
   insecureSkipVerify: true
 
 api:
   dashboard: true
-  insecure: true
+#  insecure: true
 
 {{ if and (has $options "letsencrypt") ($options.letsencrypt.enabled) -}}
 certificatesResolvers:
