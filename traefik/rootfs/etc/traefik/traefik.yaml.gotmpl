@@ -23,15 +23,15 @@ entryPoints:
     forwardedHeaders:
       insecure: {{ $options.forwarded_headers_insecure }}
 {{- end }}
-#  dashboard:
-#    address: ":8099"
+  traefik:
+    address: ":8099"
 
 serversTransport:
   insecureSkipVerify: true
 
 api:
   dashboard: true
-  insecure: true
+#  insecure: true
 
 {{ if and (has $options "letsencrypt") ($options.letsencrypt.enabled) -}}
 certificatesResolvers:
