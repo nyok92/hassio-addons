@@ -10,9 +10,9 @@ server {
 #        deny    all;
 
         proxy_pass {{ .protocol }}://backend;
-#        sub_filter '/api' '../test/api';
-#        sub_filter_types application/javascript application/x-javascript text/javascript;
-#        sub_filter_once off;
+        sub_filter '/api' '../api';
+        sub_filter_types application/javascript application/x-javascript text/javascript;
+        sub_filter_once off;
     }
     location /api {
         proxy_pass {{ .protocol }}://backend/api;
