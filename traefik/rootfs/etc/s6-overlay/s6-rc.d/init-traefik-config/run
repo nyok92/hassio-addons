@@ -5,8 +5,6 @@ export TZ=$(bashio::config 'timezone')
 export log_level=$(bashio::config 'log_level')
 export dynamic_configuration_path=$(bashio::config 'dynamic_configuration_path')
 export env_vars=$(bashio::config 'env_vars')
-export api_user=$(bashio::config 'api_user')
-export api_passwd=$(bashio::config 'env_passwd')
 echo "
 ----------------------------------------------------------------------
 ENVIRONMENT APP
@@ -15,16 +13,12 @@ TZ=${TZ}
 log_level=${log_level}
 dynamic_configuration_path=${dynamic_configuration_path}
 env_vars=${env_vars}
-api_user=${api_user}
-api_passwd=${api_passwd}
 ----------------------------------------------------------------------
 "
-bashio::log.info "Hashing Traefik API password..."
-htpasswd -bc /config/traefik/passwd $(bashio::config 'api_user') $(bashio::config 'env_passwd')
 
-bashio::log.info "Ensuring SSL directory..."
+bashio::log.info "Ensuring SSL directory for traefik exist"
 mkdir -p /ssl/traefik
-bashio::log.info "Ensuring config directory..."
+bashio::log.info "Ensuring config directory for traefik exist"
 mkdir -p /config/traefik
 
 bashio::log.info "Generating static config..."
