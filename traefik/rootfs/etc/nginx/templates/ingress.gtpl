@@ -15,10 +15,10 @@ server {
 #        sub_filter_types application/javascript application/x-javascript text/javascript;
 #        sub_filter_once off;
     }
-#    location /api {
+    location /api {
 #     location ~ ^/hassio/addon/f464254c_traefik/.*/api$ { 
-    location ~* /hassio/addon/f464254c_traefik/(?<variable>.*)/api$ {
-        sub_filter '/api' '/hassio/addon/f464254c_traefik/$variable/api';
+#    location ~* /hassio/addon/f464254c_traefik/(?<variable>.*)/api$ {
+        sub_filter '/api' '/hassio/addon/f464254c_traefik/api';
 #        sub_filter '/api' '/api';
         sub_filter_types application/javascript application/x-javascript text/javascript;
         sub_filter_once off;
