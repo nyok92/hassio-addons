@@ -10,17 +10,23 @@ server {
 #        deny    all;
 
         proxy_pass {{ .protocol }}://backend;
-        sub_filter '/api' '/hassio/addon/f464254c_traefik/api';
+#        sub_filter '/api' '/hassio/addon/f464254c_traefik/api';
+#        sub_filter '/api' '/api';
+#        sub_filter_types application/javascript application/x-javascript text/javascript;
+#        sub_filter_once off;
+    }
+#    location /api {
+#     location ~ ^/hassio/addon/f464254c_traefik/.*/api$ { 
+    location ~* /hassio/addon/f464254c_traefik/(?<variable>.*)/api$
+        sub_filter '/api' '/hassio/addon/f464254c_traefik/$variable/api';
+#        sub_filter '/api' '/api';
         sub_filter_types application/javascript application/x-javascript text/javascript;
         sub_filter_once off;
-    }
-    location /api {
-#     location ~ ^/hassio/addon/f464254c_traefik/.*/api$ { 
-        proxy_pass {{ .protocol }}://backend/api;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "Upgrade";
+#        proxy_pass {{ .protocol }}://backend/api;
+#        proxy_http_version 1.1;
+#        proxy_set_header Upgrade $http_upgrade;
+#        proxy_set_header Connection "Upgrade";
 #        allow   172.30.32.2;
 #        deny    all;
-    }
+#    }
 }
