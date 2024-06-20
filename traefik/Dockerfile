@@ -10,11 +10,15 @@ RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
     elif [ "${BUILD_ARCH}" == "armv7" ]; then BUILD_ARCH=armv7; \
     elif [ "${BUILD_ARCH}" == "armhf" ]; then BUILD_ARCH=armv7; \
     fi && \
-    apk add --no-cache nginx apache2-utils gomplate && \
+    apk add --no-cache \
+        nginx \
+        gomplate && \
     wget --quiet -O /tmp/traefik.tar.gz "https://github.com/traefik/traefik/releases/download/v${TRAEFIK_VERSION}/traefik_v${TRAEFIK_VERSION}_linux_${BUILD_ARCH}.tar.gz" && \
     tar xzvf /tmp/traefik.tar.gz -C /usr/local/bin traefik && \
     chmod +x /usr/local/bin/traefik && \
-    rm -f /tmp/*
+    rm -fr \
+     /etc/nginx \
+     /tmp/*
 
 COPY rootfs /
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-traefik-config/run
