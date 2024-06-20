@@ -14,9 +14,9 @@ server {
         sub_filter_types application/javascript application/x-javascript text/javascript;
         sub_filter_once off;
     }
-#    location /api {
-     location ~ ^/hassio/addon/f464254c_traefik/.*/api$ { 
-        proxy_pass http://localhost:8080/api;
+    location /api {
+#     location ~ ^/hassio/addon/f464254c_traefik/.*/api$ { 
+        proxy_pass {{ .protocol }}://backend/api;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "Upgrade";
