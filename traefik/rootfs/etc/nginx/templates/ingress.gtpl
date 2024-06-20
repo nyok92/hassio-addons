@@ -15,7 +15,7 @@ server {
         sub_filter_once off;
     }
 #    location /api {
-     location ~ ^/hassio/addon/f464254c_traefik/api$ { 
+     location /hassio/addon/f464254c_traefik/(.*)/api$ { 
         proxy_pass {{ .protocol }}://backend/api;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
