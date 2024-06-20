@@ -15,7 +15,7 @@ server {
 #        sub_filter_once off;
     }
     location /api {
-        proxy_pass http://127.0.0.1:8080/api;
+        proxy_pass {{ .protocol }}://backend/api;
 #        allow   172.30.32.2;
 #        deny    all;
     }
