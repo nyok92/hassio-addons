@@ -5,10 +5,9 @@ server {
     include /etc/nginx/includes/proxy_params.conf;
 
     location / {
-        allow   172.30.32.2;
-        allow   192.168.1.5;
-        deny    all;
+#        allow   172.30.32.2;
+#        deny    all;
 
-        proxy_pass http://backend;
+        proxy_pass {{ .protocol }}://backend;
     }
 }
