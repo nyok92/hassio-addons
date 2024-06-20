@@ -5,7 +5,8 @@
 # ==============================================================================
 # shellcheck shell=bash
 
-bashio::net.wait_for 443
-bashio::log.info "Starting Nginx for dashboard..."
+# Wait for traefik to become available
+bashio::net.wait_for 8080
 
+bashio::log.info "Starting Nginx ..."
 exec nginx -g 'daemon off; pid /tmp/nginx.pid;'
