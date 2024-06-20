@@ -1,6 +1,6 @@
 server {
     listen {{ .interface }}:{{ .port }} default_server;
-    listen [::]:{{ .port }} default_server;
+#    listen [::]:{{ .port }} default_server;
 
     include /etc/nginx/includes/server_params.conf;
     include /etc/nginx/includes/proxy_params.conf;
@@ -10,12 +10,12 @@ server {
 #        deny    all;
 
         proxy_pass {{ .protocol }}://backend;
-        sub_filter '/api' '../test/api';
-        sub_filter_types application/javascript application/x-javascript text/javascript;
-        sub_filter_once off;
+#        sub_filter '/api' '../test/api';
+#        sub_filter_types application/javascript application/x-javascript text/javascript;
+#        sub_filter_once off;
     }
     location /api {
-        proxy_pass {{ .protocol }}://backend/api;
+        proxy_pass http://127.0.0.1:8080/api;
 #        allow   172.30.32.2;
 #        deny    all;
     }
