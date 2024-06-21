@@ -2,6 +2,7 @@ server {
     listen {{ .interface }}:{{ .port }} default_server proxy_protocol;
 #    listen [::]:{{ .port }} default_server;
 
+# proxy protocol
     set_real_ip_from 192.168.1.0/24;
     real_ip_header proxy_protocol;
 
