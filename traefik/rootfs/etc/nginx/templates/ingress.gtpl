@@ -13,30 +13,27 @@ server {
     location / {
 #        allow   172.30.32.2;
 #        deny    all;
-
         proxy_pass {{ .protocol }}://backend;
-#        sub_filter '/api' '/hassio/addon/f464254c_traefik/api';
-        sub_filter '/api' '/api';
-        sub_filter_types application/javascript application/x-javascript text/javascript;
-        sub_filter_once off;
-    }
-    location /api {
-#        allow   172.30.32.2;
-#        deny    all;
-#     location ~ ^/hassio/addon/f464254c_traefik/.*/api$ { 
-#    location ~* /hassio/addon/f464254c_traefik/(?<variable>.*)/api$ {
+
 #        sub_filter '/api' '/hassio/addon/f464254c_traefik/api';
 #        sub_filter '/api' '/api';
 #        sub_filter_types application/javascript application/x-javascript text/javascript;
 #        sub_filter_once off;
+    }
+
+    location /api {
+#    location ~ ^/hassio/addon/f464254c_traefik/.*/api$ { 
+#    location ~* /hassio/addon/f464254c_traefik/(?<variable>.*)/api$ {
+#        allow   172.30.32.2;
+#        deny    all;
         proxy_pass {{ .protocol }}://backend/api;
-        proxy_set_header Host $host;
-        proxy_set_header X-Forwarded-Scheme $scheme;
-        proxy_set_header X-Forwarded-Proto  $scheme;
-        proxy_set_header X-Forwarded-For    $remote_addr;
-        proxy_set_header X-Real-IP		$remote_addr;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection $http_connection;
-        proxy_http_version 1.1;
+#        proxy_set_header Host $host;
+#        proxy_set_header X-Forwarded-Scheme $scheme;
+#        proxy_set_header X-Forwarded-Proto  $scheme;
+#        proxy_set_header X-Forwarded-For    $remote_addr;
+#        proxy_set_header X-Real-IP		$remote_addr;
+#        proxy_set_header Upgrade $http_upgrade;
+#        proxy_set_header Connection $http_connection;
+#        proxy_http_version 1.1;
     }
 }
