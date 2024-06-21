@@ -17,9 +17,9 @@ server {
         proxy_pass {{ .protocol }}://backend/dashboard/;
 
 #        sub_filter '/api' '/hassio/addon/f464254c_traefik/api';
-        sub_filter '/api' '../api';
-        sub_filter_types application/javascript application/x-javascript text/javascript;
-        sub_filter_once off;
+#        sub_filter '/api' '../api';
+#        sub_filter_types application/javascript application/x-javascript text/javascript;
+#        sub_filter_once off;
     }
 
     location /api {
