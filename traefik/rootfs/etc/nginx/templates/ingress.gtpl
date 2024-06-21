@@ -1,24 +1,25 @@
 server {
-    listen {{ .interface }}:{{ .port }} default_server proxy_protocol;
+    listen {{ .interface }}:{{ .port }} default_server;
+#    listen {{ .interface }}:{{ .port }} default_server proxy_protocol;
 #    listen [::]:{{ .port }} default_server;
 
 # proxy protocol
-    set_real_ip_from 192.168.1.0/24;
-    real_ip_header proxy_protocol;
-    proxy_protocol      on;
+#    set_real_ip_from 192.168.1.0/24;
+#    real_ip_header proxy_protocol;
+#    proxy_protocol      on;
 
     include /etc/nginx/includes/server_params.conf;
     include /etc/nginx/includes/proxy_params.conf;
 
-    location / {
+    location /dashboard/ {
 #        allow   172.30.32.2;
 #        deny    all;
-        proxy_pass {{ .protocol }}://backend;
+        proxy_pass {{ .protocol }}://backend/dashboard/;
 
 #        sub_filter '/api' '/hassio/addon/f464254c_traefik/api';
-#        sub_filter '/api' '/api';
-#        sub_filter_types application/javascript application/x-javascript text/javascript;
-#        sub_filter_once off;
+        sub_filter '/api' '../api';
+        sub_filter_types application/javascript application/x-javascript text/javascript;
+        sub_filter_once off;
     }
 
     location /api {
