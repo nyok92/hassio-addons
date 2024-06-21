@@ -1,6 +1,6 @@
 server {
-    listen {{ .interface }}:{{ .port }} default_server;
-#    listen {{ .interface }}:{{ .port }} default_server proxy_protocol;
+#    listen {{ .interface }}:{{ .port }} default_server;
+    listen {{ .interface }}:{{ .port }} proxy_protocol;
 #    listen [::]:{{ .port }} default_server;
 
 # proxy protocol
