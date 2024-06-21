@@ -26,15 +26,17 @@ entryPoints:
   traefik:
     address: ':8080'
     proxyProtocol:
-      trustedIPs:
-        - 192.168.1.0/24
-        - 127.0.0.1/32
-        - 172.30.32.0/23
+      insecure: true
+#      trustedIPs:
+#        - 192.168.1.0/24
+#        - 127.0.0.1/32
+#        - 172.30.32.0/23
     forwardedHeaders:
-      trustedIPs:
-        - 192.168.1.0/24
-        - 127.0.0.1/32
-        - 172.30.32.0/23
+      insecure: true
+#      trustedIPs:
+#        - 192.168.1.0/24
+#        - 127.0.0.1/32
+#        - 172.30.32.0/23
 #    http:
 #      middlewares:
 #        - dashbord-headers@file
