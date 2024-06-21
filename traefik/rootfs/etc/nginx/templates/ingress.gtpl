@@ -1,12 +1,12 @@
 server {
-#    listen {{ .interface }}:{{ .port }} default_server;
-    listen {{ .interface }}:{{ .port }} proxy_protocol;
+    listen {{ .interface }}:{{ .port }} default_server;
+#    listen {{ .interface }}:{{ .port }} proxy_protocol;
 #    listen [::]:{{ .port }} default_server;
 
 # proxy protocol
-    set_real_ip_from 192.168.1.0/24;
-    real_ip_header proxy_protocol;
-    proxy_protocol      on;
+#    set_real_ip_from 192.168.1.0/24;
+#    real_ip_header proxy_protocol;
+#    proxy_protocol      on;
 
     include /etc/nginx/includes/server_params.conf;
     include /etc/nginx/includes/proxy_params.conf;
