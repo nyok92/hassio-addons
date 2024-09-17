@@ -23,16 +23,16 @@ entryPoints:
     forwardedHeaders:
       insecure: {{ $options.forwarded_headers_insecure }}
 {{- end }}
-  traefik:
-    address: ':8080'
+#  traefik:
+#    address: ':8080'
 #    proxyProtocol:
 #      insecure: true
 #      trustedIPs:
 #        - 192.168.1.0/24
 #        - 127.0.0.1/32
 #        - 172.30.32.0/23
-    forwardedHeaders:
-      insecure: true
+#    forwardedHeaders:
+#      insecure: true
 #      trustedIPs:
 #        - 192.168.1.0/24
 #        - 127.0.0.1/32
