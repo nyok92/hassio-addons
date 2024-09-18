@@ -25,8 +25,8 @@ ports_description:
   443/tcp: HTTPS
   443/udp: HTTPS3
   8099/tcp: Dashboard
-ingress: flase
-ingress_entry: dashboard/
+ingress: false
+#ingress_entry: dashboard/
 panel_title: Traefik
 panel_icon: mdi:earth-arrow-right
 apparmor: false
