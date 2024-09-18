@@ -26,6 +26,7 @@ ports_description:
   443/udp: HTTPS3
   8099/tcp: Dashboard
 webui: http://[HOST]:[PORT:8099]
+hassio_api: true
 #ingress: false
 #ingress_entry: dashboard/
 #panel_title: Traefik
