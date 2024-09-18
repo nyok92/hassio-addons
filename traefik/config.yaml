@@ -19,17 +19,17 @@ ports:
   80/tcp: 80
   443/tcp: 443
   443/udp: 443
-  8099/tcp: null
+  8099/tcp: 8099
 ports_description:
   80/tcp: HTTP
   443/tcp: HTTPS
   443/udp: HTTPS3
   8099/tcp: Dashboard
-ingress: false
+webui: http://[HOST]:[PORT:8099]
+#ingress: false
 #ingress_entry: dashboard/
-panel_title: Traefik
-panel_icon: mdi:earth-arrow-right
-apparmor: false
+#panel_title: Traefik
+#panel_icon: mdi:earth-arrow-right
 map:
   - addon_config:rw
 #  - share:rw
