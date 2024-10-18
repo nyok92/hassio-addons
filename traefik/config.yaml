@@ -24,9 +24,10 @@ ports_description:
   80/tcp: HTTP
   443/tcp: HTTPS
   443/udp: HTTPS3
-  8099/tcp: Dashboard
-webui: http://[HOST]:[PORT:8099]/dashboard/
+  8080/tcp: Dashboard
+webui: http://[HOST]:[PORT:8080]/dashboard/
 ingress: true
+ingress_port: 8080
 ingress_entry: dashboard/
 panel_title: Traefik
 panel_icon: mdi:earth-arrow-right
