@@ -23,30 +23,15 @@ entryPoints:
     forwardedHeaders:
       insecure: {{ $options.forwarded_headers_insecure }}
 {{- end }}
-  traefik:
-    address: ":8099"
-#    proxyProtocol:
-#      insecure: true
-#      trustedIPs:
-#        - 192.168.1.0/24
-#        - 127.0.0.1/32
-#        - 172.30.32.0/23
-#    forwardedHeaders:
-#      insecure: true
-#      trustedIPs:
-#        - 192.168.1.0/24
-#        - 127.0.0.1/32
-#        - 172.30.32.0/23
-#    http:
-#      middlewares:
-#        - dashbord-headers@file
+#  traefik:
+#    address: ":8099"
 
 serversTransport:
   insecureSkipVerify: true
 
 api:
   dashboard: true
-#  insecure: true
+  insecure: true
 
 {{ if and (has $options "letsencrypt") ($options.letsencrypt.enabled) -}}
 certificatesResolvers:
