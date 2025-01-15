@@ -9,7 +9,6 @@ arch:
   - armhf
   - armv7
   - amd64
-  - i386
   - aarch64
 init: false
 ports:
