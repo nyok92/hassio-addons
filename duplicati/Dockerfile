@@ -16,12 +16,15 @@ RUN PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
         "armv7")        echo "arm7"    ;; \
         "armhf")        echo "armhf"    ;; \
         *)              echo ""       ;; esac) && \
-  echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}" && \
+  echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}"
+
+RUN \
   echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections && \
   apt-get update && \
   apt-get install -y \
 #    libicu74 \
-#    ttf-mscorefonts-installer \
+    libicu-dev \
+    ttf-mscorefonts-installer \
     unzip && \
   echo "**** install duplicati ****" && \
   if [ -z ${DUPLICATI_RELEASE+x} ]; then \
