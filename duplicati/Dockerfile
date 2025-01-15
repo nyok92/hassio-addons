@@ -20,8 +20,10 @@ RUN PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
 
 RUN \
   echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections && \
+  apt-add-repository contrib non-free -y && \
   apt-get update && \
   apt-get install -y \
+    software-properties-common \
 #    libicu74 \
     libicu-dev \
     ttf-mscorefonts-installer \
