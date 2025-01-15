@@ -28,10 +28,9 @@ RUN PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
         "armv7")        echo "arm7"    ;; \
         "armhf")        echo "arm7"    ;; \
         *)              echo ""       ;; esac) && \
-  echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}"
-
-RUN wget https://updates.duplicati.com/beta/duplicati-${DUPLICATI_VERSION}_beta_${DATERELEASE}-linux-${PACKAGEPLATFORM}-gui.deb  && \
-    apt install ./duplicati-${DUPLICATI_VERSION}_beta_${DATERELEASE}-linux-${PACKAGEPLATFORM}-gui.deb -y
+  echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}" && \
+  wget https://updates.duplicati.com/beta/duplicati-${DUPLICATI_VERSION}_beta_${DATERELEASE}-linux-${PACKAGEPLATFORM}-gui.deb  && \
+  apt install ./duplicati-${DUPLICATI_VERSION}_beta_${DATERELEASE}-linux-${PACKAGEPLATFORM}-gui.deb -y
 
 # Copy root filesystem
 COPY rootfs /
