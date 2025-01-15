@@ -3,7 +3,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 # Execute during the build of the image
-ARG TEMPIO_VERSION BUILD_ARCH DUPLICATI_VERSION
+ARG TEMPIO_VERSION BUILD_ARCH DUPLICATI_VERSION PACKAGEPLATFORM DATERELEASE
 
 RUN \
     curl -sSLf -o /usr/bin/tempio \
@@ -22,8 +22,16 @@ RUN apt-get update && apt-get install -y gnupg2 wget ca-certificates
 #    apt-get install mono-devel apt-transport-https nano git-core software-properties-common dirmngr -y
 
 # DOWNLOAD FROM DUPLICATI
-RUN wget https://updates.duplicati.com/beta/duplicati_${DUPLICATI_VERSION}_all.deb && \
-    apt install ./duplicati_${DUPLICATI_VERSION}_all.deb -y
+RUN PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
+        "amd64")        echo "x64"    ;; \
+        "aarch64")      echo "arm64"  ;; \
+        "armv7")        echo "arm7"    ;; \
+        "armhf")        echo "arm7"    ;; \
+        *)              echo ""       ;; esac) && \
+  echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}"
+
+RUN wget https://updates.duplicati.com/beta/duplicati-${DUPLICATI_VERSION}_beta_${DATERELEASE}-linux-${PACKAGEPLATFORM}-gui.deb  && \
+    apt install ./duplicati-${DUPLICATI_VERSION}_beta_${DATERELEASE}-linux-${PACKAGEPLATFORM}-gui.deb -y
 
 # Copy root filesystem
 COPY rootfs /
