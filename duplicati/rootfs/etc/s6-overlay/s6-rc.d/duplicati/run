@@ -13,4 +13,4 @@ export CLI_ARGS=$(bashio::config 'CLI_ARGS')
 bashio::log.info "starting duplicati service"
 exec \
     s6-notifyoncheck -d -n 300 -w 1000 -c "nc -z localhost 8200" \
-        cd /usr/bin s6-setuidgid ${USR_ID}:${GRP_ID} run_duplicati
+        cd /app/duplicati s6-setuidgid ${USR_ID}:${GRP_ID} ./duplicati-server $CLI_ARGS
