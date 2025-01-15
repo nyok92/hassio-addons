@@ -15,7 +15,7 @@ RUN if dpkg --print-foreign-architectures | grep -q armhf; then \
 
 RUN apt-get update && apt-get install -y gnupg2 wget ca-certificates
 
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A6A19B38D3D831EF
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A6A19B38D3D831EF  && \
     echo "deb https://download.mono-project.com/repo/debian stable-bullseye main" | tee /etc/apt/sources.list.d/mono-official-stable.list
 
 RUN apt-get update && \
