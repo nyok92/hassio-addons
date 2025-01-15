@@ -26,7 +26,7 @@ RUN PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
         "amd64")        echo "x64"    ;; \
         "aarch64")      echo "arm64"  ;; \
         "armv7")        echo "arm7"    ;; \
-        "armhf")        echo "arm7"    ;; \
+        "armhf")        echo "armhf"    ;; \
         *)              echo ""       ;; esac) && \
   echo "platform ${PACKAGEPLATFORM} build arch ${BUILD_ARCH}" && \
   wget https://updates.duplicati.com/beta/duplicati-${DUPLICATI_VERSION}_beta_${DATERELEASE}-linux-${PACKAGEPLATFORM}-gui.deb  && \
