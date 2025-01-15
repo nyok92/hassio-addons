@@ -20,8 +20,8 @@ RUN PACKAGEPLATFORM=$(case ${BUILD_ARCH} in \
   echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections && \
   apt-get update && \
   apt-get install -y \
-    libicu74 \
-    ttf-mscorefonts-installer \
+#    libicu74 \
+#    ttf-mscorefonts-installer \
     unzip && \
   echo "**** install duplicati ****" && \
   if [ -z ${DUPLICATI_RELEASE+x} ]; then \
