@@ -13,10 +13,10 @@ RUN if dpkg --print-foreign-architectures | grep -q armhf; then \
     dpkg --remove-architecture armhf; \
     fi
 
-RUN apt-get update && apt-get install -y gnupg2 wget
+RUN apt-get update && apt-get install -y gnupg2 wget ca-certificates
 
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF && \
-    echo "deb http://download.mono-project.com/repo/debian buster main" | tee /etc/apt/sources.list.d/mono-official.list
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A6A19B38D3D831EF
+    echo "deb https://download.mono-project.com/repo/debian stable-bullseye main" | tee /etc/apt/sources.list.d/mono-official-stable.list
 
 RUN apt-get update && \
     apt-get install mono-devel apt-transport-https nano git-core software-properties-common dirmngr -y
