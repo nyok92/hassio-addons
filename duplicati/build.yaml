@@ -11,4 +11,4 @@ labels:
   org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/duplicati"
   org.opencontainers.image.licenses: "Apache License 2.0"
 args:
-  MONO_VERSION: "6.12.0.206"
+  DUPLICATI_VERSION: "2.1.0.2"
