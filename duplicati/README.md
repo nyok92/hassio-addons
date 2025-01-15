@@ -18,7 +18,7 @@
 [amd64-badge]: https://img.shields.io/badge/amd64-yes-green.svg?style=for-the-badge
 [armhf-badge]: https://img.shields.io/badge/armhf-yes-green.svg?style=for-the-badge
 [armv7-badge]: https://img.shields.io/badge/armv7-yes-green.svg?style=for-the-badge
-[i386-badge]: https://img.shields.io/badge/i386-yes-green.svg?style=for-the-badge
+[i386-badge]: https://img.shields.io/badge/i386-no-red.svg?style=for-the-badge
 [stage-badge]: https://img.shields.io/badge/Addon%20stage-stable-green.svg?style=for-the-badge
 [install-badge]: https://img.shields.io/badge/Install%20on%20my-Home%20Assistant-41BDF5?logo=home-assistant&style=for-the-badge
 [repository-badge]: https://img.shields.io/badge/Add%20repository%20to%20my-Home%20Assistant-41BDF5?logo=home-assistant&style=for-the-badge
