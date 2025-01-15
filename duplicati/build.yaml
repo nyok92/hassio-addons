@@ -12,5 +12,4 @@ labels:
   org.opencontainers.image.licenses: "Apache License 2.0"
 args:
   TEMPIO_VERSION: "2021.09.0"
-  DUPLICATI_VERSION: "2.1.0.2"
-  DATERELEASE: "2024-11-29"
+  DUPLICATI_RELEASE: "2.1.0.2"
