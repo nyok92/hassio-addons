@@ -1,24 +1,48 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Notifiarr
 version: "0.8.3"
 slug: notifiarr
 description: This is the unified client for Notifiarr.com. The client enables content requests from Media Bot in your Discord Server and also provides reports for Plex usage and system health among many other features
-url: "https://github.com/Notifiarr/notifiarr"
-image: golift/notifiarr
-startup: application
-init: false
-webui: http://[HOST]:[PORT:5454]
+url: "https://github.com/nyok92/hassio-addons/tree/main/notifiarr"
+# image: golift/notifiarr
+image: "ghcr.io/nyok92/{arch}-notifiarr"
 arch:
   - armhf
   - armv7
   - aarch64
   - amd64
   - i386
-map:
-  - share:rw
-  - config:rw
-  - addon_config:rw
+startup: application
+init: false
+webui: http://[HOST]:[PORT:5454]
 ports:
   5454/tcp: 5454
 ports_description:
-  5454/tcp: Web Interface
-host_network: false
+  5454/tcp: Web frontend (not needed with Ingress)
+ingress: true
+ingress_port: 5454
+panel_title: Notifiarr
+panel_icon: mdi:earth
+apparmor: false
+map:
+  - homeassistant_config:rw
+  - addon_config:rw
+#  - addons:rw
+#  - backup:rw
+  - share:rw
+options:
+  timezone: "Europe/Paris"
+  USR_ID: 0
+  GRP_ID: 0
+  mqtt: false
+  mqtt_port: 1883
+  log_dir: "/config/mqtt/logs"
+  configfile: "/config/mqtt/config.json"
+schema:
+  timezone: "str"
+  USR_ID: "int"
+  GRP_ID: "int"
+  mqtt: bool
+  mqtt_port: "int?"
+  log_dir: "str?"
+  configfile: "str?"
