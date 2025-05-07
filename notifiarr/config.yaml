@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Notifiarr
-version: "0.8.4"
+version: "0.8.3"
 slug: notifiarr
 description: This is the unified client for Notifiarr.com. The client enables content requests from Media Bot in your Discord Server and also provides reports for Plex usage and system health among many other features
 url: "https://github.com/Notifiarr/notifiarr"
