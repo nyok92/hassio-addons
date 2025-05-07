@@ -3,8 +3,9 @@ name: Notifiarr
 version: "0.8.3"
 slug: notifiarr
 description: This is the unified client for Notifiarr.com. The client enables content requests from Media Bot in your Discord Server and also provides reports for Plex usage and system health among many other features
-url: "https://github.com/nyok92/hassio-addons/tree/main/notifiarr"
+url: "https://github.com/Notifiarr/notifiarr"
 image: golift/notifiarr
+#url: "https://github.com/nyok92/hassio-addons/tree/main/notifiarr"
 #image: "ghcr.io/nyok92/{arch}-notifiarr"
 arch:
   - armhf
