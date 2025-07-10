@@ -57,7 +57,7 @@ schema:
     enabled: bool
     email: email?
     challenge_type: match(tlsChallenge|httpChallenge|dnsChallenge)?
-    caserver: list("https://acme-v02.api.letsencrypt.org/directory"|"https://acme-staging-v02.api.letsencrypt.org/directory")
+    caserver: str?
     provider: str?
     delayBeforeCheck: int?
     resolvers:
