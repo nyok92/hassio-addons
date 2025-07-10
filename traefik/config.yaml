@@ -45,7 +45,7 @@ options:
     enabled: false
     email: yourmail@test.com
     challenge_type: tlsChallenge
-    caserver : "https://acme-staging-v02.api.letsencrypt.org/directory"
+    caserver : "https://acme-v02.api.letsencrypt.org/directory"
   env_vars: []
 schema:
   timezone: "str"
