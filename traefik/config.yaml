@@ -27,8 +27,9 @@ ports_description:
   8080/tcp: Dashboard
 webui: http://[HOST]:[PORT:8080]/dashboard/
 ingress: true
-ingress_port: 8080
 ingress_entry: dashboard/
+hassio_role: default
+hassio_api: true
 panel_title: Traefik
 panel_icon: mdi:earth-arrow-right
 map:
@@ -43,6 +44,8 @@ options:
   dynamic_configuration_path: "/config/traefik/"
   letsencrypt:
     enabled: false
+    resolvers:
+      - 1.1.1.1:53
     email: yourmail@test.com
     challenge_type: tlsChallenge
     caserver : "https://acme-v02.api.letsencrypt.org/directory"
