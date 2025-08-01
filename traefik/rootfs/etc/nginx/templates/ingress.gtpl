@@ -1,7 +1,8 @@
 server {
-    listen {{ .interface }}:{{ .port }} default_server;
+#    listen {{ .interface }}:{{ .port }} default_server;
+    listen {{ .interface }}:8099 default_server;
 #    listen {{ .interface }}:{{ .port }} proxy_protocol;
-#    listen [::]:{{ .port }} default_server;
+    listen [::]:8099 default_server;
 
 # proxy protocol
 #    set_real_ip_from 192.168.1.0/24;
