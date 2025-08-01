@@ -11,23 +11,23 @@ server {
     include /etc/nginx/includes/server_params.conf;
     include /etc/nginx/includes/proxy_params.conf;
 
-    location /dashboard/ {
+#    location /dashboard/ {
 #        allow   172.30.32.2;
 #        deny    all;
-        proxy_pass {{ .protocol }}://backend/dashboard/;
-
+#        proxy_pass {{ .protocol }}://backend/dashboard/;
+#
 #        sub_filter '/api' '/hassio/addon/f464254c_traefik/api';
 #        sub_filter '/api' '../api';
 #        sub_filter_types application/javascript application/x-javascript text/javascript;
 #        sub_filter_once off;
-    }
+#    }
 
-    location /api {
+#    location /api {
 #    location ~ ^/hassio/addon/f464254c_traefik/.*/api$ { 
 #    location ~* /hassio/addon/f464254c_traefik/(?<variable>.*)/api$ {
 #        allow   172.30.32.2;
 #        deny    all;
-        proxy_pass {{ .protocol }}://backend/api;
+#        proxy_pass {{ .protocol }}://backend/api;
 #        proxy_set_header Host $host;
 #        proxy_set_header X-Forwarded-Scheme $scheme;
 #        proxy_set_header X-Forwarded-Proto  $scheme;
@@ -36,5 +36,16 @@ server {
 #        proxy_set_header Upgrade $http_upgrade;
 #        proxy_set_header Connection $http_connection;
 #        proxy_http_version 1.1;
+#    }
+    location /dashboard/ {
+        proxy_pass http://localhost:8080/dashboard/;
+        
+        sub_filter '/api' '../api';
+        sub_filter_types application/javascript application/x-javascript text/javascript;
+        sub_filter_once off;
+    }
+
+    location /api {
+        proxy_pass http://localhost:8080/api;
     }
 }
