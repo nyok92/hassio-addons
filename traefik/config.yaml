@@ -25,7 +25,7 @@ ports_description:
   443/tcp: HTTPS
   443/udp: HTTPS3
   8080/tcp: Dashboard
-webui: http://[HOST]:[PORT:8080]/dashboard/
+#webui: http://[HOST]:[PORT:8080]/dashboard/
 ingress: true
 ingress_entry: dashboard/
 hassio_role: default
