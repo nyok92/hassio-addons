@@ -16,6 +16,10 @@ entryPoints:
                 to: web-secure
                 scheme: https
                 permanent: true
+{{- if has $options "forwarded_headers_insecure" }}
+    forwardedHeaders:
+      insecure: {{ $options.forwarded_headers_insecure }}
+{{- end }}
   web-secure:
     address: ":443"
     http3: {}
