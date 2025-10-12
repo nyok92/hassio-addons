@@ -1,12 +1,14 @@
-name: "Gluetun VPN"
+name: "Gluetun-qbittorent"
 version: "1.0.0"
-slug: "gluetun"
+slug: "Gluetun-qbittorent"
 description: "VPN client for multiple providers with proxy services"
+url: "https://github.com/nyok92/hassio-addons/tree/main/Gluetun-qbittorent"
+image: "ghcr.io/nyok92/{arch}-Gluetun-qbittorent"
 arch:
-  - armhf
-  - armv7
   - aarch64
   - amd64
+  - armhf
+  - armv7
   - i386
 startup: application
 init: false
@@ -23,9 +25,6 @@ map:
   - ssl:rw
   - addons:rw
   - share:rw
-  - backup:rw
-  - media:rw
-  - data:rw
 webui: "http://[HOST]:[PORT:8888]"
 ingress: true
 ingress_port: 8888
