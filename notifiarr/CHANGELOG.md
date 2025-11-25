@@ -1,4 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## v0.9.1 Nov 25, 2025
+
+https://github.com/Notifiarr/notifiarr/releases/tag/v0.9.1
+
+- Update to v0.9.1
 
 ## v0.8.3 Oct 4, 2024
 
