@@ -8,4 +8,4 @@ labels:
   org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/traefik"
   org.opencontainers.image.licenses: "Apache License 2.0"
 args:
-  TRAEFIK_VERSION: 3.6.2
+  TRAEFIK_VERSION: 3.6.4
