@@ -25,7 +25,6 @@ ports_description:
 #webui: http://[HOST]:[PORT:8080]/dashboard/
 ingress: true
 ingress_entry: dashboard/
-hassio_role: default
 hassio_api: true
 panel_title: Traefik
 panel_icon: mdi:earth-arrow-right
