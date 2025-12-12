@@ -10,9 +10,6 @@ image: "ghcr.io/nyok92/{arch}-traefik"
 arch:
   - aarch64
   - amd64
-  - armhf
-  - armv7
-  - i386
 startup: system
 init: false
 ports:
