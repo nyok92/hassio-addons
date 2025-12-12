@@ -8,11 +8,8 @@ image: golift/notifiarr
 #url: "https://github.com/nyok92/hassio-addons/tree/main/notifiarr"
 #image: "ghcr.io/nyok92/{arch}-notifiarr"
 arch:
-  - armhf
-  - armv7
   - aarch64
   - amd64
-  - i386
 startup: application
 init: false
 webui: http://[HOST]:[PORT:5454]
