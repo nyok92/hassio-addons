@@ -6,7 +6,7 @@
   "arch": ["amd64", "i386", "armhf", "armv7", "aarch64"],
   "startup": "once",
   "boot": "manual",
-  "url":"https://community.home-assistant.io/t/add-on-hassos-ssh-port-22222-configurator/264109",
+  "url":"https://github.com/nyok92/hassio-addons/tree/main/traefik",
   "apparmor": "true",
   "init": false,
   "ingress": "true",
