@@ -8,7 +8,7 @@ arch:
   - aarch64
   - amd64
 homeassistant: 0.115.0
-image: "ghcr.io/nyok92/{arch}-syncthing"
+image: "ghcr.io/nyok92/syncthing"
 init: false
 ports:
   8384/tcp: null
