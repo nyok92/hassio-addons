@@ -8,12 +8,12 @@
   "boot": "manual",
   "url":"https://github.com/nyok92/hassio-addons/tree/main/HassOSConfigurator",
   "image": "ghcr.io/nyok92/{arch}-HassOSConfigurator",
-  "apparmor": "true",
+  "apparmor": true,
   "init": false,
-  "ingress": "true",
+  "ingress": true,
   "stage": "experimental",
   "privileged": ["SYS_ADMIN"],
-  "full_access": "true",
+  "full_access": true
   "options": {
     "SSHKey": "ssh-rsa AAA.. Insert the full contents (i.e. ssh-rsa AAA...) of your public ssh key (id_rsa.pub, id_ecdsa.pub, ...) here."
   },
