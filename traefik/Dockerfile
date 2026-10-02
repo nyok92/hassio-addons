@@ -1,6 +1,6 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/base:latest
 FROM $BUILD_FROM
-ARG TRAEFIK_VERSION
+ARG TRAEFIK_VERSION=3.7.12
 
 RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
     elif [ "${BUILD_ARCH}" == "i386" ]; then BUILD_ARCH=386; \
@@ -24,6 +24,11 @@ RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-traefik-config/run
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/traefik/run
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-nginx/run
 RUN chmod a+x /etc/s6-overlay/s6-rc.d/nginx/run
+
+LABEL  org.opencontainers.image.title: "Traefik addon"
+LABEL  org.opencontainers.image.description: "Traefik add-on"
+LABEL  org.opencontainers.image.source: "https://github.com/nyok92/hassio-addons/traefik"
+LABEL  org.opencontainers.image.licenses: "Apache License 2.0"
 
 ENTRYPOINT [ "/init" ]
 CMD []
