@@ -22,6 +22,8 @@ entryPoints:
 {{- end }}
   web-secure:
     address: ":443"
+    http:
+      aliasHeadersStrategy: delete
     http3: {}
 {{- if has $options "forwarded_headers_insecure" }}
     forwardedHeaders:
