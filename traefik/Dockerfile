@@ -1,6 +1,6 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/base:latest
 FROM $BUILD_FROM
-ARG TRAEFIK_VERSION=3.7.12
+ARG TRAEFIK_VERSION=3.7.13
 
 RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
     elif [ "${BUILD_ARCH}" == "i386" ]; then BUILD_ARCH=386; \
