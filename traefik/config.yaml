@@ -29,7 +29,7 @@ hassio_api: true
 panel_title: Traefik
 panel_icon: mdi:earth-arrow-right
 map:
-  - addon_config:rw
+  - app_config:rw
 #  - share:rw
   - ssl:rw
 options:
