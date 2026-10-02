@@ -41,25 +41,13 @@ jobs:
         run: |
           changed_apps=()
 
-          # Normalize to one path per line
-          mapfile -t files <<< "${CHANGED_FILES}"
-          read -ra apps <<< "${APPS}"
-          read -ra monitored <<< "${MONITORED_FILES}"
-
-          workflow_changed=false
-          for f in "${files[@]}"; do
-            case "$f" in
-              .github/workflows/builder.yaml|.github/workflows/build-app.yaml)
-                workflow_changed=true; break ;;
-            esac
-          done
-
-          if [[ "${workflow_changed}" == true ]]; then
-            changed_apps=("${apps[@]}")
+          # If the workflow file itself changed, rebuild all apps
+          if [[ "${CHANGED_FILES}" =~ \.github/workflows/(builder|build-app)\.yaml ]]; then
+            changed_apps=(${APPS})
           else
-            for app in "${apps[@]}"; do
-              for file in "${monitored[@]}"; do
-                if printf '%s\n' "${files[@]}" | grep -qxF "${app}/${file}"; then
+            for app in ${APPS}; do
+              for file in ${MONITORED_FILES}; do
+                if [[ "${CHANGED_FILES}" =~ ${app}/${file} ]]; then
                   changed_apps+=("${app}")
                   break
                 fi
