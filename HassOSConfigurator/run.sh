@@ -53,6 +53,7 @@ partitions=(
   mmcblk0p1
   mmcblk0p2
   mmcblk1p1
+  mmcblk1p2
   nvme0n1p1
   xvda8
 )
