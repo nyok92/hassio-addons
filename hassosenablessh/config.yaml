@@ -1,11 +1,11 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
-name: HassOSConfigurator
+name: hassosenablessh
 version: "0.9.4"
-slug: HassOSConfigurator
+slug: hassosenablessh
 description: |
   This enables the SSH HassOS Console on port 22222. Only for Home Assistant OS
-url: "https://github.com/nyok92/hassio-addons/tree/main/HassOSConfigurator"
-image: "ghcr.io/nyok92/HassOSConfigurator"
+url: "https://github.com/nyok92/hassio-addons/tree/main/hassosenablessh"
+image: "ghcr.io/nyok92/hassosenablessh"
 arch:
   - aarch64
   - amd64
