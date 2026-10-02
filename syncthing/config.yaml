@@ -5,11 +5,8 @@ description: "Syncthing is a continuous file synchronization program in a
   de-centralized way"
 url: "https://github.com/nyok92/hassio-addons/tree/main/syncthing"
 arch:
-  - armhf
-  - armv7
   - aarch64
   - amd64
-  - i386
 homeassistant: 0.115.0
 image: "ghcr.io/nyok92/{arch}-syncthing"
 init: false
