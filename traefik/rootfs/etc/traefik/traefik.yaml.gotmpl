@@ -11,11 +11,12 @@ entryPoints:
   web:
     address: ":80"
     http:
-        redirections:
-            entryPoint:
-                to: web-secure
-                scheme: https
-                permanent: true
+      aliasHeadersStrategy: delete
+      redirections:
+        entryPoint:
+          to: web-secure
+          scheme: https
+          permanent: true
 {{- if has $options "forwarded_headers_insecure" }}
     forwardedHeaders:
       insecure: {{ $options.forwarded_headers_insecure }}
@@ -31,6 +32,8 @@ entryPoints:
 {{- end }}
 #  traefik:
 #    address: ":8099"
+#    http:
+#      aliasHeadersStrategy: delete
 
 serversTransport:
   insecureSkipVerify: true
