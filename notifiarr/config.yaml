@@ -19,7 +19,7 @@ ports_description:
 apparmor: false
 map:
   - homeassistant_config:rw
-  - addon_config:rw
+  - app_config:rw
 #  - addons:rw
 #  - backup:rw
   - share:rw
