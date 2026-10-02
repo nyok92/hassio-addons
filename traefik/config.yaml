@@ -6,7 +6,7 @@ description: |
   Traefik is a modern HTTP reverse proxy and load balancer that makes deploying
   microservices easy.
 url: "https://github.com/nyok92/hassio-addons/tree/main/traefik"
-image: "ghcr.io/nyok92/{arch}-traefik"
+image: "ghcr.io/nyok92/traefik"
 arch:
   - aarch64
   - amd64
