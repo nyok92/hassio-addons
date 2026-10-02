@@ -5,10 +5,6 @@ Traefik bundled as an Home Assistant add-on.
 ![aarch64-shield](https://img.shields.io/badge/aarch64-yes-green)
 ![amd64-shield](https://img.shields.io/badge/amd64-yes-green)
 
-![Build and test Traefik](https://github.com/nyok92/hassio-addons/workflows/Build%20and%20test%20Traefik/badge.svg?branch=master)
-
-> _**NOTE** I have changed my setup and am not using this add-on myself anymore. I have switched to a separate Traefik instance, outside of Home Assistant. However I will try and keep this add-on updated as much as possible._
-
 ## About
 
 Traefik is a modern HTTP reverse proxy and load balancer that makes deploying microservices easy. This add-on provides dynamic Traefik configuration based on files.
