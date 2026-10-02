@@ -39,28 +39,40 @@ jobs:
           APPS: ${{ steps.apps.outputs.addons }}
           CHANGED_FILES: ${{ steps.changed_files.outputs.all_changed_files }}
         run: |
-          changed_apps=()
+        changed_apps=()
 
-          # If the workflow file itself changed, rebuild all apps
-          if [[ "${CHANGED_FILES}" =~ \.github/workflows/(builder|build-app)\.yaml ]]; then
-            changed_apps=(${APPS})
-          else
-            for app in ${APPS}; do
-              for file in ${MONITORED_FILES}; do
-                if [[ "${CHANGED_FILES}" =~ ${app}/${file} ]]; then
-                  changed_apps+=("${app}")
-                  break
-                fi
-              done
+        # Normalize to one path per line
+        mapfile -t files <<< "${CHANGED_FILES}"
+        read -ra apps <<< "${APPS}"
+        read -ra monitored <<< "${MONITORED_FILES}"
+
+        workflow_changed=false
+        for f in "${files[@]}"; do
+          case "$f" in
+            .github/workflows/builder.yaml|.github/workflows/build-app.yaml)
+              workflow_changed=true; break ;;
+          esac
+        done
+
+        if [[ "${workflow_changed}" == true ]]; then
+          changed_apps=("${apps[@]}")
+        else
+          for app in "${apps[@]}"; do
+            for file in "${monitored[@]}"; do
+              if printf '%s\n' "${files[@]}" | grep -qxF "${app}/${file}"; then
+                changed_apps+=("${app}")
+                break
+              fi
             done
-          fi
+          done
+        fi
 
-          if [[ ${#changed_apps[@]} -gt 0 ]]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            echo "changed_apps=$(jq -nc '$ARGS.positional' --args "${changed_apps[@]}")" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          fi
+        if [[ ${#changed_apps[@]} -gt 0 ]]; then
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "changed_apps=$(jq -nc '$ARGS.positional' --args "${changed_apps[@]}")" >> "$GITHUB_OUTPUT"
+        else
+          echo "changed=false" >> "$GITHUB_OUTPUT"
+        fi
 
   build-app:
     name: Build ${{ matrix.app }}
