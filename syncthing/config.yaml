@@ -26,7 +26,7 @@ map:
   - homeassistant_config:rw
   - app_config:rw
   - ssl:rw
-  - addons:rw
+  - local_apps
   - backup:rw
   - share:rw
   - media:rw
