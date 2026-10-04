@@ -1,0 +1,74 @@
+name: Frigate Rockchip
+version: c52fa8f-standard-arm64
+panel_icon: "mdi:cctv"
+panel_title: Frigate
+slug: frigate-rk
+description: NVR with realtime local object detection for IP cameras
+url: "https://github.com/nyok92/frigate"
+image: ghcr.io/nyok92/frigate
+startup: application
+boot: auto
+init: false
+webui: "http://[HOST]:[PORT:5000]/"
+watchdog: "http://[HOST]:[PORT:5000]/"
+ingress: true
+ingress_port: 5000
+ingress_entry: /
+panel_admin: false
+homeassistant_api: true
+hassio_api: true
+devicetree: true
+kernel_modules: true
+ports:
+  8555/tcp: 8555
+  8555/udp: 8555
+  8554/tcp: null
+  8080/tcp: null
+  5000/tcp: null
+  1984/tcp: null
+  1935/tcp: null
+ports_description:
+  8555/tcp: WebRTC over tcp
+  8555/udp: WebRTC over udp
+  8554/tcp: RTSP Restream
+  8080/tcp: Authenticated Web interface
+  5000/tcp: Unauthenticated Web interface (Not required for Hass.io Ingress)
+  1984/tcp: go2rtc API
+  1935/tcp: RTMP streams
+host_network: false
+usb: true
+video: true
+tmpfs: true
+full_access: true
+#udev: true
+privileged:
+  - BPF
+  - DAC_READ_SEARCH
+  - IPC_LOCK
+  - NET_ADMIN
+  - NET_RAW
+  - PERFMON
+  - SYS_ADMIN
+  - SYS_MODULE
+  - SYS_NICE
+  - SYS_PTRACE
+  - SYS_RAWIO
+  - SYS_RESOURCE
+  - SYS_TIME
+environment:
+  CONFIG_FILE: /config/frigate.yml
+#  FRIGATE_DEVICE_ACLS: "false"
+#  EXTRA_GROUPS: "103,27,44,105"
+  FRIGATE_RUN_AS_ROOT: "true"
+schema:
+  plus_api_key: password?
+  go2rtc_allow_arbitrary_exec: str?  
+services:
+  - "mqtt:want"
+arch:
+  - aarch64
+map:
+  - "media:rw"
+  - "app_config:rw"
+  - "homeassistant_config:rw"
+  - "ssl"
