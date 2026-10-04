@@ -4,7 +4,7 @@ panel_icon: "mdi:cctv"
 panel_title: Frigate
 slug: frigate-rk
 description: NVR with realtime local object detection for IP cameras
-url: "https://github.com/nyok92/hassio-addons/frigate"
+url: "https://github.com/nyok92/hassio-addons/tree/main/frigate"
 image: ghcr.io/nyok92/frigate
 startup: application
 boot: auto
