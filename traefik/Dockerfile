@@ -2,7 +2,7 @@ ARG BUILD_FROM=ghcr.io/home-assistant/base:latest
 FROM $BUILD_FROM
 
 ARG BUILD_ARCH
-ARG TRAEFIK_VERSION=3.7.13
+ARG TRAEFIK_VERSION=3.7.14
 
 RUN case "${BUILD_ARCH}" in \
         aarch64) TRAEFIK_ARCH="arm64" ;; \
